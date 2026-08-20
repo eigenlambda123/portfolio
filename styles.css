@@ -197,6 +197,20 @@ p {
   font-weight: 600;
 }
 
+.project-links {
+  margin-top: 0.9rem;
+}
+
+.project-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--line);
+}
+
 .chip-list {
   display: flex;
   flex-wrap: wrap;
