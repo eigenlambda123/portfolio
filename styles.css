@@ -57,7 +57,7 @@ a {
 
 .nav {
   display: flex;
- justify-content: center;
+ justify-content: flex-end;
   align-items: center;
   min-height: 68px;
  position: relative;
