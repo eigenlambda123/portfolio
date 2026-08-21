@@ -234,27 +234,32 @@ p {
   gap: 0.9rem;
 }
 
-.site-footer {
-  padding: 3rem 0 2rem;
+.contact-section {
+  background: var(--panel-soft);
   border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
-.footer-wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 1rem;
+.contact-box {
+  text-align: center;
 }
 
-.contact-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  color: var(--muted);
+.contact-box h2 {
+  margin: 0 0 0.75rem;
+  color: var(--text);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.contact-actions {
+  justify-content: center;
+}
+
+.site-footer {
+  padding: 2rem 0 2.5rem;
 }
 
 .copyright {
-  margin: 1.5rem auto 0;
+  margin: 0 auto;
   text-align: center;
   color: var(--muted);
   font-size: 0.9rem;
