@@ -14,199 +14,206 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="site-header">
-      <div class="container nav">
+    <div class="site-shell">
+      <aside class="sidebar" aria-label="Sidebar navigation">
+        <div class="brand-wrap">
+          <a class="brand" href="#top">_RM</a>
+        </div>
+
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="#top">About</a>
+          <a href="#top">Home</a>
+          <a href="#about">About</a>
           <a href="#projects">Projects</a>
           <a href="#certifications">Certifications</a>
           <a href="#contact">Contact</a>
         </nav>
-      </div>
-    </header>
 
-    <main id="top">
-      <section class="hero">
-        <div class="container hero-inner">
-          <div>
-            <p class="eyebrow">Computer Science • Data Science</p>
-            <h1>RM A. Villa</h1>
-            <p class="lead">
-              I’m interested in research as well as practical software and artificial intelligence.
+        <p class="sidebar-note">CS student building useful software and AI tools.</p>
+      </aside>
+
+      <main class="page-content" id="top">
+        <section class="hero">
+          <div class="hero-inner">
+            <div>
+              <p class="eyebrow">Computer Science • Data Science</p>
+              <h1>RM A. Villa</h1>
+              <p class="lead">
+                I’m interested in research as well as practical software and artificial intelligence.
+              </p>
+              <div class="cta-row">
+                <a class="button github-btn" href="https://github.com/eigenlambda123" target="_blank" rel="noreferrer">GitHub</a>
+                <a class="button linkedin-btn" href="https://www.linkedin.com/in/villaRm" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a class="button resume-btn" href="resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="about">
+          <div class="narrow">
+            <p class="section-tag">About</p>
+            <p>
+              I'm a 3rd-year Computer Science student who likes building useful stuff—apps, data tools, and ML experiments. I mainly use Python, SQL, and FastAPI, especially for hackathons and side projects. Lately I've been geeking out on the math behind machine learning and AI.
             </p>
-            <div class="cta-row">
-              <a class="button github-btn" href="https://github.com/eigenlambda123" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </section>
+
+        <section class="section alt" id="projects">
+          <div>
+            <p class="section-tag">Projects</p>
+            <div class="project-grid">
+              <article class="project-card">
+                <h3>PRESKO</h3>
+                <p>Climate resilience platform for heat-risk monitoring and recommendations.</p>
+                <span>FastAPI • AI • GIS • SQL</span>
+                <div class="project-links">
+                  <a href="https://github.com/eigenlambda123/PRESKO" target="_blank" rel="noreferrer">GitHub ↗</a>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <h3>MajorMatch</h3>
+                <p>Semantic course discovery and career pathfinding using embeddings and ML.</p>
+                <span>Python • Streamlit • scikit-learn</span>
+                <div class="project-links">
+                  <a href="https://github.com/eigenlambda123/MajorMatch" target="_blank" rel="noreferrer">GitHub ↗</a>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <h3>BarangayMicroJobs</h3>
+                <p>Local jobs platform with secure transactions and mobile-first design.</p>
+                <span>Flutter • FastAPI • PostgreSQL</span>
+                <div class="project-links">
+                  <a href="https://github.com/eigenlambda123/BarangayMicroJobs" target="_blank" rel="noreferrer">GitHub ↗</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="skills">
+          <div class="narrow">
+            <p class="section-tag">Skills</p>
+            <div class="chip-list">
+              <span>Python</span>
+              <span>SQL</span>
+              <span>FastAPI</span>
+              <span>React</span>
+              <span>Flutter</span>
+              <span>GitHub</span>
+              <span>Docker</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="certifications">
+          <div class="narrow">
+            <p class="section-tag">Certifications</p>
+            <p class="muted">Click a thumbnail to open the original PDF.</p>
+
+            <div class="cert-grid">
+              <div class="cert-category">
+                <h4>Software Engineering &amp; Data Science</h4>
+                <div class="thumb-row">
+                  <a href="certifications/important/Data_Science_Explorer.pdf" target="_blank" rel="noreferrer">
+                    <img src="certifications/important/Data_Science_Explorer/Data_Science_Explorer-1.png" alt="Data Science Explorer" loading="lazy" width="320">
+                  </a>
+
+                  <a href="certifications/coursera/Using_Databases_with_Python.pdf" target="_blank" rel="noreferrer">
+                    <img src="certifications/coursera/Using_Databases_with_Python/Using_Databases_with_Python-1.png" alt="Using Databases with Python" loading="lazy" width="320">
+                  </a>
+
+                  <a href="certifications/coursera/Introduction_to_SQL.pdf" target="_blank" rel="noreferrer">
+                    <img src="certifications/coursera/Introduction_to_SQL/Introduction_to_SQL-1.png" alt="Introduction to SQL" loading="lazy" width="320">
+                  </a>
+
+                  <a href="certifications/coursera/Introduction_to_SWE.pdf" target="_blank" rel="noreferrer">
+                    <img src="certifications/coursera/Introduction_to_SWE/Introduction_to_SWE-1.png" alt="Introduction to Software Engineering" loading="lazy" width="320">
+                  </a>
+
+                  <a href="certifications/coursera/Object_Oriented_Data_Structures_in_C++.pdf" target="_blank" rel="noreferrer">
+                    <img src="certifications/coursera/Object_Oriented_Data_Structures_in_C++/Object_Oriented_Data_Structures_in_C++-1.png" alt="Object Oriented Data Structures in C++" loading="lazy" width="320">
+                  </a>
+                </div>
+              </div>
+
+              <div class="cert-category">
+                <h4>Bootcamp &amp; Hackathon</h4>
+                <div class="thumb-row">
+                  <a href="certifications/important/OpeniT_Top_Performer.pdf" target="_blank" rel="noreferrer">
+                    <img src="certifications/important/OpeniT_Top_Performer/OpeniT_Top_Performer-1.png" alt="OpeniT Top Performer" loading="lazy" width="320">
+                  </a>
+
+                  <a href="certifications/important/OpeniT_Participation.pdf" target="_blank" rel="noreferrer">
+                    <img src="certifications/important/OpeniT_Participation/OpeniT_Participation-1.png" alt="OpeniT Participation" loading="lazy" width="320">
+                  </a>
+
+                  <a href="certifications/important/PJDSC.pdf" target="_blank" rel="noreferrer">
+                    <img src="certifications/important/PJDSC/PJDSC-1.png" alt="PJDSC" loading="lazy" width="320">
+                  </a>
+                </div>
+              </div>
+
+              <div class="cert-category">
+                <h4>Other</h4>
+                <div class="thumb-row">
+                  <a href="certifications/coursera/The_Aurduino_and_C_Programming.pdf" target="_blank" rel="noreferrer">
+                    <img src="certifications/coursera/The_Aurduino_and_C_Programming/The_Aurduino_and_C_Programming-1.png" alt="The Aurduino and C Programming" loading="lazy" width="320">
+                  </a>
+
+                  <a href="certifications/coursera/Mathematical_Thinking_in_Computer_Science.pdf" target="_blank" rel="noreferrer">
+                    <img src="certifications/coursera/Mathematical_Thinking_in_Computer_Science/Mathematical_Thinking_in_Computer_Science-1.png" alt="Mathematical Thinking in Computer Science" loading="lazy" width="320">
+                  </a>
+
+                  <a href="certifications/coursera/Logic_For_Economist.pdf" target="_blank" rel="noreferrer">
+                    <img src="certifications/coursera/Logic_For_Economist/Logic_For_Economist-1.png" alt="Logic for Economist" loading="lazy" width="320">
+                  </a>
+
+                  <a href="certifications/coursera/Combinatorics_and_Probability.pdf" target="_blank" rel="noreferrer">
+                    <img src="certifications/coursera/Combinatorics_and_Probability/Combinatorics_and_Probability-1.png" alt="Combinatorics and Probability" loading="lazy" width="320">
+                  </a>
+
+                  <a href="certifications/coursera/Introduction_to_IOT_and_Embedding.pdf" target="_blank" rel="noreferrer">
+                    <img src="certifications/coursera/Introduction_to_IOT_and_Embedding/Introduction_to_IOT_and_Embedding-1.png" alt="Introduction to IoT and Embedding" loading="lazy" width="320">
+                  </a>
+
+                  <a href="certifications/coursera/Computational_Thinking_for_Problem_Solving.pdf" target="_blank" rel="noreferrer">
+                    <img src="certifications/coursera/Computational_Thinking_for_Problem_Solving/Computational_Thinking_for_Problem_Solving-1.png" alt="Computational Thinking for Problem Solving" loading="lazy" width="320">
+                  </a>
+
+                  <a href="certifications/coursera/Introduction_to_Java.pdf" target="_blank" rel="noreferrer">
+                    <img src="certifications/coursera/Introduction_to_Java/Introduction_to_Java-1.png" alt="Introduction to Java" loading="lazy" width="320">
+                  </a>
+
+                  <a href="certifications/coursera/Business_Process_Modeling.pdf" target="_blank" rel="noreferrer">
+                    <img src="certifications/coursera/Business_Process_Modeling/Business_Process_Modeling-1.png" alt="Business Process Modeling" loading="lazy" width="320">
+                  </a>
+
+                  <a href="certifications/coursera/Introduction_to_Computing_Systems.pdf" target="_blank" rel="noreferrer">
+                    <img src="certifications/coursera/Introduction_to_Computing_Systems/Introduction_to_Computing_Systems-1.png" alt="Introduction to Computing Systems" loading="lazy" width="320">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section contact-section" id="contact">
+          <div class="contact-box">
+            <p class="section-tag">Contact</p>
+            <h2>Let’s build something meaningful.</h2>
+            <p>
+              I’m open to internships, research collaborations, and conversations around software, data, and AI.
+            </p>
+            <div class="cta-row contact-actions">
+              <a class="button github-btn" href="mailto:rmvilla987@gmail.com">Email Me</a>
               <a class="button linkedin-btn" href="https://www.linkedin.com/in/villaRm" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a class="button resume-btn" href="resume.pdf" target="_blank" rel="noreferrer">Resume</a>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="section" id="about">
-        <div class="container narrow">
-          <p class="section-tag">About</p>
-          <p>
-            I'm a 3rd-year Computer Science student who likes building useful stuff—apps, data tools, and ML experiments. I mainly use Python, SQL, and FastAPI, especially for hackathons and side projects. Lately I've been geeking out on the math behind machine learning and AI.
-          </p>
-        </div>
-      </section>
-
-      <section class="section alt" id="projects">
-        <div class="container">
-          <p class="section-tag">Projects</p>
-          <div class="project-grid">
-            <article class="project-card">
-              <h3>PRESKO</h3>
-              <p>Climate resilience platform for heat-risk monitoring and recommendations.</p>
-              <span>FastAPI • AI • GIS • SQL</span>
-              <div class="project-links">
-                <a href="https://github.com/eigenlambda123/PRESKO" target="_blank" rel="noreferrer">GitHub ↗</a>
-              </div>
-            </article>
-            <article class="project-card">
-              <h3>MajorMatch</h3>
-              <p>Semantic course discovery and career pathfinding using embeddings and ML.</p>
-              <span>Python • Streamlit • scikit-learn</span>
-              <div class="project-links">
-                <a href="https://github.com/eigenlambda123/MajorMatch" target="_blank" rel="noreferrer">GitHub ↗</a>
-              </div>
-            </article>
-            <article class="project-card">
-              <h3>BarangayMicroJobs</h3>
-              <p>Local jobs platform with secure transactions and mobile-first design.</p>
-              <span>Flutter • FastAPI • PostgreSQL</span>
-              <div class="project-links">
-                <a href="https://github.com/eigenlambda123/BarangayMicroJobs" target="_blank" rel="noreferrer">GitHub ↗</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="skills">
-        <div class="container narrow">
-          <p class="section-tag">Skills</p>
-          <div class="chip-list">
-            <span>Python</span>
-            <span>SQL</span>
-            <span>FastAPI</span>
-            <span>React</span>
-            <span>Flutter</span>
-            <span>GitHub</span>
-            <span>Docker</span>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    
-    <section class="section" id="certifications">
-      <div class="container narrow">
-        <p class="section-tag">Certifications</p>
-        <p class="muted">Click a thumbnail to open the original PDF.</p>
-
-        <div class="cert-grid">
-          <div class="cert-category">
-            <h4>Software Engineering &amp; Data Science</h4>
-            <div class="thumb-row">
-              <a href="certifications/important/Data_Science_Explorer.pdf" target="_blank" rel="noreferrer">
-                <img src="certifications/important/Data_Science_Explorer/Data_Science_Explorer-1.png" alt="Data Science Explorer" loading="lazy" width="320">
-              </a>
-
-              <a href="certifications/coursera/Using_Databases_with_Python.pdf" target="_blank" rel="noreferrer">
-                <img src="certifications/coursera/Using_Databases_with_Python/Using_Databases_with_Python-1.png" alt="Using Databases with Python" loading="lazy" width="320">
-              </a>
-
-              <a href="certifications/coursera/Introduction_to_SQL.pdf" target="_blank" rel="noreferrer">
-                <img src="certifications/coursera/Introduction_to_SQL/Introduction_to_SQL-1.png" alt="Introduction to SQL" loading="lazy" width="320">
-              </a>
-
-              <a href="certifications/coursera/Introduction_to_SWE.pdf" target="_blank" rel="noreferrer">
-                <img src="certifications/coursera/Introduction_to_SWE/Introduction_to_SWE-1.png" alt="Introduction to Software Engineering" loading="lazy" width="320">
-              </a>
-
-              <a href="certifications/coursera/Object_Oriented_Data_Structures_in_C++.pdf" target="_blank" rel="noreferrer">
-                <img src="certifications/coursera/Object_Oriented_Data_Structures_in_C++/Object_Oriented_Data_Structures_in_C++-1.png" alt="Object Oriented Data Structures in C++" loading="lazy" width="320">
-              </a>
-            </div>
-          </div>
-
-          <div class="cert-category">
-            <h4>Bootcamp &amp; Hackathon</h4>
-            <div class="thumb-row">
-              <a href="certifications/important/OpeniT_Top_Performer.pdf" target="_blank" rel="noreferrer">
-                <img src="certifications/important/OpeniT_Top_Performer/OpeniT_Top_Performer-1.png" alt="OpeniT Top Performer" loading="lazy" width="320">
-              </a>
-
-              <a href="certifications/important/OpeniT_Participation.pdf" target="_blank" rel="noreferrer">
-                <img src="certifications/important/OpeniT_Participation/OpeniT_Participation-1.png" alt="OpeniT Participation" loading="lazy" width="320">
-              </a>
-
-              <a href="certifications/important/PJDSC.pdf" target="_blank" rel="noreferrer">
-                <img src="certifications/important/PJDSC/PJDSC-1.png" alt="PJDSC" loading="lazy" width="320">
-              </a>
-            </div>
-          </div>
-
-          <div class="cert-category">
-            <h4>Other</h4>
-            <div class="thumb-row">
-              <a href="certifications/coursera/The_Aurduino_and_C_Programming.pdf" target="_blank" rel="noreferrer">
-                <img src="certifications/coursera/The_Aurduino_and_C_Programming/The_Aurduino_and_C_Programming-1.png" alt="The Aurduino and C Programming" loading="lazy" width="320">
-              </a>
-
-              <a href="certifications/coursera/Mathematical_Thinking_in_Computer_Science.pdf" target="_blank" rel="noreferrer">
-                <img src="certifications/coursera/Mathematical_Thinking_in_Computer_Science/Mathematical_Thinking_in_Computer_Science-1.png" alt="Mathematical Thinking in Computer Science" loading="lazy" width="320">
-              </a>
-
-              <a href="certifications/coursera/Logic_For_Economist.pdf" target="_blank" rel="noreferrer">
-                <img src="certifications/coursera/Logic_For_Economist/Logic_For_Economist-1.png" alt="Logic for Economist" loading="lazy" width="320">
-              </a>
-
-              <a href="certifications/coursera/Combinatorics_and_Probability.pdf" target="_blank" rel="noreferrer">
-                <img src="certifications/coursera/Combinatorics_and_Probability/Combinatorics_and_Probability-1.png" alt="Combinatorics and Probability" loading="lazy" width="320">
-              </a>
-
-              <a href="certifications/coursera/Introduction_to_IOT_and_Embedding.pdf" target="_blank" rel="noreferrer">
-                <img src="certifications/coursera/Introduction_to_IOT_and_Embedding/Introduction_to_IOT_and_Embedding-1.png" alt="Introduction to IoT and Embedding" loading="lazy" width="320">
-              </a>
-
-              <a href="certifications/coursera/Computational_Thinking_for_Problem_Solving.pdf" target="_blank" rel="noreferrer">
-                <img src="certifications/coursera/Computational_Thinking_for_Problem_Solving/Computational_Thinking_for_Problem_Solving-1.png" alt="Computational Thinking for Problem Solving" loading="lazy" width="320">
-              </a>
-
-              <a href="certifications/coursera/Introduction_to_Java.pdf" target="_blank" rel="noreferrer">
-                <img src="certifications/coursera/Introduction_to_Java/Introduction_to_Java-1.png" alt="Introduction to Java" loading="lazy" width="320">
-              </a>
-
-              <a href="certifications/coursera/Business_Process_Modeling.pdf" target="_blank" rel="noreferrer">
-                <img src="certifications/coursera/Business_Process_Modeling/Business_Process_Modeling-1.png" alt="Business Process Modeling" loading="lazy" width="320">
-              </a>
-
-              <a href="certifications/coursera/Introduction_to_Computing_Systems.pdf" target="_blank" rel="noreferrer">
-                <img src="certifications/coursera/Introduction_to_Computing_Systems/Introduction_to_Computing_Systems-1.png" alt="Introduction to Computing Systems" loading="lazy" width="320">
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <section class="section contact-section" id="contact">
-      <div class="container narrow contact-box">
-        <p class="section-tag">Contact</p>
-        <h2>Let’s build something meaningful.</h2>
-        <p>
-          I’m open to internships, research collaborations, and conversations around software, data, and AI.
-        </p>
-        <div class="cta-row contact-actions">
-          <a class="button github-btn" href="mailto:rmvilla987@gmail.com">Email Me</a>
-          <a class="button linkedin-btn" href="https://www.linkedin.com/in/villaRm" target="_blank" rel="noreferrer">LinkedIn</a>
-        </div>
-      </div>
-    </section>
+        </section>
+      </main>
+    </div>
 
     <footer class="site-footer">
       <p class="copyright">© <span id="year"></span> eigenlambda123</p>
