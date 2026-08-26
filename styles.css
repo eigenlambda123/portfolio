@@ -101,6 +101,11 @@ a {
  background: rgba(28, 28, 28, 0.14);
 }
 
+.nav-page-list {
+ display: grid;
+ gap: 0.2rem;
+}
+
 .nav-page-link {
  color: var(--text);
  font-size: 1.02rem;
@@ -261,6 +266,45 @@ h1 {
  color: var(--muted);
  font-size: 1.03rem;
  line-height: 1.7;
+}
+
+.resources-layout {
+ display: grid;
+ gap: 1rem;
+}
+
+.resource-card {
+ background: rgba(255, 255, 255, 0.25);
+ border: 1px solid var(--line);
+ border-radius: 18px;
+ padding: 1.5rem 1.25rem;
+ box-shadow: var(--shadow);
+}
+
+.resource-card h2 {
+ margin: 0 0 0.9rem;
+ font-size: clamp(1.7rem, 3vw, 2.3rem);
+ line-height: 1.1;
+ letter-spacing: -0.04em;
+ color: var(--text);
+}
+
+.resource-card ul {
+ margin: 0;
+ padding-left: 1.2rem;
+ display: grid;
+ gap: 0.55rem;
+}
+
+.resource-card li,
+.resource-card a {
+ color: var(--muted);
+ line-height: 1.7;
+}
+
+.resource-card a {
+ text-decoration: underline;
+ text-underline-offset: 0.12em;
 }
 
 p {
