@@ -140,26 +140,25 @@ function getActiveMainNav(hash) {
 
   if (normalized === 'top') return 'about';
   if (normalized === 'about') return 'projects';
+  if (normalized === 'projects') return 'projects';
   if (normalized === 'certifications') return 'certifications';
   if (normalized === 'contact') return 'contact';
 
   return '';
 }
 
-function SiteNav({ page }) {
-  const activeMainNav = getActiveMainNav(window.location.hash);
-
+function SiteNav({ page, activeMainNav, onMainNavClick }) {
   return (
     <aside className="sidebar" aria-label="Sidebar navigation">
       <div className="brand-wrap">
-        <a className="brand" href="#top">_eigenlambda</a>
+        <a className="brand" href="#top" onClick={(event) => onMainNavClick(event, '#top', 'about')}>_eigenlambda</a>
       </div>
 
       <nav className="nav-links" aria-label="Main navigation">
-        <a href="#top" className={activeMainNav === 'about' ? 'is-active' : ''}>About</a>
-        <a href="#about" className={activeMainNav === 'projects' ? 'is-active' : ''}>Projects</a>
-        <a href="#certifications" className={activeMainNav === 'certifications' ? 'is-active' : ''}>Certifications</a>
-        <a href="#contact" className={activeMainNav === 'contact' ? 'is-active' : ''}>Contact</a>
+        <a href="#top" onClick={(event) => onMainNavClick(event, '#top', 'about')} className={activeMainNav === 'about' ? 'is-active' : ''}>About</a>
+        <a href="#about" onClick={(event) => onMainNavClick(event, '#about', 'projects')} className={activeMainNav === 'projects' ? 'is-active' : ''}>Projects</a>
+        <a href="#certifications" onClick={(event) => onMainNavClick(event, '#certifications', 'certifications')} className={activeMainNav === 'certifications' ? 'is-active' : ''}>Certifications</a>
+        <a href="#contact" onClick={(event) => onMainNavClick(event, '#contact', 'contact')} className={activeMainNav === 'contact' ? 'is-active' : ''}>Contact</a>
       </nav>
 
       <div className="nav-divider" aria-hidden="true"></div>
@@ -174,10 +173,10 @@ function SiteNav({ page }) {
   );
 }
 
-function NavSection({ page }) {
+function NavSection({ page, activeMainNav, onMainNavClick }) {
   return (
     <div className={`site-shell ${page !== 'home' ? 'notes-page' : ''}`}>
-      <SiteNav page={page} />
+      <SiteNav page={page} activeMainNav={activeMainNav} onMainNavClick={onMainNavClick} />
       <main className="page-content">
         {page === 'notes' && (
           <section className="section notes-section">
@@ -335,16 +334,32 @@ function NavSection({ page }) {
 
 function App() {
   const [page, setPage] = useState(getPageFromHash(window.location.hash));
+  const [activeMainNav, setActiveMainNav] = useState(getActiveMainNav(window.location.hash));
 
   useEffect(() => {
-    const handleHashChange = () => setPage(getPageFromHash(window.location.hash));
+    const handleHashChange = () => {
+      setPage(getPageFromHash(window.location.hash));
+      setActiveMainNav(getActiveMainNav(window.location.hash));
+    };
+
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  const handleMainNavClick = (event, targetHash, navKey) => {
+    const nextHash = targetHash || '#top';
+
+    if (window.location.hash !== nextHash) {
+      window.location.hash = nextHash;
+    }
+
+    setActiveMainNav(navKey);
+    setPage(getPageFromHash(nextHash));
+  };
+
   return (
     <>
-      <NavSection page={page} />
+      <NavSection page={page} activeMainNav={activeMainNav} onMainNavClick={handleMainNavClick} />
       <footer className="site-footer">
         <p className="copyright">© <span>{new Date().getFullYear()}</span> eigenlambda123</p>
       </footer>
