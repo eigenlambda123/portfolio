@@ -147,6 +147,57 @@ function getActiveMainNav(hash) {
   return '';
 }
 
+function getActiveMainNavFromScroll() {
+  const threshold = Math.min(220, Math.max(140, window.innerHeight * 0.22));
+  const bottomThreshold = Math.min(220, Math.max(120, window.innerHeight * 0.18));
+
+  const scrollBottom = window.innerHeight + window.scrollY;
+  const docHeight = document.documentElement.scrollHeight;
+  const nearBottom = scrollBottom >= docHeight - bottomThreshold;
+
+  if (nearBottom) {
+    return 'contact';
+  }
+
+  const sections = [
+    { key: 'about', id: 'top' },
+    { key: 'projects', id: 'about' },
+    { key: 'certifications', id: 'certifications' },
+    { key: 'contact', id: 'contact' },
+  ];
+
+  const candidates = sections
+    .map(({ key, id }) => {
+      const element = document.getElementById(id);
+      if (!element) return null;
+
+      const rect = element.getBoundingClientRect();
+      return { key, rect };
+    })
+    .filter(Boolean);
+
+  const active = candidates.find(({ rect }) => rect.top <= threshold && rect.bottom >= threshold);
+  if (active) return active.key;
+
+  const closestBelow = candidates
+    .filter(({ rect }) => rect.top > threshold)
+    .sort((a, b) => a.rect.top - b.rect.top)[0];
+
+  const closestAbove = candidates
+    .filter(({ rect }) => rect.bottom <= threshold)
+    .sort((a, b) => b.rect.bottom - a.rect.bottom)[0];
+
+  if (closestBelow && !closestAbove) return closestBelow.key;
+  if (!closestBelow && closestAbove) return closestAbove.key;
+  if (closestBelow && closestAbove) {
+    const distanceBelow = Math.abs(closestBelow.rect.top - threshold);
+    const distanceAbove = Math.abs(closestAbove.rect.bottom - threshold);
+    return distanceBelow <= distanceAbove ? closestBelow.key : closestAbove.key;
+  }
+
+  return '';
+}
+
 function SiteNav({ page, activeMainNav, onMainNavClick }) {
   return (
     <aside className="sidebar" aria-label="Sidebar navigation">
@@ -342,8 +393,27 @@ function App() {
       setActiveMainNav(getActiveMainNav(window.location.hash));
     };
 
+    const handleScroll = () => {
+      const scrolledActiveMainNav = getActiveMainNavFromScroll();
+
+      if (scrolledActiveMainNav) {
+        setActiveMainNav(scrolledActiveMainNav);
+      } else if (window.location.hash && window.location.hash !== '#notes' && window.location.hash !== '#books' && window.location.hash !== '#research') {
+        setActiveMainNav(getActiveMainNav(window.location.hash));
+      } else {
+        setActiveMainNav('');
+      }
+    };
+
     window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleHashChange();
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const handleMainNavClick = (event, targetHash, navKey) => {
