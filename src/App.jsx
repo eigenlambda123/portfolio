@@ -1,0 +1,355 @@
+import { useEffect, useState } from 'react';
+
+const projectCards = [
+  {
+    title: 'PRESKO',
+    description: 'Climate resilience platform for heat-risk monitoring and recommendations.',
+    stack: 'FastAPI • AI • GIS • SQL',
+    link: 'https://github.com/eigenlambda123/PRESKO',
+  },
+  {
+    title: 'MajorMatch',
+    description: 'Semantic course discovery and career pathfinding using embeddings and ML.',
+    stack: 'Python • Streamlit • scikit-learn',
+    link: 'https://github.com/eigenlambda123/MajorMatch',
+  },
+  {
+    title: 'BarangayMicroJobs',
+    description: 'Local jobs platform with secure transactions and mobile-first design.',
+    stack: 'Flutter • FastAPI • PostgreSQL',
+    link: 'https://github.com/eigenlambda123/BarangayMicroJobs',
+  },
+];
+
+const skillChips = ['Python', 'SQL', 'FastAPI', 'React', 'Flutter', 'GitHub', 'Docker'];
+
+const certifications = [
+  {
+    label: 'Software Engineering & Data Science',
+    items: [
+      { title: 'Data Science Explorer', pdf: '/certifications/important/Data_Science_Explorer.pdf', image: '/certifications/important/Data_Science_Explorer/Data_Science_Explorer-1.png' },
+      { title: 'Using Databases with Python', pdf: '/certifications/coursera/Using_Databases_with_Python.pdf', image: '/certifications/coursera/Using_Databases_with_Python/Using_Databases_with_Python-1.png' },
+      { title: 'Introduction to SQL', pdf: '/certifications/coursera/Introduction_to_SQL.pdf', image: '/certifications/coursera/Introduction_to_SQL/Introduction_to_SQL-1.png' },
+      { title: 'Introduction to Software Engineering', pdf: '/certifications/coursera/Introduction_to_SWE.pdf', image: '/certifications/coursera/Introduction_to_SWE/Introduction_to_SWE-1.png' },
+      { title: 'Object Oriented Data Structures in C++', pdf: '/certifications/coursera/Object_Oriented_Data_Structures_in_C++.pdf', image: '/certifications/coursera/Object_Oriented_Data_Structures_in_C++/Object_Oriented_Data_Structures_in_C++-1.png' },
+    ],
+  },
+  {
+    label: 'Bootcamp & Hackathon',
+    items: [
+      { title: 'OpeniT Top Performer', pdf: '/certifications/important/OpeniT_Top_Performer.pdf', image: '/certifications/important/OpeniT_Top_Performer/OpeniT_Top_Performer-1.png' },
+      { title: 'OpeniT Participation', pdf: '/certifications/important/OpeniT_Participation.pdf', image: '/certifications/important/OpeniT_Participation/OpeniT_Participation-1.png' },
+      { title: 'PJDSC', pdf: '/certifications/important/PJDSC.pdf', image: '/certifications/important/PJDSC/PJDSC-1.png' },
+    ],
+  },
+  {
+    label: 'Other',
+    items: [
+      { title: 'The Aurduino and C Programming', pdf: '/certifications/coursera/The_Aurduino_and_C_Programming.pdf', image: '/certifications/coursera/The_Aurduino_and_C_Programming/The_Aurduino_and_C_Programming-1.png' },
+      { title: 'Mathematical Thinking in Computer Science', pdf: '/certifications/coursera/Mathematical_Thinking_in_Computer_Science.pdf', image: '/certifications/coursera/Mathematical_Thinking_in_Computer_Science/Mathematical_Thinking_in_Computer_Science-1.png' },
+      { title: 'Logic For Economist', pdf: '/certifications/coursera/Logic_For_Economist.pdf', image: '/certifications/coursera/Logic_For_Economist/Logic_For_Economist-1.png' },
+    ],
+  },
+];
+
+const notes = [
+  {
+    meta: 'Random note',
+    title: 'Build slow, learn fast.',
+    summary: 'Most interesting systems are not built in one dramatic breakthrough; they are built through a series of small, intentional experiments.',
+  },
+  {
+    meta: 'Idea',
+    title: 'Ship the smallest useful version.',
+    summary: 'A prototype that answers a real question teaches more than a polished plan that never leaves the drawing board.',
+  },
+  {
+    meta: 'Reflection',
+    title: 'Feedback loops matter more than talent.',
+    summary: 'The fastest way to improve is to make it easy to test, measure, and change direction before sunk cost gets too high.',
+  },
+];
+
+const resources = [
+  {
+    category: 'Books',
+    title: 'What I’ve been reading',
+    items: [
+      'Introduction to Algorithms — foundational CS thinking and problem structure.',
+      'Clean Code — practical habits for writing maintainable software.',
+      'Grokking Algorithms — a clear way to build intuition for algorithms.',
+      'Hands-On Machine Learning — a strong bridge between ML theory and practice.',
+    ],
+  },
+  {
+    category: 'Sites',
+    title: 'Learning and inspiration',
+    items: [
+      { label: 'Coursera', href: 'https://www.coursera.org/', description: 'structured learning with strong fundamentals.' },
+      { label: 'GeeksforGeeks', href: 'https://www.geeksforgeeks.org/', description: 'great for quick algorithm and CS explanations.' },
+      { label: 'Stack Overflow', href: 'https://stackoverflow.com/', description: 'practical debugging and engineering answers.' },
+      { label: 'arXiv', href: 'https://arxiv.org/', description: 'research papers and new ideas in AI and systems.' },
+    ],
+  },
+];
+
+const researchBlocks = [
+  {
+    category: 'Research interests',
+    title: 'What I’m exploring',
+    items: [
+      'Machine learning and representation learning',
+      'AI systems that support real-world decision making',
+      'Data-driven tools for climate and public-interest problems',
+      'Systems and interfaces that make complex models more usable',
+    ],
+  },
+  {
+    category: 'Current directions',
+    title: 'Things I keep revisiting',
+    items: [
+      'How to combine statistical methods with practical product design',
+      'Interpretability and trust in ML-driven applications',
+      'Efficient learning pipelines for small but meaningful datasets',
+      'How research ideas turn into robust, human-centered software',
+    ],
+  },
+  {
+    category: 'Personal research',
+    title: 'Prototype ideas and questions',
+    items: [
+      'Building AI tools that improve accessibility and decision support',
+      'Exploring how embeddings can help discover useful patterns in domain data',
+      'Studying how models fail in real-world edge cases and why',
+      'Turning applied research questions into minimal, testable experiments',
+    ],
+  },
+];
+
+function getPageFromHash(hash) {
+  const normalized = (hash || '#').replace('#', '').toLowerCase();
+
+  if (normalized === 'notes') return 'notes';
+  if (normalized === 'books') return 'books';
+  if (normalized === 'research') return 'research';
+  return 'home';
+}
+
+function getActiveMainNav(hash) {
+  const normalized = (hash || '#top').replace('#', '').toLowerCase();
+
+  if (normalized === 'top') return 'about';
+  if (normalized === 'about') return 'projects';
+  if (normalized === 'certifications') return 'certifications';
+  if (normalized === 'contact') return 'contact';
+
+  return '';
+}
+
+function SiteNav({ page }) {
+  const activeMainNav = getActiveMainNav(window.location.hash);
+
+  return (
+    <aside className="sidebar" aria-label="Sidebar navigation">
+      <div className="brand-wrap">
+        <a className="brand" href="#top">_eigenlambda</a>
+      </div>
+
+      <nav className="nav-links" aria-label="Main navigation">
+        <a href="#top" className={activeMainNav === 'about' ? 'is-active' : ''}>About</a>
+        <a href="#about" className={activeMainNav === 'projects' ? 'is-active' : ''}>Projects</a>
+        <a href="#certifications" className={activeMainNav === 'certifications' ? 'is-active' : ''}>Certifications</a>
+        <a href="#contact" className={activeMainNav === 'contact' ? 'is-active' : ''}>Contact</a>
+      </nav>
+
+      <div className="nav-divider" aria-hidden="true"></div>
+      <div className="nav-page-list">
+        <a className={`nav-page-link ${page === 'notes' ? 'is-active' : ''}`} href="#notes">Notes</a>
+        <a className={`nav-page-link ${page === 'books' ? 'is-active' : ''}`} href="#books">Books &amp; Sites</a>
+        <a className={`nav-page-link ${page === 'research' ? 'is-active' : ''}`} href="#research">Research</a>
+      </div>
+
+      <p className="sidebar-note">CS student building useful software and AI tools.</p>
+    </aside>
+  );
+}
+
+function NavSection({ page }) {
+  return (
+    <div className={`site-shell ${page !== 'home' ? 'notes-page' : ''}`}>
+      <SiteNav page={page} />
+      <main className="page-content">
+        {page === 'notes' && (
+          <section className="section notes-section">
+            <div className="narrow notes-list">
+              {notes.map((note) => (
+                <article className="note-item" key={note.title}>
+                  <p className="note-meta">{note.meta}</p>
+                  <h2>{note.title}</h2>
+                  <p className="note-summary">{note.summary}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {page === 'books' && (
+          <section className="section notes-section">
+            <div className="narrow resources-layout">
+              {resources.map((resource) => (
+                <article className="resource-card" key={resource.category}>
+                  <p className="note-meta">{resource.category}</p>
+                  <h2>{resource.title}</h2>
+                  <ul>
+                    {resource.items.map((item) => {
+                      if (typeof item === 'string') {
+                        const [title, description] = item.split(' — ');
+                        return <li key={item}><strong>{title}</strong> — {description}</li>;
+                      }
+
+                      return (
+                        <li key={item.label}>
+                          <a href={item.href} target="_blank" rel="noreferrer">{item.label}</a> — {item.description}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {page === 'research' && (
+          <section className="section notes-section">
+            <div className="narrow resources-layout">
+              {researchBlocks.map((block) => (
+                <article className="resource-card" key={block.category}>
+                  <p className="note-meta">{block.category}</p>
+                  <h2>{block.title}</h2>
+                  <ul>
+                    {block.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {page === 'home' && (
+          <>
+            <section className="hero" id="top">
+              <div className="hero-inner">
+                <div>
+                  <p className="eyebrow">Computer Science • Data Science</p>
+                  <h1>RM A. Villa</h1>
+                  <p className="lead">
+                    I’m interested in research as well as practical software and artificial intelligence.
+                  </p>
+                  <div className="cta-row">
+                    <a className="button github-btn" href="https://github.com/eigenlambda123" target="_blank" rel="noreferrer">GitHub</a>
+                    <a className="button linkedin-btn" href="https://www.linkedin.com/in/villaRm" target="_blank" rel="noreferrer">LinkedIn</a>
+                    <a className="button resume-btn" href="/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section className="section" id="about">
+              <div className="narrow">
+                <p className="section-tag">About</p>
+                <p>
+                  I'm a 3rd-year Computer Science student who likes building useful stuff—apps, data tools, and ML experiments. I mainly use Python, SQL, and FastAPI, especially for hackathons and side projects. Lately I've been geeking out on the math behind machine learning and AI.
+                </p>
+              </div>
+            </section>
+
+            <section className="section alt" id="projects">
+              <div>
+                <p className="section-tag">Projects</p>
+                <div className="project-grid">
+                  {projectCards.map((project) => (
+                    <article className="project-card" key={project.title}>
+                      <h3>{project.title}</h3>
+                      <p>{project.description}</p>
+                      <span>{project.stack}</span>
+                      <div className="project-links">
+                        <a href={project.link} target="_blank" rel="noreferrer">GitHub ↗</a>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            <section className="section" id="skills">
+              <div className="narrow">
+                <p className="section-tag">Skills</p>
+                <div className="chip-list">
+                  {skillChips.map((skill) => (
+                    <span key={skill}>{skill}</span>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            <section className="section" id="certifications">
+              <div className="narrow">
+                <p className="section-tag">Certifications</p>
+                <p className="muted">Click a thumbnail to open the original PDF.</p>
+
+                <div className="cert-grid">
+                  {certifications.map((category) => (
+                    <div className="cert-category" key={category.label}>
+                      <h4>{category.label}</h4>
+                      <div className="thumb-row">
+                        {category.items.map((item) => (
+                          <a href={item.pdf} target="_blank" rel="noreferrer" key={item.title}>
+                            <img src={item.image} alt={item.title} loading="lazy" width="320" />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            <section className="contact-section" id="contact">
+              <div className="contact-box">
+                <h2>Let’s build something useful.</h2>
+                <div className="cta-row contact-actions">
+                  <a className="button github-btn" href="https://github.com/eigenlambda123" target="_blank" rel="noreferrer">GitHub</a>
+                  <a className="button linkedin-btn" href="https://www.linkedin.com/in/villaRm" target="_blank" rel="noreferrer">LinkedIn</a>
+                </div>
+              </div>
+            </section>
+          </>
+        )}
+      </main>
+    </div>
+  );
+}
+
+function App() {
+  const [page, setPage] = useState(getPageFromHash(window.location.hash));
+
+  useEffect(() => {
+    const handleHashChange = () => setPage(getPageFromHash(window.location.hash));
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  return (
+    <>
+      <NavSection page={page} />
+      <footer className="site-footer">
+        <p className="copyright">© <span>{new Date().getFullYear()}</span> eigenlambda123</p>
+      </footer>
+    </>
+  );
+}
+
+export default App;
