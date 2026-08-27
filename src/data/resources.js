@@ -1,7 +1,7 @@
 export const resources = [
   {
     category: 'Books',
-    title: 'Foundational and practical reading',
+    title: 'Books that I find useful or inspiring',
     items: [
       {
         slug: 'grokking-algorithms',
@@ -58,12 +58,20 @@ export const resources = [
         author: 'Carlo Rovelli',
         description: 'A concise and engaging introduction to the fundamental concepts of physics.',
         details: 'No Information yet.',
+      },
+      {
+        slug: 'atomic habits',
+        category: 'Self-Improvement',
+        title: 'Atomic Habits',
+        author: 'James Clear',
+        description: 'A practical guide to building good habits and breaking bad ones.',
+        details: 'No Information yet.',
       }
     ],
   },
   {
-    category: 'Sites',
-    title: 'Learning and inspiration',
+    category: 'Learning resources',
+    title: 'Websites and people that I find useful or inspiring',
     items: [
       { label: 'Professor Leonard', href: 'https://www.youtube.com/@professorleonard', description: 'excellent math lectures and tutorials.' },
       { label: 'Khan Academy', href: 'https://www.khanacademy.org/', description: 'free courses and exercises on a wide range of topics.' },
@@ -71,6 +79,7 @@ export const resources = [
       { label: '3Blue1Brown', href: 'https://www.3blue1brown.com/', description: 'visual and intuitive math explanations.' },
       { label: 'Pauls Online Notes', href: 'https://tutorial.math.lamar.edu/', description: 'great for quick math refreshers and examples.' },
       { label: 'LeetCode', href: 'https://leetcode.com/', description: 'algorithm practice and coding interview prep.' },
+      { label: 'NeetCode', href: 'https://neetcode.io/', description: 'algorithm practice and coding interview prep.' },
       { label: 'Kaggle', href: 'https://www.kaggle.com/', description: 'practical data science and ML competitions.' },
       { label: 'Coursera', href: 'https://www.coursera.org/', description: 'structured learning with strong fundamentals.' },
       { label: 'GeeksforGeeks', href: 'https://www.geeksforgeeks.org/', description: 'great for quick algorithm and CS explanations.' },
