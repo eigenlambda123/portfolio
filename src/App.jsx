@@ -77,6 +77,7 @@ const resources = [
     items: [
       {
         slug: 'grokking-algorithms',
+        category: 'Algorithms',
         title: 'Grokking Algorithms',
         author: 'Aditya Bhargava',
         description: 'A clear way to build intuition for algorithms.',
@@ -84,6 +85,7 @@ const resources = [
       },
       {
         slug: 'hands-on-machine-learning',
+        category: 'Machine Learning',
         title: 'Hands-On Machine Learning',
         author: 'Aurélien Géron',
         description: 'A strong bridge between ML theory and practice.',
@@ -91,6 +93,7 @@ const resources = [
       },
       {
         slug: 'introduction-to-linear-algebra',
+        category: 'Mathematics',
         title: 'Introduction to Linear Algebra',
         author: 'Gilbert Strang',
         description: 'A concise and practical guide to linear algebra.',
@@ -98,6 +101,7 @@ const resources = [
       },
       {
         slug: 'linear-algebra-done-right',
+        category: 'Mathematics',
         title: 'Linear Algebra done right',
         author: 'Sheldon Axler',
         description: 'A rigorous and intuitive approach to the subject.',
@@ -105,6 +109,7 @@ const resources = [
       },
       {
         slug: 'introduction-to-probability',
+        category: 'Mathematics',
         title: 'Introduction to Probability',
         author: 'Joseph K. Blitzstein',
         description: 'A practical and engaging introduction to probability theory.',
@@ -112,6 +117,7 @@ const resources = [
       },
       {
         slug: 'fundamentals-of-physics',
+        category: 'Physics',
         title: 'Fundamentals of Physics',
         author: 'David Halliday, Robert Resnick, and Jearl Walker',
         description: 'A classic and thorough introduction to physics.',
@@ -119,6 +125,7 @@ const resources = [
       },
       {
         slug: 'seven-brief-lessons-on-physics',
+        category: 'Physics',
         title: 'Seven Brief Lessons on Physics',
         author: 'Carlo Rovelli',
         description: 'A concise and engaging introduction to the fundamental concepts of physics.',
@@ -318,6 +325,7 @@ function NavSection({ page, activeMainNav, onMainNavClick, book }) {
                         return (
                           <li key={item.slug}>
                             <a className="resource-title-link" href={`#book/${item.slug}`}>{item.title}</a>
+                            <span className="resource-category">{item.category}</span>
                             <span className="resource-author">{item.author}</span>
                             <span> — {item.description}</span>
                           </li>
@@ -343,6 +351,7 @@ function NavSection({ page, activeMainNav, onMainNavClick, book }) {
               <a className="back-link" href="#books">← Back to Books &amp; Sites</a>
               <p className="note-meta">Book</p>
               <h1>{book.title}</h1>
+              <p className="resource-category">{book.category}</p>
               <p className="resource-author">{book.author}</p>
               <p className="note-summary">{book.details}</p>
             </article>
