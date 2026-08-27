@@ -97,6 +97,7 @@ a {
 .nav-page-link:focus-visible,
 .nav-links a.is-active,
 .nav-page-link.is-active {
+  padding-left: 0.8rem;
   background: rgba(31, 61, 46, 0.05);
   color: var(--text);
   outline: none;
