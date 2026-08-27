@@ -7,6 +7,7 @@ export const certifications = [
       { title: 'Introduction to SQL', pdf: '/certifications/coursera/Introduction_to_SQL.pdf', image: '/certifications/coursera/Introduction_to_SQL/Introduction_to_SQL-1.png' },
       { title: 'Introduction to Software Engineering', pdf: '/certifications/coursera/Introduction_to_SWE.pdf', image: '/certifications/coursera/Introduction_to_SWE/Introduction_to_SWE-1.png' },
       { title: 'Object Oriented Data Structures in C++', pdf: '/certifications/coursera/Object_Oriented_Data_Structures_in_C++.pdf', image: '/certifications/coursera/Object_Oriented_Data_Structures_in_C++/Object_Oriented_Data_Structures_in_C++-1.png' },
+      { title: 'Introduction to Java', pdf: '/certifications/coursera/Introduction_to_Java.pdf', image: '/certifications/coursera/Introduction_to_Java/Introduction_to_Java-1.png' },
     ],
   },
   {
@@ -21,8 +22,13 @@ export const certifications = [
     label: 'Other',
     items: [
       { title: 'The Aurduino and C Programming', pdf: '/certifications/coursera/The_Aurduino_and_C_Programming.pdf', image: '/certifications/coursera/The_Aurduino_and_C_Programming/The_Aurduino_and_C_Programming-1.png' },
+      { title: 'Computational Thinking for Problem Solving', pdf: '/certifications/coursera/Computational_Thinking_for_Problem_Solving.pdf', image: '/certifications/coursera/Computational_Thinking_for_Problem_Solving/Computational_Thinking_for_Problem_Solving-1.png' },
+      { title: 'Introduction to Computing Systems', pdf: '/certifications/coursera/Introduction_to_Computing_Systems.pdf', image: '/certifications/coursera/Introduction_to_Computing_Systems/Introduction_to_Computing_Systems-1.png' },
+      { title: 'Introduction to IoT and Embedding', pdf: '/certifications/coursera/Introduction_to_IOT_and_Embedding.pdf', image: '/certifications/coursera/Introduction_to_IOT_and_Embedding/Introduction_to_IOT_and_Embedding-1.png' },
       { title: 'Mathematical Thinking in Computer Science', pdf: '/certifications/coursera/Mathematical_Thinking_in_Computer_Science.pdf', image: '/certifications/coursera/Mathematical_Thinking_in_Computer_Science/Mathematical_Thinking_in_Computer_Science-1.png' },
       { title: 'Logic For Economist', pdf: '/certifications/coursera/Logic_For_Economist.pdf', image: '/certifications/coursera/Logic_For_Economist/Logic_For_Economist-1.png' },
+      { title: 'Business Process Modeling', pdf: '/certifications/coursera/Business_Process_Modeling.pdf', image: '/certifications/coursera/Business_Process_Modeling/Business_Process_Modeling-1.png' },
+      { title: 'Combinatorics and Probability', pdf: '/certifications/coursera/Combinatorics_and_Probability.pdf', image: '/certifications/coursera/Combinatorics_and_Probability/Combinatorics_and_Probability-1.png' },
     ],
   },
 ];
