@@ -316,6 +316,36 @@ h1 {
   text-underline-offset: 0.12em;
 }
 
+.resource-title-link {
+  display: inline-block;
+  color: var(--text) !important;
+  font-weight: 700;
+}
+
+.resource-author {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: var(--accent) !important;
+  font-size: 0.9rem;
+}
+
+.resource-detail h1 {
+  margin: 0 0 0.35rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.resource-detail .resource-author {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
 p {
   margin: 0;
   color: var(--muted);

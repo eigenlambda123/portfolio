@@ -73,22 +73,73 @@ const notes = [
 const resources = [
   {
     category: 'Books',
-    title: 'What I’ve been reading',
+    title: 'Foundational and practical reading',
     items: [
-      'Introduction to Algorithms — foundational CS thinking and problem structure.',
-      'Clean Code — practical habits for writing maintainable software.',
-      'Grokking Algorithms — a clear way to build intuition for algorithms.',
-      'Hands-On Machine Learning — a strong bridge between ML theory and practice.',
+      {
+        slug: 'grokking-algorithms',
+        title: 'Grokking Algorithms',
+        author: 'Aditya Bhargava',
+        description: 'A clear way to build intuition for algorithms.',
+        details: 'No Information yet.',
+      },
+      {
+        slug: 'hands-on-machine-learning',
+        title: 'Hands-On Machine Learning',
+        author: 'Aurélien Géron',
+        description: 'A strong bridge between ML theory and practice.',
+        details: 'No Information yet.',
+      },
+      {
+        slug: 'introduction-to-linear-algebra',
+        title: 'Introduction to Linear Algebra',
+        author: 'Gilbert Strang',
+        description: 'A concise and practical guide to linear algebra.',
+        details: 'No Information yet.',
+      },
+      {
+        slug: 'linear-algebra-done-right',
+        title: 'Linear Algebra done right',
+        author: 'Sheldon Axler',
+        description: 'A rigorous and intuitive approach to the subject.',
+        details: 'No Information yet.',
+      },
+      {
+        slug: 'introduction-to-probability',
+        title: 'Introduction to Probability',
+        author: 'Joseph K. Blitzstein',
+        description: 'A practical and engaging introduction to probability theory.',
+        details: 'No Information yet.',
+      },
+      {
+        slug: 'fundamentals-of-physics',
+        title: 'Fundamentals of Physics',
+        author: 'David Halliday, Robert Resnick, and Jearl Walker',
+        description: 'A classic and thorough introduction to physics.',
+        details: 'No Information yet.',
+      },
+      {
+        slug: 'seven-brief-lessons-on-physics',
+        title: 'Seven Brief Lessons on Physics',
+        author: 'Carlo Rovelli',
+        description: 'A concise and engaging introduction to the fundamental concepts of physics.',
+        details: 'No Information yet.',
+      }
     ],
   },
   {
     category: 'Sites',
     title: 'Learning and inspiration',
     items: [
+      { label: 'Professor Leonard', href: 'https://www.youtube.com/@professorleonard', description: 'excellent math lectures and tutorials.' },
+      { label: 'Khan Academy', href: 'https://www.khanacademy.org/', description: 'free courses and exercises on a wide range of topics.' },
+      { label: 'MIT OpenCourseWare', href: 'https://ocw.mit.edu/', description: 'free courses and lectures from MIT.' },
+      { label: '3Blue1Brown', href: 'https://www.3blue1brown.com/', description: 'visual and intuitive math explanations.' },
+      { label: 'Pauls Online Notes', href: 'https://tutorial.math.lamar.edu/', description: 'great for quick math refreshers and examples.' },
+      { label: 'LeetCode', href: 'https://leetcode.com/', description: 'algorithm practice and coding interview prep.' },
+      { label: 'Kaggle', href: 'https://www.kaggle.com/', description: 'practical data science and ML competitions.' },
       { label: 'Coursera', href: 'https://www.coursera.org/', description: 'structured learning with strong fundamentals.' },
       { label: 'GeeksforGeeks', href: 'https://www.geeksforgeeks.org/', description: 'great for quick algorithm and CS explanations.' },
       { label: 'Stack Overflow', href: 'https://stackoverflow.com/', description: 'practical debugging and engineering answers.' },
-      { label: 'arXiv', href: 'https://arxiv.org/', description: 'research papers and new ideas in AI and systems.' },
     ],
   },
 ];
@@ -131,8 +182,14 @@ function getPageFromHash(hash) {
 
   if (normalized === 'notes') return 'notes';
   if (normalized === 'books') return 'books';
+  if (normalized.startsWith('book/') && getBookFromHash(hash)) return 'book';
   if (normalized === 'research') return 'research';
   return 'home';
+}
+
+function getBookFromHash(hash) {
+  const slug = (hash || '').replace('#book/', '').toLowerCase();
+  return resources[0].items.find((item) => typeof item !== 'string' && item.slug === slug);
 }
 
 function getActiveMainNav(hash) {
@@ -215,7 +272,7 @@ function SiteNav({ page, activeMainNav, onMainNavClick }) {
       <div className="nav-divider" aria-hidden="true"></div>
       <div className="nav-page-list">
         <a className={`nav-page-link ${page === 'notes' ? 'is-active' : ''}`} href="#notes">Notes</a>
-        <a className={`nav-page-link ${page === 'books' ? 'is-active' : ''}`} href="#books">Books &amp; Sites</a>
+        <a className={`nav-page-link ${page === 'books' || page === 'book' ? 'is-active' : ''}`} href="#books">Books &amp; Sites</a>
         <a className={`nav-page-link ${page === 'research' ? 'is-active' : ''}`} href="#research">Research</a>
       </div>
 
@@ -224,7 +281,7 @@ function SiteNav({ page, activeMainNav, onMainNavClick }) {
   );
 }
 
-function NavSection({ page, activeMainNav, onMainNavClick }) {
+function NavSection({ page, activeMainNav, onMainNavClick, book }) {
   return (
     <div className={`site-shell ${page !== 'home' ? 'notes-page' : ''}`}>
       <SiteNav page={page} activeMainNav={activeMainNav} onMainNavClick={onMainNavClick} />
@@ -257,6 +314,16 @@ function NavSection({ page, activeMainNav, onMainNavClick }) {
                         return <li key={item}><strong>{title}</strong> — {description}</li>;
                       }
 
+                      if (item.slug) {
+                        return (
+                          <li key={item.slug}>
+                            <a className="resource-title-link" href={`#book/${item.slug}`}>{item.title}</a>
+                            <span className="resource-author">{item.author}</span>
+                            <span> — {item.description}</span>
+                          </li>
+                        );
+                      }
+
                       return (
                         <li key={item.label}>
                           <a href={item.href} target="_blank" rel="noreferrer">{item.label}</a> — {item.description}
@@ -267,6 +334,18 @@ function NavSection({ page, activeMainNav, onMainNavClick }) {
                 </article>
               ))}
             </div>
+          </section>
+        )}
+
+        {page === 'book' && book && (
+          <section className="section notes-section">
+            <article className="resource-card resource-detail">
+              <a className="back-link" href="#books">← Back to Books &amp; Sites</a>
+              <p className="note-meta">Book</p>
+              <h1>{book.title}</h1>
+              <p className="resource-author">{book.author}</p>
+              <p className="note-summary">{book.details}</p>
+            </article>
           </section>
         )}
 
@@ -385,11 +464,13 @@ function NavSection({ page, activeMainNav, onMainNavClick }) {
 
 function App() {
   const [page, setPage] = useState(getPageFromHash(window.location.hash));
+  const [book, setBook] = useState(getBookFromHash(window.location.hash));
   const [activeMainNav, setActiveMainNav] = useState(getActiveMainNav(window.location.hash));
 
   useEffect(() => {
     const handleHashChange = () => {
       setPage(getPageFromHash(window.location.hash));
+      setBook(getBookFromHash(window.location.hash));
       setActiveMainNav(getActiveMainNav(window.location.hash));
     };
 
@@ -429,7 +510,7 @@ function App() {
 
   return (
     <>
-      <NavSection page={page} activeMainNav={activeMainNav} onMainNavClick={handleMainNavClick} />
+      <NavSection page={page} book={book} activeMainNav={activeMainNav} onMainNavClick={handleMainNavClick} />
       <footer className="site-footer">
         <p className="copyright">© <span>{new Date().getFullYear()}</span> eigenlambda123</p>
       </footer>
