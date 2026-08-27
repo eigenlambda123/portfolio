@@ -1,0 +1,89 @@
+/* Hero Section */
+.hero,
+.section {
+  padding: 0 0 3rem;
+}
+
+.section + .section {
+  margin-top: 1.5rem;
+}
+
+.hero {
+  padding-top: 1.25rem;
+}
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  min-height: 340px;
+}
+
+.hero-inner > div {
+  max-width: 720px;
+}
+
+.eyebrow,
+.section-tag {
+  margin: 0 0 0.8rem;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.73rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.06em;
+}
+
+.lead {
+  margin: 1rem 0 0;
+  max-width: 640px;
+  color: var(--muted);
+  font-size: 1.12rem;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.8rem 1.2rem;
+  font-weight: 600;
+  line-height: 1;
+  min-height: 44px;
+  transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.button:hover {
+  opacity: 0.96;
+  transform: translateY(-1px);
+}
+
+.github-btn {
+  background: #1f2328;
+  border: 1px solid #1f2328;
+  color: #ffffff;
+}
+
+.linkedin-btn {
+  background: #0a66c2;
+  border: 1px solid #0a66c2;
+  color: #ffffff;
+}
+
+.resume-btn {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+  color: var(--text);
+}

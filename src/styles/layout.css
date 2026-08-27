@@ -1,0 +1,24 @@
+/* Layout */
+.site-shell {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
+  display: block;
+  padding: 2rem 0 0;
+}
+
+.narrow {
+  max-width: 760px;
+}
+
+.page-content {
+  margin-left: 260px;
+  padding: 1rem 0 0;
+}
+
+.notes-page {
+  padding-top: 1.5rem;
+}
+
+.site-footer {
+  padding: 0 0 2.5rem;
+}

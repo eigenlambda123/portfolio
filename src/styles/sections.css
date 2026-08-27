@@ -1,0 +1,72 @@
+/* Projects Section */
+.alt {
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 2rem 1.5rem;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.project-card h3 {
+  margin: 0 0 0.7rem;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+.project-card p {
+  margin-bottom: 0.9rem;
+}
+
+.project-card span {
+  display: inline-block;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.project-links {
+  margin-top: 0.9rem;
+}
+
+.project-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--line);
+}
+
+/* Skills Section */
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+}
+
+.chip-list span {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.82rem;
+  color: var(--text);
+}

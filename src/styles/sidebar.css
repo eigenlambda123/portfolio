@@ -1,0 +1,81 @@
+/* Sidebar Navigation */
+.sidebar {
+  position: fixed;
+  top: 1.5rem;
+  left: max(1rem, calc((100vw - 1200px) / 2));
+  width: 220px;
+  min-height: calc(100vh - 3rem);
+  padding: 1.5rem 1rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 45px rgba(20, 22, 18, 0.05);
+  z-index: 20;
+}
+
+.brand-wrap {
+  margin-bottom: 2rem;
+}
+
+.brand {
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  font-weight: 800;
+  text-transform: lowercase;
+  color: var(--text);
+}
+
+.nav-links {
+  display: grid;
+  gap: 0.85rem;
+  font-size: 0.96rem;
+}
+
+.nav-links a,
+.nav-page-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  color: var(--muted);
+  border-radius: 10px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible,
+.nav-page-link:hover,
+.nav-page-link:focus-visible,
+.nav-links a.is-active,
+.nav-page-link.is-active {
+  padding-left: 0.8rem;
+  background: rgba(31, 61, 46, 0.05);
+  color: var(--text);
+  outline: none;
+}
+
+.nav-divider {
+  height: 1px;
+  margin: 1.3rem 0 1rem;
+  background: rgba(28, 28, 28, 0.14);
+}
+
+.nav-page-list {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.nav-page-link {
+  color: var(--text);
+  font-size: 1.02rem;
+  font-weight: 500;
+}
+
+.sidebar-note {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.7;
+}

@@ -1,0 +1,57 @@
+/* Notes Section */
+.notes-section {
+  padding-top: 0.5rem;
+}
+
+.notes-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.note-item {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 1.25rem 1.1rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.note-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(28, 28, 28, 0.18);
+}
+
+.note-meta {
+  margin: 0 0 0.7rem;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.note-item h2 {
+  margin: 0 0 0.7rem;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--text);
+}
+
+.note-title-link {
+  color: var(--text);
+}
+
+.note-title-link:hover,
+.note-title-link:focus-visible {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.note-summary {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.03rem;
+  line-height: 1.7;
+}

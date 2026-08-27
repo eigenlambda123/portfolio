@@ -1,0 +1,29 @@
+/* Contact Section */
+.contact-section {
+  background: rgba(31, 61, 46, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 2rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.contact-box {
+  text-align: center;
+}
+
+.contact-box h2 {
+  margin: 0 0 0.75rem;
+  color: var(--text);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.contact-actions {
+  justify-content: center;
+}
+
+.copyright {
+  margin: 0 auto;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}

@@ -1,0 +1,46 @@
+/* Responsive Design */
+@media (max-width: 900px) {
+  .site-shell {
+    display: block;
+  }
+
+  .sidebar {
+    position: static;
+    width: auto;
+    left: auto;
+    min-height: auto;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .page-content {
+    margin-left: 0;
+  }
+
+  .nav-links {
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .site-shell {
+    width: min(100% - 1rem, 1200px);
+    padding-top: 1rem;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-inner {
+    min-height: 0;
+  }
+
+  .thumb-row {
+    grid-template-columns: 1fr;
+  }
+}

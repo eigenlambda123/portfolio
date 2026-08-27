@@ -1,0 +1,83 @@
+/* Resources & Books Section */
+.resources-layout {
+  display: grid;
+  gap: 1rem;
+}
+
+.resource-card {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 1.5rem 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.resource-card h2 {
+  margin: 0 0 0.9rem;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--text);
+}
+
+.resource-card ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.resource-card li,
+.resource-card a {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.resource-card a {
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.resource-title-link {
+  display: inline-block;
+  color: var(--text) !important;
+  font-weight: 700;
+}
+
+.resource-author {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.resource-category {
+  display: block;
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: var(--accent) !important;
+  font-size: 0.9rem;
+}
+
+.resource-detail h1 {
+  margin: 0 0 0.35rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.resource-detail .resource-author {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.resource-detail .resource-category {
+  margin-bottom: 0.2rem;
+}
