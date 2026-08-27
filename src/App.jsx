@@ -54,16 +54,19 @@ const certifications = [
 
 const notes = [
   {
+    slug: 'build-slow-learn-fast',
     meta: 'Random note',
     title: 'Build slow, learn fast.',
     summary: 'Most interesting systems are not built in one dramatic breakthrough; they are built through a series of small, intentional experiments.',
   },
   {
+    slug: 'ship-the-smallest-useful-version',
     meta: 'Idea',
     title: 'Ship the smallest useful version.',
     summary: 'A prototype that answers a real question teaches more than a polished plan that never leaves the drawing board.',
   },
   {
+    slug: 'feedback-loops-matter-more-than-talent',
     meta: 'Reflection',
     title: 'Feedback loops matter more than talent.',
     summary: 'The fastest way to improve is to make it easy to test, measure, and change direction before sunk cost gets too high.',
@@ -187,11 +190,17 @@ const researchBlocks = [
 function getPageFromHash(hash) {
   const normalized = (hash || '#').replace('#', '').toLowerCase();
 
+  if (normalized.startsWith('note/') && getNoteFromHash(hash)) return 'note';
   if (normalized === 'notes') return 'notes';
   if (normalized === 'books') return 'books';
   if (normalized.startsWith('book/') && getBookFromHash(hash)) return 'book';
   if (normalized === 'research') return 'research';
   return 'home';
+}
+
+function getNoteFromHash(hash) {
+  const slug = (hash || '').replace('#note/', '').toLowerCase();
+  return notes.find((note) => note.slug === slug);
 }
 
 function getBookFromHash(hash) {
@@ -278,7 +287,7 @@ function SiteNav({ page, activeMainNav, onMainNavClick }) {
 
       <div className="nav-divider" aria-hidden="true"></div>
       <div className="nav-page-list">
-        <a className={`nav-page-link ${page === 'notes' ? 'is-active' : ''}`} href="#notes">Notes</a>
+        <a className={`nav-page-link ${page === 'notes' || page === 'note' ? 'is-active' : ''}`} href="#notes">Notes</a>
         <a className={`nav-page-link ${page === 'books' || page === 'book' ? 'is-active' : ''}`} href="#books">Books &amp; Sites</a>
         <a className={`nav-page-link ${page === 'research' ? 'is-active' : ''}`} href="#research">Research</a>
       </div>
@@ -288,7 +297,7 @@ function SiteNav({ page, activeMainNav, onMainNavClick }) {
   );
 }
 
-function NavSection({ page, activeMainNav, onMainNavClick, book }) {
+function NavSection({ page, activeMainNav, onMainNavClick, book, note }) {
   return (
     <div className={`site-shell ${page !== 'home' ? 'notes-page' : ''}`}>
       <SiteNav page={page} activeMainNav={activeMainNav} onMainNavClick={onMainNavClick} />
@@ -299,11 +308,22 @@ function NavSection({ page, activeMainNav, onMainNavClick, book }) {
               {notes.map((note) => (
                 <article className="note-item" key={note.title}>
                   <p className="note-meta">{note.meta}</p>
-                  <h2>{note.title}</h2>
+                  <h2><a className="note-title-link" href={`#note/${note.slug}`}>{note.title}</a></h2>
                   <p className="note-summary">{note.summary}</p>
                 </article>
               ))}
             </div>
+          </section>
+        )}
+
+        {page === 'note' && note && (
+          <section className="section notes-section">
+            <article className="resource-card resource-detail">
+              <a className="back-link" href="#notes">← Back to Notes</a>
+              <p className="note-meta">{note.meta}</p>
+              <h1>{note.title}</h1>
+              <p className="note-summary">{note.summary}</p>
+            </article>
           </section>
         )}
 
@@ -473,12 +493,14 @@ function NavSection({ page, activeMainNav, onMainNavClick, book }) {
 
 function App() {
   const [page, setPage] = useState(getPageFromHash(window.location.hash));
+  const [note, setNote] = useState(getNoteFromHash(window.location.hash));
   const [book, setBook] = useState(getBookFromHash(window.location.hash));
   const [activeMainNav, setActiveMainNav] = useState(getActiveMainNav(window.location.hash));
 
   useEffect(() => {
     const handleHashChange = () => {
       setPage(getPageFromHash(window.location.hash));
+      setNote(getNoteFromHash(window.location.hash));
       setBook(getBookFromHash(window.location.hash));
       setActiveMainNav(getActiveMainNav(window.location.hash));
     };
@@ -519,7 +541,7 @@ function App() {
 
   return (
     <>
-      <NavSection page={page} book={book} activeMainNav={activeMainNav} onMainNavClick={handleMainNavClick} />
+      <NavSection page={page} note={note} book={book} activeMainNav={activeMainNav} onMainNavClick={handleMainNavClick} />
       <footer className="site-footer">
         <p className="copyright">© <span>{new Date().getFullYear()}</span> eigenlambda123</p>
       </footer>
