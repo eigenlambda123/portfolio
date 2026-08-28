@@ -68,6 +68,34 @@
   margin: 0;
 }
 
+.note-markdown {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.note-markdown p {
+  margin: 0;
+}
+
+.note-markdown ol,
+.note-markdown ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.note-markdown li + li {
+  margin-top: 0.35rem;
+}
+
+.note-markdown em {
+  color: var(--accent);
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.note-markdown .katex {
+  font-size: 1em;
+}
+
 .note-content-block {
   display: grid;
   gap: 0.35rem;

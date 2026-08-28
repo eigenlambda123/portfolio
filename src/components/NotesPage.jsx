@@ -1,4 +1,7 @@
 import { notes } from '../data/notes';
+import ReactMarkdown from 'react-markdown';
+import rehypeKatex from 'rehype-katex';
+import remarkMath from 'remark-math';
 
 export function NotesListPage() {
   return (
@@ -34,7 +37,16 @@ export function NoteDetailPage({ note }) {
             return (
               <section className="note-content-block" key={`${note.slug}-paragraph-${index}`}>
                 {title && <h2>{title}</h2>}
-                {body && <p>{body}</p>}
+                {body && (
+                  <div className="note-markdown">
+                    <ReactMarkdown
+                      remarkPlugins={[remarkMath]}
+                      rehypePlugins={[rehypeKatex]}
+                    >
+                      {body}
+                    </ReactMarkdown>
+                  </div>
+                )}
               </section>
             );
           })}

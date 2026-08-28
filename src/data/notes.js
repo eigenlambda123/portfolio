@@ -7,7 +7,12 @@ export const notes = [
     content: [
       {
         title: 'Dimension of the Four Subspaces',
-        body: 'The four fundamental subspaces of a matrix (column space, null space, row space, and left null space) have dimensions that are related to the rank and nullity of the matrix. Understanding these relationships is crucial for solving linear systems and understanding the structure of matrices.',
+        body: `*Four Fundamental Subspaces*
+
+1. The row space is $C(A^T)$, a subspace of $R^n$.
+2. The column space is $C(A)$, a subspace of $R^m$.
+3. The nullspace is $N(A)$, a subspace of $R^n$.
+4. The left nullspace is $N(A^T)$, a subspace of $R^m$. This is our new space.`,
       },
       {
         title: 'Orthogonality of the Four Subspaces',
