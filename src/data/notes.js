@@ -7,16 +7,82 @@ export const notes = [
     content: [
       {
         title: 'Dimension of the Four Subspaces',
-        body: `*Four Fundamental Subspaces*
+        body: `The four fundamental subspaces of a matrix are the row space, column space, nullspace, and left nullspace. Each of these subspaces has a specific dimension and is related to the properties of the matrix.
+
+![The four fundamental subspaces of a matrix](/notes/four-fundamental-subspaces.png)
 
 1. The row space is $C(A^T)$, a subspace of $R^n$.
 2. The column space is $C(A)$, a subspace of $R^m$.
 3. The nullspace is $N(A)$, a subspace of $R^n$.
-4. The left nullspace is $N(A^T)$, a subspace of $R^m$. This is our new space.`,
+4. The left nullspace is $N(A^T)$, a subspace of $R^m$.
+
+The row space and column space have the same dimension $r$ ($r$ = rank of the matrix). 
+$N(A)$ and $N(A^{T})$ have dimensions $n-r$ and $m-r$, respectively. The rank-nullity theorem states that the sum of the rank and nullity of a matrix equals the number of columns of the matrix. This is one of the *fundamental theorems* of linear algebra.
+
+`,
+
       },
       {
         title: 'Orthogonality of the Four Subspaces',
-        body: 'The four fundamental subspaces of a matrix are orthogonal to each other in specific ways. The column space and null space are orthogonal complements in the domain of the matrix, and the row space and left null space are orthogonal complements in the codomain.',
+        body: `Every vector $x$ in the nullspace is perpendicular to every row of $A$, because $Ax = 0$.
+        **The nullspace $N(A)$ and the row space $C(A^{T})$ are orthogonal subspaces of $R^{n}$.**
+
+To see why $x$ is perpendicular to the rows, look at $Ax=0$. Each row multiplies $x$:
+
+$$
+Ax =
+\\begin{bmatrix}
+\\text{row 1}\\\\
+\\vdots\\\\
+\\text{row }m
+\\end{bmatrix}
+\\begin{bmatrix}
+x_1\\\\
+\\vdots\\\\s
+x_m
+\\end{bmatrix}
+=
+\\begin{bmatrix}
+0\\\\
+\\vdots\\\\
+0
+\\end{bmatrix}
+$$
+
+The first equation says that row 1 is perpendicular to $x$. The last equation says that row $m$ is perpendicular to $x$. **Every row has a zero dot product with $x$**. Then $x$ is also perpendicular to every combination of the rows. The whole row space $C(A^T)$ is orthogonal to the nullspace $N(A)$.
+        
+Every vector $y$ in the nullspace of $A^{T}$ is perpendicular to ever column of $A$.
+**The left nullspace $N(A^{T})$ and the column space $C(A)$ are orthogonal subspaces of $R^{m}$.**
+
+For the same reason, $y$ is perpendicular to every combination of the columns. The whole column space $C(A)$ is orthogonal to the left nullspace $N(A^{T})$.
+
+
+$$
+A^{T}y =
+\\begin{bmatrix}
+\\text{(col 1)}^{T}\\\\
+\\vdots\\\\
+\\text{(col }n)^{T}
+\\end{bmatrix}
+\\begin{bmatrix}
+y_1\\\\
+\\vdots\\\\
+y_m
+\\end{bmatrix}
+=
+\\begin{bmatrix}
+0\\\\
+\\vdots\\\\
+0
+\\end{bmatrix}
+$$
+
+The dot product of $y$ with every column of $A$ is zero. Then $y$ in the left nullspace is perpendicular to each column of $A$ and to the whole column space.
+
+![two pairs of orthogonal subspaces](/notes/two-pairs-of-orthogonal-subspaces.png)
+
+$N(A)$ is the orthogonal complement of $C(A^{T})$ in $R^{n}$, and $N(A^{T})$ is the orthogonal complement of $C(A)$ in $R^{m}$. This is also one of the *fundamental theorems* of linear algebra.
+`,
       },
       {
         title: 'Projections and Least Squares Approximation',

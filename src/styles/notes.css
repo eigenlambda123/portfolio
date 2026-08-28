@@ -77,6 +77,14 @@
   margin: 0;
 }
 
+.note-markdown img {
+  display: block;
+  width: min(100%, 44rem);
+  height: auto;
+  margin: 0.5rem auto;
+  border-radius: 10px;
+}
+
 .note-markdown ol,
 .note-markdown ul {
   margin: 0;
