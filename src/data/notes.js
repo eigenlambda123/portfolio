@@ -17,10 +17,7 @@ export const notes = [
 4. The left nullspace is $N(A^T)$, a subspace of $R^m$.
 
 The row space and column space have the same dimension $r$ ($r$ = rank of the matrix). 
-$N(A)$ and $N(A^{T})$ have dimensions $n-r$ and $m-r$, respectively. The rank-nullity theorem states that the sum of the rank and nullity of a matrix equals the number of columns of the matrix. This is one of the *fundamental theorems* of linear algebra.
-
-`,
-
+$N(A)$ and $N(A^{T})$ have dimensions $n-r$ and $m-r$, respectively. The rank-nullity theorem states that the sum of the rank and nullity of a matrix equals the number of columns of the matrix. This is part of the *fundamental theorems of linear algebra*`,
       },
       {
         title: 'Orthogonality of the Four Subspaces',
@@ -81,8 +78,7 @@ The dot product of $y$ with every column of $A$ is zero. Then $y$ in the left nu
 
 ![two pairs of orthogonal subspaces](/notes/two-pairs-of-orthogonal-subspaces.png)
 
-$N(A)$ is the orthogonal complement of $C(A^{T})$ in $R^{n}$, and $N(A^{T})$ is the orthogonal complement of $C(A)$ in $R^{m}$. This is also one of the *fundamental theorems* of linear algebra.
-`,
+$N(A)$ is the orthogonal complement of $C(A^{T})$ in $R^{n}$, and $N(A^{T})$ is the orthogonal complement of $C(A)$ in $R^{m}$. This is also part of the *fundamental theorems* of linear algebra.`,
       },
       {
         title: 'Projections and Least Squares Approximation',
