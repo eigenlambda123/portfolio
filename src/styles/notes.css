@@ -102,6 +102,12 @@
 
 .note-markdown .katex {
   font-size: 1em;
+  line-height: 1.2;
+}
+
+.note-markdown .katex-display {
+  margin: 0.5em 0;
+  overflow: visible;
 }
 
 .note-content-block {

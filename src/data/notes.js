@@ -82,7 +82,33 @@ $N(A)$ is the orthogonal complement of $C(A^{T})$ in $R^{n}$, and $N(A^{T})$ is 
       },
       {
         title: 'Projections and Least Squares Approximation',
-        body: 'Projections are used to find the closest point in a subspace to a given vector. The least squares approximation is a method for finding the best fit line or plane to a set of data points.',
+        body: `Variables that define the key elements of **Projections** and **Least Squares Approximation**.
+- **$\\hat{x}$("x-hat", Least-Squares Solution):** The best parameter vector in $R^{n}$ that minimizes the distance between $Ax$ and $b$. Calculated via the normal equation: 
+
+$$
+\\hat{x} = (A^{T}A)^{-1}A^{T}b
+$$
+
+- **$p$ (Projection Vector):** The closest vector inside the column space $C(A)$ to $b$. It represents the model's predicted target values:
+
+$$
+p=A\\hat{x} = A(A^{T}A)^{-1}A^{T}b
+$$
+
+- **$e$ (Error/Residual Vector):** The difference between that actual vector $b$ and the projection $p$:
+
+$$
+e=b-p=b-A\\hat{x}
+$$ 
+The error vector $e$ is perpendicular (orthogonal) to the column space of $A$ ($e \\in \\text{Null}(A^{T})$).
+
+**Core Relationship:** $$b=p+e=A\\hat{x}+e$$
+
+/* The projection of $b$ onto the line through $a$ is the vector $$p=\\hat{x}a=\\frac{a^{T}b}{a^{T}a}a$$. \\
+/* Special case 1: If $b = a$ then $\\hat{x}=1$. The projection of $a$ onto $a$ is itself. $Pa=a$. \\
+/* Special case 2: If $b$ is perpendicular to $a$ then $a^{T}b=0$. The projection is $p=0$. \
+        
+`,
       },
       {
         title: 'Orthonormal Bases and the Gram-Schmidt Process',
