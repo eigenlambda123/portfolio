@@ -121,7 +121,7 @@ $$
 **Geometric Interpretation:** The least-squares solution chooses $x$ so that $Ax$ is the orthogonal projection of $b$ onto the column space $C(A)$. This means it finds the closest point in $C(A)$ to $b$, minimizing the squared distance:
 
 $$
-\min_x \|b-Ax\|^2
+\\min_x \|b-Ax\|^2
 $$
 
 The residual vector $e=b-Ax$ is orthogonal to every vector in the column space, which gives the condition:
@@ -137,7 +137,53 @@ A^{T}A\\hat{x}=A^{T}b
 $$
 
 If $A$ has full column rank, then $A^{T}A$ is invertible and the least-squares solution is unique. If $b \\in C(A)$, then $e=0$ and the system is solved exactly.
-        
+
+***Projection Onto a Subspace***
+
+Given a subspace $S = \\text{span}\\{a_1, a_2, \\ldots, a_n\\}$ and a vector $b \\in \\mathbb{R}^m$, we want the vector $p \\in S$ closest to $b$. If $A$ is the matrix whose columns are $a_1, a_2, \\ldots, a_n$, then we solve
+
+$$
+\\hat{x} = \\arg\\min_x \\|Ax-b\\|_2
+$$
+
+and set
+
+$$
+p = A\\hat{x}.
+$$
+
+This $p$ is the orthogonal projection of $b$ onto the column space of $A$. The residual $b-p$ is perpendicular to the subspace, so
+
+$$
+A^T(b-p)=0.
+$$
+
+Since $p=A\\hat{x}$, this becomes the normal equation:
+
+$$
+A^T A \\hat{x} = A^T b.
+$$
+
+When $A$ has full column rank, $A^T A$ is invertible, and the unique least-squares solution is
+
+$$
+\\hat{x} = (A^T A)^{-1} A^T b.
+$$
+
+Therefore, the projection of $b$ onto the subspace is
+
+$$
+p = A\\hat{x} = A(A^T A)^{-1} A^T b.
+$$
+
+The corresponding projection matrix is
+
+$$
+P = A(A^T A)^{-1}A^T,
+$$
+
+so that $p = Pb$.
+
 `,
       },
       {
