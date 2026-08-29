@@ -28,6 +28,13 @@ function App() {
     };
 
     const handleScroll = () => {
+      const currentPage = getPageFromHash(window.location.hash);
+
+      if (currentPage !== 'home') {
+        setActiveMainNav('');
+        return;
+      }
+
       const scrolledActiveMainNav = getActiveMainNavFromScroll();
 
       if (scrolledActiveMainNav) {
