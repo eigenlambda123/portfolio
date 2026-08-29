@@ -83,19 +83,20 @@ $N(A)$ is the orthogonal complement of $C(A^{T})$ in $R^{n}$, and $N(A^{T})$ is 
       {
         title: 'Projections and Least Squares Approximation',
         body: `Variables that define the key elements of **Projections** and **Least Squares Approximation**.
-- **$\\hat{x}$("x-hat", Least-Squares Solution):** The best parameter vector in $R^{n}$ that minimizes the distance between $Ax$ and $b$. Calculated via the normal equation: 
+
+**$\\hat{x}$("x-hat", Least-Squares Solution):** The best parameter vector in $R^{n}$ that minimizes the distance between $Ax$ and $b$. Calculated via the normal equation: 
 
 $$
 \\hat{x} = (A^{T}A)^{-1}A^{T}b
 $$
 
-- **$p$ (Projection Vector):** The closest vector inside the column space $C(A)$ to $b$. It represents the model's predicted target values:
+**$p$ (Projection Vector):** The closest vector inside the column space $C(A)$ to $b$. It represents the model's predicted target values:
 
 $$
 p=A\\hat{x} = A(A^{T}A)^{-1}A^{T}b
 $$
 
-- **$e$ (Error/Residual Vector):** The difference between that actual vector $b$ and the projection $p$:
+**$e$ (Error/Residual Vector):** The difference between that actual vector $b$ and the projection $p$:
 
 $$
 e=b-p=b-A\\hat{x}
@@ -104,9 +105,38 @@ The error vector $e$ is perpendicular (orthogonal) to the column space of $A$ ($
 
 **Core Relationship:** $$b=p+e=A\\hat{x}+e$$
 
-/* The projection of $b$ onto the line through $a$ is the vector $$p=\\hat{x}a=\\frac{a^{T}b}{a^{T}a}a$$. \\
-/* Special case 1: If $b = a$ then $\\hat{x}=1$. The projection of $a$ onto $a$ is itself. $Pa=a$. \\
-/* Special case 2: If $b$ is perpendicular to $a$ then $a^{T}b=0$. The projection is $p=0$. \
+**$P$ (Projection Matrix)**: The matrix that projects any vector onto the column space of $A$ is:
+
+$$
+P = A(A^{T}A)^{-1}A^{T}
+$$
+
+so that
+
+$$
+p = Pb
+$$
+
+
+**Geometric Interpretation:** The least-squares solution chooses $x$ so that $Ax$ is the orthogonal projection of $b$ onto the column space $C(A)$. This means it finds the closest point in $C(A)$ to $b$, minimizing the squared distance:
+
+$$
+\min_x \|b-Ax\|^2
+$$
+
+The residual vector $e=b-Ax$ is orthogonal to every vector in the column space, which gives the condition:
+
+$$
+A^{T}(b-Ax)=0
+$$
+
+Rearranging yields the normal equation:
+
+$$
+A^{T}A\\hat{x}=A^{T}b
+$$
+
+If $A$ has full column rank, then $A^{T}A$ is invertible and the least-squares solution is unique. If $b \\in C(A)$, then $e=0$ and the system is solved exactly.
         
 `,
       },
