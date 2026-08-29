@@ -8,12 +8,23 @@ function App() {
   const [book, setBook] = useState(getBookFromHash(window.location.hash));
   const [activeMainNav, setActiveMainNav] = useState(getActiveMainNav(window.location.hash));
 
+  const shouldResetScroll = (hash) => {
+    const normalized = (hash || '#top').replace('#', '').toLowerCase();
+    return normalized === 'top' || normalized === 'notes' || normalized === 'books' || normalized === 'research' || normalized.startsWith('note/') || normalized.startsWith('book/');
+  };
+
   useEffect(() => {
     const handleHashChange = () => {
-      setPage(getPageFromHash(window.location.hash));
-      setNote(getNoteFromHash(window.location.hash));
-      setBook(getBookFromHash(window.location.hash));
-      setActiveMainNav(getActiveMainNav(window.location.hash));
+      const nextHash = window.location.hash || '#top';
+
+      setPage(getPageFromHash(nextHash));
+      setNote(getNoteFromHash(nextHash));
+      setBook(getBookFromHash(nextHash));
+      setActiveMainNav(getActiveMainNav(nextHash));
+
+      if (shouldResetScroll(nextHash)) {
+        window.scrollTo(0, 0);
+      }
     };
 
     const handleScroll = () => {
