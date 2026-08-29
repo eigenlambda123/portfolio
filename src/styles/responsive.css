@@ -54,8 +54,9 @@
 /* Mobile (760px and below) */
 @media (max-width: 760px) {
   .site-shell {
-    width: calc(100% - 1rem);
+    width: calc(100% - 2rem);
     padding-top: 0.75rem;
+    margin: 0 1rem;
   }
 
   html {
@@ -394,7 +395,8 @@
   }
 
   .site-shell {
-    width: calc(100% - 0.8rem);
+    width: calc(100% - 1.6rem);
+    margin: 0 0.8rem;
   }
 
   h1 {
