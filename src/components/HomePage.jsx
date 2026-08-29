@@ -11,7 +11,7 @@ export function HomePage() {
             <p className="eyebrow">Computer Science • Data Science</p>
             <h1>RM A. Villa</h1>
             <p className="lead">
-              I'm interested in research as well as practical software and artificial intelligence.
+              I’m a computer science student exploring research, software, and AI to make a meaningful impact. 
             </p>
             <div className="cta-row">
               <a className="button github-btn" href="https://github.com/eigenlambda123" target="_blank" rel="noreferrer">GitHub</a>
@@ -26,7 +26,7 @@ export function HomePage() {
         <div className="narrow">
           <p className="section-tag">About</p>
           <p>
-            I'm a 3rd-year Computer Science student who likes building useful stuff—apps, data tools, and ML experiments. I mainly use Python, SQL, and FastAPI, especially for hackathons and side projects. Lately I've been geeking out on the math behind machine learning and AI.
+            Hi! I’m RM, a computer science student with a passion for research and the practical side of software and artificial intelligence. My biggest goal is to contribute to projects that create real impact, both in society and in science. My daily life involves trying to become a little better than I was yesterday, because I believe that small steps of growth can lead me toward my goals. I’m always eager to learn, explore new ideas, and take on opportunities that help me grow into the kind of person who can make a difference.
           </p>
         </div>
       </section>

@@ -47,7 +47,7 @@ export function SiteNav({ page, activeMainNav, onMainNavClick }) {
           <a className={`nav-page-link ${page === 'research' ? 'is-active' : ''}`} href="#research" onClick={handleSecondaryNavClick}>Research</a>
         </nav>
 
-        <p className="sidebar-note">CS student building useful software and AI tools.</p>
+        <p className="sidebar-note">CS student that likes learning and building useful things.</p>
       </aside>
 
       {mobileMenuOpen && <div className="mobile-menu-overlay" onClick={() => setMobileMenuOpen(false)}></div>}
