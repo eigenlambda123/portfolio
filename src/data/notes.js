@@ -161,7 +161,7 @@ $$
 Since $p=A\\hat{x}$, this becomes the normal equation:
 
 $$
-A^T A \\hat{x} = A^T b.
+A^T(b-A\\hat{x}) = 0 \\ \\implies \\ A^T A \\hat{x} = A^T b.
 $$
 
 When $A$ has full column rank, $A^T A$ is invertible, and the unique least-squares solution is
