@@ -37,6 +37,7 @@
   display: inline-flex;
   align-items: center;
   min-height: 2.5rem;
+  padding: 0.6rem 0.65rem;
   color: var(--muted);
   border-radius: 10px;
   transition: background 0.2s ease, color 0.2s ease;
@@ -78,4 +79,109 @@
   color: var(--muted);
   font-size: 0.82rem;
   line-height: 1.7;
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 30;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.mobile-menu-toggle:hover,
+.mobile-menu-toggle:focus-visible {
+  background: rgba(255, 255, 255, 1);
+  outline: none;
+}
+
+.mobile-menu-toggle:active {
+  transform: scale(0.95);
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 24;
+}
+
+@media (max-width: 900px) {
+  .mobile-menu-toggle {
+    display: none;
+  }
+
+  .sidebar {
+    position: static;
+    width: auto;
+    left: auto;
+    min-height: auto;
+    padding: 1rem 0.75rem 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 760px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 260px;
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    padding: 5.5rem 1rem 1rem;
+    margin-bottom: 0;
+    border: none;
+    border-radius: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    box-shadow: 2px 0 8px rgba(20, 22, 18, 0.1);
+    z-index: 25;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.is-open {
+    left: 0;
+  }
+
+  .mobile-menu-overlay {
+    display: block;
+  }
+
+  .brand-wrap {
+    margin-bottom: 1.5rem;
+  }
 }

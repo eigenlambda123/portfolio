@@ -1,25 +1,56 @@
+import { useState } from 'react';
+
 export function SiteNav({ page, activeMainNav, onMainNavClick }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleNavClick = (event, targetHash, navKey) => {
+    onMainNavClick(event, targetHash, navKey);
+    setMobileMenuOpen(false);
+  };
+
+  const handleSecondaryNavClick = () => {
+    setMobileMenuOpen(false);
+  };
+
   return (
-    <aside className="sidebar" aria-label="Sidebar navigation">
-      <div className="brand-wrap">
-        <a className="brand" href="#top" onClick={(event) => onMainNavClick(event, '#top', 'about')}>_eigenlambda</a>
-      </div>
+    <>
+      <button
+        className="mobile-menu-toggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded={mobileMenuOpen}
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-      <nav className="nav-links" aria-label="Main navigation">
-        <a href="#top" onClick={(event) => onMainNavClick(event, '#top', 'about')} className={activeMainNav === 'about' ? 'is-active' : ''}>About</a>
-        <a href="#about" onClick={(event) => onMainNavClick(event, '#about', 'projects')} className={activeMainNav === 'projects' ? 'is-active' : ''}>Projects</a>
-        <a href="#certifications" onClick={(event) => onMainNavClick(event, '#certifications', 'certifications')} className={activeMainNav === 'certifications' ? 'is-active' : ''}>Certifications</a>
-        <a href="#contact" onClick={(event) => onMainNavClick(event, '#contact', 'contact')} className={activeMainNav === 'contact' ? 'is-active' : ''}>Contact</a>
-      </nav>
+      <aside
+        className={`sidebar ${mobileMenuOpen ? 'is-open' : ''}`}
+        aria-label="Sidebar navigation"
+      >
+        <div className="brand-wrap">
+          <a className="brand" href="#top" onClick={(event) => handleNavClick(event, '#top', 'about')}>_eigenlambda</a>
+        </div>
 
-      <div className="nav-divider" aria-hidden="true"></div>
-      <div className="nav-page-list">
-        <a className={`nav-page-link ${page === 'notes' || page === 'note' ? 'is-active' : ''}`} href="#notes">Notes</a>
-        <a className={`nav-page-link ${page === 'books' || page === 'book' ? 'is-active' : ''}`} href="#books">Books &amp; Sites</a>
-        <a className={`nav-page-link ${page === 'research' ? 'is-active' : ''}`} href="#research">Research</a>
-      </div>
+        <nav className="nav-links" aria-label="Main navigation">
+          <a href="#top" onClick={(event) => handleNavClick(event, '#top', 'about')} className={activeMainNav === 'about' ? 'is-active' : ''}>About</a>
+          <a href="#about" onClick={(event) => handleNavClick(event, '#about', 'projects')} className={activeMainNav === 'projects' ? 'is-active' : ''}>Projects</a>
+          <a href="#certifications" onClick={(event) => handleNavClick(event, '#certifications', 'certifications')} className={activeMainNav === 'certifications' ? 'is-active' : ''}>Certifications</a>
+          <a href="#contact" onClick={(event) => handleNavClick(event, '#contact', 'contact')} className={activeMainNav === 'contact' ? 'is-active' : ''}>Contact</a>
+        </nav>
 
-      <p className="sidebar-note">CS student building useful software and AI tools.</p>
-    </aside>
+        <div className="nav-divider" aria-hidden="true"></div>
+        <nav className="nav-page-list" aria-label="Secondary navigation">
+          <a className={`nav-page-link ${page === 'notes' || page === 'note' ? 'is-active' : ''}`} href="#notes" onClick={handleSecondaryNavClick}>Notes</a>
+          <a className={`nav-page-link ${page === 'books' || page === 'book' ? 'is-active' : ''}`} href="#books" onClick={handleSecondaryNavClick}>Books &amp; Sites</a>
+          <a className={`nav-page-link ${page === 'research' ? 'is-active' : ''}`} href="#research" onClick={handleSecondaryNavClick}>Research</a>
+        </nav>
+
+        <p className="sidebar-note">CS student building useful software and AI tools.</p>
+      </aside>
+
+      {mobileMenuOpen && <div className="mobile-menu-overlay" onClick={() => setMobileMenuOpen(false)}></div>}
+    </>
   );
 }

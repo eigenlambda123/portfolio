@@ -21,9 +21,15 @@
   justify-content: center;
 }
 
+.contact-actions .button {
+  min-height: 48px;
+  padding: 0.9rem 1.3rem;
+}
+
 .copyright {
   margin: 0 auto;
   text-align: center;
   color: var(--muted);
   font-size: 0.9rem;
+  padding: 0 1rem;
 }
