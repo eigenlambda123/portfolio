@@ -66,6 +66,14 @@
 }
 
 /* Skills Section */
+#skills {
+  margin-top: 2.25rem;
+}
+
+#certifications {
+  margin-top: 0.75rem;
+}
+
 .chip-list {
   display: flex;
   flex-wrap: wrap;

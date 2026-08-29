@@ -1,1 +1,1 @@
-export const skillChips = ['Python', 'SQL', 'FastAPI', 'React', 'Flutter', 'GitHub', 'Docker'];
+export const skillChips = ['Python', 'Javascript', 'HTML/CSS', 'SQL', 'FastAPI', 'Django', 'React', 'GitHub', 'Docker'];
