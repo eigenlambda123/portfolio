@@ -55,9 +55,9 @@
 /* Mobile (760px and below) */
 @media (max-width: 760px) {
   .site-shell {
-    width: calc(100% - 2rem);
+    width: calc(100% - 1.5rem);
     padding-top: 0.75rem;
-    margin: 0 1rem;
+    margin: 0 0.75rem;
   }
 
   html {
@@ -65,7 +65,7 @@
   }
 
   h1 {
-    font-size: clamp(2.4rem, 7vw, 3rem);
+    font-size: clamp(2.9rem, 9vw, 4.1rem);
   }
 
   .eyebrow,
@@ -80,7 +80,7 @@
 
   .hero-inner {
     min-height: 320px;
-    padding: 1.5rem 0;
+    padding: 1.25rem 0.1rem;
     display: flex;
     align-items: center;
   }
@@ -202,8 +202,12 @@
     scroll-margin-top: 4.5rem;
   }
 
+  .hero + .section {
+    margin-top: 0.75rem;
+  }
+
   .section:first-of-type {
-    margin-top: 3rem;
+    margin-top: 1.25rem;
   }
 
   .hero,
