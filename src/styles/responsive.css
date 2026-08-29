@@ -38,8 +38,8 @@
   }
 
   .project-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 
   .alt {
@@ -47,7 +47,8 @@
   }
 
   .project-card {
-    padding: 1rem;
+    min-height: auto;
+    padding: 0;
   }
 }
 

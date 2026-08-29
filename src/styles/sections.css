@@ -8,38 +8,50 @@
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
   margin-top: 1rem;
 }
 
 .project-card {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 1.25rem;
-  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  min-height: auto;
 }
 
 .project-card h3 {
-  margin: 0 0 0.7rem;
-  font-size: 1.2rem;
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1.25;
   color: var(--text);
+  font-weight: 700;
 }
 
 .project-card p {
-  margin-bottom: 0.9rem;
+  margin: 0 0 0.6rem;
+  line-height: 1.5;
+  font-size: 0.98rem;
+  color: var(--text);
+  max-width: 36rem;
 }
 
 .project-card span {
-  display: inline-block;
+  display: block;
   color: var(--primary);
   font-size: 0.8rem;
   font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 0.3rem;
 }
 
 .project-links {
-  margin-top: 0.9rem;
+  margin-top: 0.25rem;
 }
 
 .project-links a {
@@ -47,9 +59,10 @@
   align-items: center;
   gap: 0.28rem;
   color: var(--text);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 600;
   border-bottom: 1px solid var(--line);
+  padding-bottom: 0.12rem;
 }
 
 /* Skills Section */
