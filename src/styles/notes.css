@@ -64,6 +64,7 @@
   font-size: 1.03rem;
   line-height: 1.7;
   min-width: 0;
+  max-width: 100%;
   overflow-wrap: anywhere;
   word-break: break-word;
 }
@@ -76,12 +77,24 @@
   display: grid;
   gap: 0.75rem;
   min-width: 0;
+  max-width: 100%;
   overflow-wrap: anywhere;
   word-break: break-word;
 }
 
 .note-markdown > * {
   max-width: 100%;
+}
+
+.note-markdown p,
+.note-markdown li,
+.note-markdown a,
+.note-markdown code,
+.note-markdown blockquote,
+.note-markdown table,
+.note-markdown pre {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .note-markdown p {
@@ -95,22 +108,18 @@
   height: auto;
   margin: 0.5rem auto;
   border-radius: 10px;
-}
-
-.note-markdown pre,
-.note-markdown code,
-.note-markdown table,
-.note-markdown blockquote,
-.note-markdown ul,
-.note-markdown ol,
-.note-markdown li,
-.note-markdown p,
-.note-markdown a {
-  max-width: 100%;
+  object-fit: contain;
 }
 
 .note-markdown pre {
   white-space: pre-wrap;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.note-markdown table {
+  display: block;
+  width: 100%;
   overflow-x: auto;
 }
 
@@ -132,11 +141,14 @@
 .note-markdown .katex {
   font-size: 1em;
   line-height: 1.2;
+  white-space: normal;
 }
 
 .note-markdown .katex-display {
   margin: 0.5em 0;
-  overflow: visible;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
 }
 
 .note-content-block {
