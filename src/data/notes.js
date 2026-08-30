@@ -188,7 +188,60 @@ so that $p = Pb$.
       },
       {
         title: 'Orthonormal Bases and the Gram-Schmidt Process',
-        body: 'An orthonormal basis is a set of vectors that are mutually orthogonal and have unit length. The Gram-Schmidt process is a method for constructing an orthonormal basis from a given set of vectors.',
+        body: `### Orthonormal Bases
+        
+The vectors **$q_1, \\ldots, q_n$** are **orthogonal** when their dot products **$q_i \\cdot q_j$** are zero. More exactly $q_i^{T}q_j=0$ whenever $i$ is not equal to $j$. Divide each vector by its length and the vectors become **orthogonal unit vectors**. Their lengths are all $1$ (normal). Then the basis is called **orthonormal**.
+
+***DEFINITION***
+
+The vectors $q_1, \\ldots, q_n$ are orthonormal if
+
+$$
+q_i^{T} q_j = \\begin{cases} 
+0 & \\text{when } i \\neq j \\quad (\\textit{orthogonal} \\text{ vectors}) \\newline
+1 & \\text{when } i = j \\quad (\\textit{unit} \\text{ vectors: } \\|\\boldsymbol{q}_i\\| = 1) 
+\\end{cases}
+$$
+A matrix with orthonormal columns is assigned with the special letter $Q$.
+
+
+**The matrix $Q$ is easy to work with because $Q^TQ=I$**. This repeats in matrix langauge that the columns $q_1, \\ldots, q_n$ are orthonormal. $Q$ is not required to be square.
+
+**A matrix $Q$ with orthonormal columns satisfies $Q^TQ=I$**
+
+$$
+Q^{T}Q = 
+\\begin{bmatrix} 
+- \\boldsymbol{q}_1^{T} - \\newline
+- \\boldsymbol{q}_2^{T} - \\newline
+- \\boldsymbol{q}_n^{T} - 
+\\end{bmatrix}
+\\begin{bmatrix} 
+\\mid & \\mid & \\mid \\newline
+\\boldsymbol{q}_1 & \\boldsymbol{q}_2 & \\boldsymbol{q}_n \\newline
+\\mid & \\mid & \\mid 
+\\end{bmatrix}
+= 
+\\begin{bmatrix} 
+1 & 0 & \\cdots & 0 \\newline 
+0 & 1 & \\cdots & 0 \\newline 
+\\vdots & \\vdots & \\ddots & \\vdots \\newline
+0 & 0 & \\cdots & 1 
+\\end{bmatrix}
+= I.
+$$
+
+When row $i$ of $Q^T$ multiplies column $j$ of $Q$, the dot product is **$q_i^Tq_j$**. Off the diagonal $(i \\neq j)$ that dot product is zero by orthogonality. On the diagonal $(i=j)$ the unit vectors give **$q_i^Tq_i=\\|q_i\\|^2 = 1$**. Often $Q$ is rectangular $(m > n)$. Sometimes $m=n$.
+
+**When $Q$ is square, $Q^TQ=I$ means that $Q^T=Q^{-1}$: transpose = inverse.**
+
+If the columns are only orthogonal (not unit vectors), dot product still give a diagonal matrix (not the identity matrix). This diagonal matrix is almost as good as $I$. The important thing is orthogonality, then it is easy to produce unit vectors.
+
+To Repeat: $Q^TQ=I$ even when $Q$ is rectangular. In that case $Q^T$ is only an inverse from the left. For square matrices we also have $QQ^T=I$, so $Q^T$ is the two-sided inverse of $Q$. The rows of a square $Q$ are orthonormal like the columns. **The inverse is the transpose**. In this square case we call $Q$ an **orthogonal matrix**.
+
+        
+        
+        `,
       },
      {
         title: 'Cramer\'s Rule',
