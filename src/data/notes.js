@@ -78,7 +78,9 @@ The dot product of $y$ with every column of $A$ is zero. Then $y$ in the left nu
 
 ![two pairs of orthogonal subspaces](/notes/two-pairs-of-orthogonal-subspaces.png)
 
-$N(A)$ is the orthogonal complement of $C(A^{T})$ in $R^{n}$, and $N(A^{T})$ is the orthogonal complement of $C(A)$ in $R^{m}$. This is also part of the *fundamental theorems* of linear algebra.`,
+$N(A)$ is the orthogonal complement of $C(A^{T})$ in $R^{n}$, and $N(A^{T})$ is the orthogonal complement of $C(A)$ in $R^{m}$. This is also part of the *fundamental theorems* of linear algebra.
+
+`,
       },
       {
         title: 'Projections and Least Squares Approximation',
@@ -239,9 +241,31 @@ If the columns are only orthogonal (not unit vectors), dot product still give a 
 
 To Repeat: $Q^TQ=I$ even when $Q$ is rectangular. In that case $Q^T$ is only an inverse from the left. For square matrices we also have $QQ^T=I$, so $Q^T$ is the two-sided inverse of $Q$. The rows of a square $Q$ are orthonormal like the columns. **The inverse is the transpose**. In this square case we call $Q$ an **orthogonal matrix**.
 
-        
-        
-        `,
+### Gram-Schmidt Process
+
+Start with three independent vectors **$a, b, c$**. We intend to construct three orthogonal vectors **$A, B, C$**. The we divide **$A, B, C$** by their lengths. That produces three orthonormal vectors **$q_1=A/\\|A\\|, q_2=B/\\|B\\|, q_3=C/\\|C\\|$**.
+
+**Gram-Schmidt** Begin by choosing $A=a$. This first direction is accepted as it comes. The next direction $B$ must be perpendicular to $A$. **Start with $b$ and subtract its projection along $A$**. This leaves the perpendicular part, which is the orthogonal vector $B$:
+
+$$
+\\text{First Gram-Schmidt step } \\quad B=b-\\frac{A^Tb}{A^TA}A.
+$$
+
+$A$ and $B$ are now orthogonal. Multiply the equation above by $A^T$ to verify that $A^TB=A^Tb-A^Tb=0$. This vector $B$ is what we have called the error vector $e$, perpendicular to $A$. Notice that $B$ in the equation above is not zero (otherwise $a$ and $b$ would be dependent). The direction **$A$** and **$B$** are now set.
+
+The third direction starts with **$c$**. This is not a combination of $A$ and $B$ (because $c$ is not a combination of $a$ and $b$). But most likely $c$ is not perpendicular to $A$ and $B$. So subtract off its components in those twi directions to get a perpendicular direction **$C$**:
+
+$$
+\\text{Next Gram-Schmidt step } \\quad C=c-\\frac{A^Tc}{A^TA}A\\frac{B^Tc}{B^TB}B.
+$$
+
+This is the one and only idea of Gram-Schmidt process. **Subtract from every new vector its projections in the directions already set.** That idea is repeated at every step. If we had a fourth vector $d$, we would subtract three projections onto $A, B, C$ to get $D$.
+
+![Figure 4.11: First Gram-Schmidt step, projecting $b$ onto the line through $a$ and finding the orthogonal component $B = b-p$](/notes/gram-schmidt-projection.png)
+
+At the end, or immediately when each one is found, divice the orthogonal vectors $A, B, C$ by their lengths. **The resulting vectors $q_1, q_2, q_3$ are orthonormal.**
+
+`,
       },
      {
         title: 'Cramer\'s Rule',
