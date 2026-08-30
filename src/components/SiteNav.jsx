@@ -35,7 +35,7 @@ export function SiteNav({ page, activeMainNav, onMainNavClick }) {
 
         <nav className="nav-links" aria-label="Main navigation">
           <a href="#top" onClick={(event) => handleNavClick(event, '#top', 'about')} className={activeMainNav === 'about' ? 'is-active' : ''}>About</a>
-          <a href="#about" onClick={(event) => handleNavClick(event, '#about', 'projects')} className={activeMainNav === 'projects' ? 'is-active' : ''}>Projects</a>
+          <a href="#projects" onClick={(event) => handleNavClick(event, '#projects', 'projects')} className={activeMainNav === 'projects' ? 'is-active' : ''}>Projects</a>
           <a href="#certifications" onClick={(event) => handleNavClick(event, '#certifications', 'certifications')} className={activeMainNav === 'certifications' ? 'is-active' : ''}>Certifications</a>
           <a href="#contact" onClick={(event) => handleNavClick(event, '#contact', 'contact')} className={activeMainNav === 'contact' ? 'is-active' : ''}>Contact</a>
         </nav>
