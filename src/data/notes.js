@@ -251,9 +251,9 @@ $$
 \\text{First Gram-Schmidt step } \\quad B=b-\\frac{A^Tb}{A^TA}A.
 $$
 
-$A$ and $B$ are now orthogonal. Multiply the equation above by $A^T$ to verify that $A^TB=A^Tb-A^Tb=0$. This vector $B$ is what we have called the error vector $e$, perpendicular to $A$. Notice that $B$ in the equation above is not zero (otherwise $a$ and $b$ would be dependent). The direction **$A$** and **$B$** are now set.
+**$A$ and $B$ are now orthogonal**. Multiply the equation above by $A^T$ to verify that $A^TB=A^Tb-A^Tb=0$. **This vector $B$ is what we have called the error vector $e$**, perpendicular to $A$. Notice that $B$ in the equation above is not zero (otherwise $a$ and $b$ would be dependent). The direction **$A$** and **$B$** are now set.
 
-The third direction starts with **$c$**. This is not a combination of $A$ and $B$ (because $c$ is not a combination of $a$ and $b$). But most likely $c$ is not perpendicular to $A$ and $B$. So subtract off its components in those twi directions to get a perpendicular direction **$C$**:
+The third direction starts with **$c$**. This is not a combination of $A$ and $B$ (because $c$ is not a combination of $a$ and $b$). But most likely $c$ is not perpendicular to $A$ and $B$. **So subtract off its components in those two directions to get a perpendicular direction $C$**:
 
 $$
 \\text{Next Gram-Schmidt step } \\quad C=c-\\frac{A^Tc}{A^TA}A\\frac{B^Tc}{B^TB}B.
