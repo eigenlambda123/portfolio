@@ -16,8 +16,8 @@ export const notes = [
 3. The nullspace is $N(A)$, a subspace of $R^n$.
 4. The left nullspace is $N(A^T)$, a subspace of $R^m$.
 
-The row space and column space have the same dimension $r$ ($r$ = rank of the matrix). 
-$N(A)$ and $N(A^{T})$ have dimensions $n-r$ and $m-r$, respectively. The rank-nullity theorem states that the sum of the rank and nullity of a matrix equals the number of columns of the matrix. This is part of the *fundamental theorems of linear algebra*`,
+**he row space and column space have the same dimension $r$ ($r$ = rank of the matrix). 
+$N(A)$ and $N(A^{T})$ have dimensions $n-r$ and $m-r$, respectively**. The **rank-nullity theorem** states that the sum of the rank and nullity of a matrix equals the number of columns of the matrix. This is part of the *fundamental theorems of linear algebra*`,
       },
       {
         title: 'Orthogonality of the Four Subspaces',
@@ -138,7 +138,7 @@ $$
 
 If $A$ has full column rank, then $A^{T}A$ is invertible and the least-squares solution is unique. If $b \\in C(A)$, then $e=0$ and the system is solved exactly.
 
-***Projection Onto a Subspace***
+***PROJECTION ONTO A SUBSPACE***
 
 Given a subspace $S = \\text{span}\\{a_1, a_2, \\ldots, a_n\\}$ and a vector $b \\in \\mathbb{R}^m$, we want the vector $p \\in S$ closest to $b$. If $A$ is the matrix whose columns are $a_1, a_2, \\ldots, a_n$, then we solve
 
@@ -182,7 +182,7 @@ $$
 P = A(A^T A)^{-1}A^T,
 $$
 
-so that $p = Pb$.
+so that **$p = Pb$**.
 
 `,
       },
