@@ -380,15 +380,26 @@
 
   .note-markdown {
     gap: 0.6rem;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .note-markdown img {
     width: 100%;
+    max-width: 100%;
+    height: auto;
   }
 
   .note-markdown ol,
   .note-markdown ul {
     padding-left: 1.2rem;
+  }
+
+  .note-content,
+  .note-content-block,
+  .resource-card,
+  .note-item {
+    min-width: 0;
   }
 
   .note-content-block h2 {
