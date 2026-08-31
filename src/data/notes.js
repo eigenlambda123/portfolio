@@ -16,7 +16,7 @@ export const notes = [
 3. The nullspace is $N(A)$, a subspace of $R^n$.
 4. The left nullspace is $N(A^T)$, a subspace of $R^m$.
 
-**he row space and column space have the same dimension $r$ ($r$ = rank of the matrix). 
+**The row space and column space have the same dimension $r$ ($r$ = rank of the matrix). 
 $N(A)$ and $N(A^{T})$ have dimensions $n-r$ and $m-r$, respectively**. The **rank-nullity theorem** states that the sum of the rank and nullity of a matrix equals the number of columns of the matrix. This is part of the *fundamental theorems of linear algebra*`,
       },
       {
@@ -35,7 +35,7 @@ Ax =
 \\end{bmatrix}
 \\begin{bmatrix}
 x_1\\\\
-\\vdots\\\\s
+\\vdots\\\\
 x_m
 \\end{bmatrix}
 =
@@ -207,7 +207,7 @@ $$
 A matrix with orthonormal columns is assigned with the special letter $Q$.
 
 
-**The matrix $Q$ is easy to work with because $Q^TQ=I$**. This repeats in matrix langauge that the columns $q_1, \\ldots, q_n$ are orthonormal. $Q$ is not required to be square.
+**The matrix $Q$ is easy to work with because $Q^TQ=I$**. This repeats in matrix language that the columns $q_1, \\ldots, q_n$ are orthonormal. $Q$ is not required to be square.
 
 **A matrix $Q$ with orthonormal columns satisfies $Q^TQ=I$**
 
@@ -256,14 +256,14 @@ $$
 The third direction starts with **$c$**. This is not a combination of $A$ and $B$ (because $c$ is not a combination of $a$ and $b$). But most likely $c$ is not perpendicular to $A$ and $B$. **So subtract off its components in those two directions to get a perpendicular direction $C$**:
 
 $$
-\\text{Next Gram-Schmidt step } \\quad C=c-\\frac{A^Tc}{A^TA}A\\frac{B^Tc}{B^TB}B.
+\\text{Next Gram-Schmidt step } \\quad C=c-\\frac{A^Tc}{A^TA}A-\\frac{B^Tc}{B^TB}B.
 $$
 
 This is the one and only idea of Gram-Schmidt process. **Subtract from every new vector its projections in the directions already set.** That idea is repeated at every step. If we had a fourth vector $d$, we would subtract three projections onto $A, B, C$ to get $D$.
 
 ![Figure 4.11: First Gram-Schmidt step, projecting $b$ onto the line through $a$ and finding the orthogonal component $B = b-p$](/notes/gram-schmidt-projection.png)
 
-At the end, or immediately when each one is found, divice the orthogonal vectors $A, B, C$ by their lengths. **The resulting vectors $q_1, q_2, q_3$ are orthonormal.**
+At the end, or immediately when each one is found, divide the orthogonal vectors $A, B, C$ by their lengths. **The resulting vectors $q_1, q_2, q_3$ are orthonormal.**
 
 `,
       },
@@ -285,7 +285,7 @@ This is the first component of Cramer's Rule! Changing a column of $A$ gave $B_1
 To find $x_2$ and $B_2$, put the vectors $x$ and $b$ into the second columns of $I$ and $A$:
 
 $$
-\\text{Dame idea } \\quad \\begin{bmatrix} & & \\\\ & A & \\\\ & & \\end{bmatrix} \\begin{bmatrix} 1 & \\boldsymbol{x_1} & 0 \\\\ 0 & \\boldsymbol{x_2} & 0 \\\\ 0 & \\boldsymbol{x_3} & 1\\end{bmatrix} = \\begin{bmatrix} a_{11} & \\boldsymbol{b_1} & a_{13} \\\\ a_{21} & \\boldsymbol{b_2} & a_{23} \\\\ a_{31} & \\boldsymbol{b_3} & a_{33} \\end{bmatrix} = B_2.
+\\text{Same idea } \\quad \\begin{bmatrix} & & \\\\ & A & \\\\ & & \\end{bmatrix} \\begin{bmatrix} 1 & \\boldsymbol{x_1} & 0 \\\\ 0 & \\boldsymbol{x_2} & 0 \\\\ 0 & \\boldsymbol{x_3} & 1\\end{bmatrix} = \\begin{bmatrix} a_{11} & \\boldsymbol{b_1} & a_{13} \\\\ a_{21} & \\boldsymbol{b_2} & a_{23} \\\\ a_{31} & \\boldsymbol{b_3} & a_{33} \\end{bmatrix} = B_2.
 $$
 
 Take determinants to find $(\\det(A))(x_2)=\\det(B_2)$. This gives $x_2=(\\det(B_2))/(\\det(A))$.
