@@ -269,7 +269,41 @@ At the end, or immediately when each one is found, divice the orthogonal vectors
       },
      {
         title: 'Cramer\'s Rule',
-        body: 'Cramer\'s Rule is a method for solving systems of linear equations using determinants.',
+        body: `**Cramer's Rule solves $Ax=b$**. A neat idea gives the first component $x_1$. Replacing the first column of $I$ by $x$ gives a matrix with determinant $x_1$. When you multiply it by $A$, the first column becomes $Ax$ which is $b$. The other columns of $B_1$ are copied from $A$:
+
+$$
+\\text{Key idea } \\quad \\begin{bmatrix} & & \\\\ & A & \\\\ & & \\end{bmatrix} \\begin{bmatrix} \\boldsymbol{x_1} & 0 & 0 \\\\ \\boldsymbol{x_2} & 1 & 0 \\\\ \\boldsymbol{x_3} & 0 & 1 \\end{bmatrix} = \\begin{bmatrix} \\boldsymbol{b_1} & a_{12} & a_{13} \\\\ \\boldsymbol{b_2} & a_{22} & a_{23} \\\\ \\boldsymbol{b_3} & a_{32} & a_{33} \\end{bmatrix} = B_1.
+$$
+
+We multiplied a column at a time. **Take determinants of the three matrices to find $x_1$**
+
+$$
+\\text{Product rule } \\quad (\\det(a))(x_1)=\\det(B_1) \\quad \\implies \\quad x_1=\\frac{\\det(B_1)}{\\det(A)}.
+$$
+
+This is the first component of Cramer's Rule! Changing a column of $A$ gave $B_1$.
+To find $x_2$ and $B_2$, put the vectors $x$ and $b$ into the second columns of $I$ and $A$:
+
+$$
+\\text{Dame idea } \\quad \\begin{bmatrix} & & \\\\ & A & \\\\ & & \\end{bmatrix} \\begin{bmatrix} 1 & \\boldsymbol{x_1} & 0 \\\\ 0 & \\boldsymbol{x_2} & 0 \\\\ 0 & \\boldsymbol{x_3} & 1\\end{bmatrix} = \\begin{bmatrix} a_{11} & \\boldsymbol{b_1} & a_{13} \\\\ a_{21} & \\boldsymbol{b_2} & a_{23} \\\\ a_{31} & \\boldsymbol{b_3} & a_{33} \\end{bmatrix} = B_2.
+$$
+
+Take determinants to find $(\\det(A))(x_2)=\\det(B_2)$. This gives $x_2=(\\det(B_2))/(\\det(A))$.
+
+***CRAMER's RULE***
+
+**If $\\det(A)$ is not zero, $Ax=b$ is solved by determinants:**
+
+$$
+x_1=\\frac{\\det(B_1)}{\\det(A)}, \\quad x_2=\\frac{\\det(B_2)}{\\det(A)}, \\quad \\ldots, \\quad x_n=\\frac{\\det(B_n)}{\\det(A)}.
+$$
+
+**The matrix $B_j$ has the $j$th column of $A$ replaced by the vector $b$.**
+
+This is Cramer's Rule. It is a neat idea, but it is not used in practice because it is slow and numerically unstable.
+
+To solve an $n$ by $n$ system, Cramer's Rule requires $n+1$ determinants (of $A$ and the $n$ different $B$'s). When each one is the sum of $n!$ terms applying the "big formula" with all permutations, makes a total of $(n+1)!$ terms. **It would be crazy to solve equations that way**. But it is a neat idea that shows the connection between determinants and solutions of linear systems.
+`,
      },
      {
         title: 'Eigenvalues and Eigenvectors',
