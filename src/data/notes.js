@@ -328,12 +328,18 @@ This "characteristic polynomial" $\\det(A-\\lambda I)$ involves only $\\lambda$,
 
 **For each eigenvalue $\\lambda$ solve $(A-\\lambda I)x=0$ or $Ax=\\lambda x$ to find an eigenvector $x$.**
 
-To solce the eigenvalue problem for an $n$ by $n$ matrix, follow these steps:
+To solve the eigenvalue problem for an $n$ by $n$ matrix, follow these steps:
 
 1. **Compute the determinant of $A-\\lambda I$.** With $\\lambda$ subtracted along the diagonal, this determinant starts with $\\lambda^n$ or $-\\lambda^n$. It is a polynomial in $\\lambda$ of degree $n$.
 2. **Find the roots of this polynomial,** by solving $\\det(A-\\lambda I)=0$. The $n$ roots are the $n$ eigenvalues of $A$. They make $A-\\lambda I$ singular.
 3. For each eigenvalue $\\lambda$, **solve $(A-\\lambda I)x=0$** to find the corresponding eigenvector $x$.
-        
+
+***FACTS***
+
+**Eigenvectors are not unique**: if $x$ is an eigenvector, then any nonzero scalar multiple $cx$ is also an eigenvector, because $A(cx)=c(Ax)=c(\\lambda x)=\\lambda (cx)$. This means eigenvectors are usually understood up to a scale factor.
+
+**Eigenvalues can be negative, zero, or complex** depending on the matrix. A negative eigenvalue flips direction, zero means the transformation collapses that direction, and complex eigenvalues appear in rotations and oscillations.
+
 `,
      },
      {
