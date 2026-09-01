@@ -307,7 +307,34 @@ To solve an $n$ by $n$ system, Cramer's Rule requires $n+1$ determinants (of $A$
      },
      {
         title: 'Eigenvalues and Eigenvectors',
-        body: 'Eigenvalues and eigenvectors are important concepts in linear algebra that describe the behavior of a matrix under linear transformations.',
+        body: `When a linear transformation is applied to space, most vectors are knocked off their original line (span) and change direction. However, there are special vectors that stay on their original span during a transformation called **eigenvectors**. Their direction does not change, they are only scaled. The scaling factor by which an eigenvector stretches, squishes, or reverses during the transformation is called the **eigenvalue**.
+
+**The basic equation is $Ax=\\lambda x$. The number $\\lambda$ is an eigenvalue of $A$.**
+
+The expression $Ax= \\lambda x$ states that matrix multiplication $(Ax)$ has the exact same effect on vector $x$ as a simple scaling $(\\lambda x)$. To solve this geometrically, we rewrite the equation as **$(A-\\lambda I)x=0$**. For a non-zero vector $x$ to land on zero, the modified transformation $(A-\\lambda I)$ must completely flatten/squish space into a lower dimension.
+Geometrically, this means that the transformation $(A-\\lambda I)$ is **not invertible**. Algebraically, this means that the determinant of $(A-\\lambda I)$ must be zero:
+
+$$
+\\det(A-\\lambda I)=0
+$$
+
+If $(A-\\lambda I)x=0$ has a  nonzero solution, $A-\\lambda I$ is not invertible. **The determinant of $A-\\lambda I$ must be zero.** This is how to recognize an eigenvalue $\\lambda$:
+
+**Eigenvalues** $\\quad \\text{The number } \\lambda \\text{ is an eigenvalue of } A \\text{ if and only if } A-\\lambda I \\text{ is singular.}$
+
+**Equation for the eigenvalues** $\\quad \\det(A-\\lambda I) = 0$.
+
+This "characteristic polynomial" $\\det(A-\\lambda I)$ involves only $\\lambda$, not $x$. When $A$ is $n$ by $n$, equation $\\det(A-\\lambda I)=0$ is a polynomial of degree $n$ in $\\lambda$. Then $A$ has $n$ eigevalues (counting multiplicities). Each $\\lambda$ leads to $x$:
+
+**For each eigenvalue $\\lambda$ solve $(A-\\lambda I)x=0$ or $Ax=\\lambda x$ to find an eigenvector $x$.**
+
+To solce the eigenvalue problem for an $n$ by $n$ matrix, follow these steps:
+
+1. **Compute the determinant of $A-\\lambda I$.** With $\\lambda$ subtracted along the diagonal, this determinant starts with $\\lambda^n$ or $-\\lambda^n$. It is a polynomial in $\\lambda$ of degree $n$.
+2. **Find the roots of this polynomial,** by solving $\\det(A-\\lambda I)=0$. The $n$ roots are the $n$ eigenvalues of $A$. They make $A-\\lambda I$ singular.
+3. For each eigenvalue $\\lambda$, **solve $(A-\\lambda I)x=0$** to find the corresponding eigenvector $x$.
+        
+`,
      },
      {
         title: 'Symmetric Matrices and Positive Definiteness',
