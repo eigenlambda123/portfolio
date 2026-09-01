@@ -324,7 +324,7 @@ If $(A-\\lambda I)x=0$ has a  nonzero solution, $A-\\lambda I$ is not invertible
 
 **Equation for the eigenvalues** $\\quad \\det(A-\\lambda I) = 0$.
 
-This "characteristic polynomial" $\\det(A-\\lambda I)$ involves only $\\lambda$, not $x$. When $A$ is $n$ by $n$, equation $\\det(A-\\lambda I)=0$ is a polynomial of degree $n$ in $\\lambda$. Then $A$ has $n$ eigevalues (counting multiplicities). Each $\\lambda$ leads to $x$:
+This "characteristic polynomial" $\\det(A-\\lambda I)$ involves only $\\lambda$, not $x$. When $A$ is $n$ by $n$, equation $\\det(A-\\lambda I)=0$ is a polynomial of degree $n$ in $\\lambda$. Then $A$ has $n$ eigenvalues (counting multiplicities). Each $\\lambda$ leads to $x$:
 
 **For each eigenvalue $\\lambda$ solve $(A-\\lambda I)x=0$ or $Ax=\\lambda x$ to find an eigenvector $x$.**
 
@@ -340,6 +340,32 @@ To solve the eigenvalue problem for an $n$ by $n$ matrix, follow these steps:
 
 **Eigenvalues can be negative, zero, or complex** depending on the matrix. A negative eigenvalue flips direction, zero means the transformation collapses that direction, and complex eigenvalues appear in rotations and oscillations.
 
+***EIGENBASIS***
+
+If a transformation has enough eigenvectors to span the entire space, we can use those eigenvectors as our new coordinate system **(an eigenbasis)**. In this eigenbasis, the transformation is represented by a diagonal matrix with the eigenvalues on the diagonal. Geometrically, a diagonal matrix means that the transformation is just pure stretching of space along the coordinate axes, with no rotating or shearing.
+
+**An eigenbasis is simply a coordinate system *(a basis)* made entirely of eigenvectors.** To choose the eigenbasis, find the **eigenvalues $(\\lambda)$** and **eigenvectors $(x)$**. If an $n \\times n$ matrix has $n$ linearly independent eigenvectors, collect those vectors to form a new coordinate axes or the **eigenbasis**.
+
+Changing our basis means looking at the exact same linear transformation, but from a different perspective *(a different coordinate system)*. If we use the eigenvectors as our new axes, the transformation becomes incredibly simple. Instead of shifting, rotating, and shearing, the transformation from this perspective is pure, independent stretching along each axis.
+
+**Algebraic Formula** $(A=PDP^{-1})$
+
+To see a transformation $(A)$ through the lens of its eigenbasis, we use a **change of basis matrix $(P)$:**
+- **$P$(Change of basis matrix):** A matrix whose columns are the eigenvectors. It translates vectors from our "eigenbasis coordinates" into "standard coordinates".
+- **$P^{-1}$:** Translates standard coordinates back into eigenbasis coordinates.
+
+To describe the transformation in the easiest way possible, we perform a three-step sandwich maneuver:
+1. **$$P^{-1}$$:** Take a standard vector and translate it into the eigenbasis perspective.
+2. **$A$:** Apply the transformation in standard coordinates.
+3. **$$P$$:** Translate the result back into standard coordinates.
+
+This gives use a **Diagonal Matrix $(D)$:**
+
+$$
+D = P^{-1}AP \\quad \\text{ or } \\quad A = PDP^{-1}
+$$
+
+Geometrically, $D$ is a matrix where all non-diagonal entries are zero, and the diagonal entries are just the eigenvalues. It represents a space that is purely being scaled along its axes, making complex calculations (like raising a matrix to a high power, $A^{100}=PD^{100}P^{-1}$) incredibly fast to compute.
 `,
      },
      {
