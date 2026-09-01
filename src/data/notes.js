@@ -320,9 +320,13 @@ $$
 
 If $(A-\\lambda I)x=0$ has a  nonzero solution, $A-\\lambda I$ is not invertible. **The determinant of $A-\\lambda I$ must be zero.** This is how to recognize an eigenvalue $\\lambda$:
 
-**Eigenvalues** $\\quad \\text{The number } \\lambda \\text{ is an eigenvalue of } A \\text{ if and only if } A-\\lambda I \\text{ is singular.}$
+$$
+\\textbf{Eigenvalues } \\quad \\text{The number } \\lambda \\text{ is an eigenvalue of } A \\text{ if and only if } A-\\lambda I \\text{ is singular.}
+$$
 
-**Equation for the eigenvalues** $\\quad \\det(A-\\lambda I) = 0$.
+$$
+\\textbf{Equation for the eigenvalues } \\quad \\det(A-\\lambda I) = 0.
+$$
 
 This "characteristic polynomial" $\\det(A-\\lambda I)$ involves only $\\lambda$, not $x$. When $A$ is $n$ by $n$, equation $\\det(A-\\lambda I)=0$ is a polynomial of degree $n$ in $\\lambda$. Then $A$ has $n$ eigenvalues (counting multiplicities). Each $\\lambda$ leads to $x$:
 
@@ -344,9 +348,9 @@ To solve the eigenvalue problem for an $n$ by $n$ matrix, follow these steps:
 
 If a transformation has enough eigenvectors to span the entire space, we can use those eigenvectors as our new coordinate system **(an eigenbasis)**. In this eigenbasis, the transformation is represented by a diagonal matrix with the eigenvalues on the diagonal. Geometrically, a diagonal matrix means that the transformation is just pure stretching of space along the coordinate axes, with no rotating or shearing.
 
-**An eigenbasis is simply a coordinate system *(a basis)* made entirely of eigenvectors.** To choose the eigenbasis, find the **eigenvalues $(\\lambda)$** and **eigenvectors $(x)$**. If an $n \\times n$ matrix has $n$ linearly independent eigenvectors, collect those vectors to form a new coordinate axes or the **eigenbasis**.
+**An eigenbasis is simply a coordinate system (a basis) made entirely of eigenvectors.** To choose the eigenbasis, find the **eigenvalues $(\\lambda)$** and **eigenvectors $(x)$**. If an $n \\times n$ matrix has $n$ linearly independent eigenvectors, collect those vectors to form a new coordinate axes or the **eigenbasis**.
 
-Changing our basis means looking at the exact same linear transformation, but from a different perspective *(a different coordinate system)*. If we use the eigenvectors as our new axes, the transformation becomes incredibly simple. Instead of shifting, rotating, and shearing, the transformation from this perspective is pure, independent stretching along each axis.
+Changing our basis means looking at the exact same linear transformation, but from a different perspective **(a different coordinate system)**. If we use the eigenvectors as our new axes, the transformation becomes incredibly simple. Instead of shifting, rotating, and shearing, the transformation from this perspective is pure, independent stretching along each axis.
 
 **Algebraic Formula** $(A=PDP^{-1})$
 
