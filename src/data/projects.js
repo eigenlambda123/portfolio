@@ -1,9 +1,9 @@
 export const projectCards = [
  {
-    title: 'LocalSLM',
+    title: 'ΛIgen',
   description: 'A local, self-hosted SLM agent with tools for browsing files, reading PDFs and text, inspecting the user\'s screen, and more via Ollama.',
   stack: 'Python • CLI • Ollama • RAG • Tool Calling',
-    link: 'https://github.com/eigenlambda123/local-slm',
+    link: 'https://github.com/eigenlambda123/AIgen',
   },
  {
     title: 'MajorMatch',
