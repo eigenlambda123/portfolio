@@ -374,15 +374,33 @@ Geometrically, $D$ is a matrix where all non-diagonal entries are zero, and the 
      },
      {
         title: 'Symmetric Matrices and Positive Definiteness',
-        body: 'Symmetric matrices have real eigenvalues and orthogonal eigenvectors. A symmetric matrix is positive definite if all its eigenvalues are positive.',
-     },
-     {
-        title: 'Singular Value Decomposition (SVD) and Principal Component Analysis (PCA)',
-        body: 'Singular Value Decomposition (SVD) is a factorization of a matrix into three matrices. Principal Component Analysis (PCA) is a technique for dimensionality reduction that uses SVD.',
-     }
+        body: `### Symmetric Matrices
 
+**Symmetric matrices are the most important matrices in both theory and application of linear algebra. It is the best matrix the world has to offer.** We have to ask **"What is special about $Sx=\\lambda x$ when $S$ is symmetric?".** 
+
+We look for special properties of eigenvalues $\\lambda$ and eigenvectors $x$ when $S=S^T$.
+
+The diagonization $S=X\\Lambda X^{-1}$ will reflect the symmetry of $S$. We get some hint by transposing to $S^T=(X\\Lambda X^{-1})^T$. Those are the same since $S^T=S$. Possibly $X^{-1}$ in the first form equals $X^T$ in the second form? Then $X^TX=I$. That makes each eigenvector in $X$ orthogonal to the other eigenvectors when $S=S^T$.
+
+Here are some key facts about symmetric matrices:
+1. **A symmetric matrix has only real eigenvalues.**
+2. **The eigenvectors can be chosen to be orthonormal.**
+
+Those $n$ orthonormal eigenvectors go into the columns of $X$. **Every symmetric matrix can be diagonalized. Its eigenvector matrix $X$ becomes an orthogonal matrix $Q$.** Orthogonal matrices have $Q^{-1}=Q^T$. Note that the eigenvector are not automatically orthonormal. We choose them to be orthonomal. Then $A=X\\Lambda X^{-1}$ is in its special and particular form $S=Q\\Lambda Q^T$ for symmetric matrices.
+
+***SPECTRAL THEOREM***
+
+**Every symmetric matrix has the factorization $S=Q\\Lambda Q^T$ with real eigenvalues $\\Lambda$ and orthonormal eigenvectors in the columns of $Q$:**
+
+$$
+\\textbf{Spectral Theorem } \\quad S=Q\\Lambda Q^{-1} \\quad \\text{with } Q^{-1}=Q^T.
+$$
+
+It is easy to see that $Q\\Lambda Q^T$ is symmetric. Take its transpose. You get $(Q^T)^T\\Lambda^T Q^T$, which is $Q\\Lambda Q^T$ again. The harder part is to prove that every symmetric matrix has real $\\lambda$'s and orthonormal $x$'s. This is the **"spectral theorem"** in mathematics and the **"principle axis theorem"** in geometry and physics. It is the most important theorem in linear algebra. It is the reason that symmetric matrices are so nice. The proof is for you to ponder.
+`,
+      },
     ],
-  },  
+  },
   {
     slug: 'calculus-concepts',
     meta: 'Mathematics',
