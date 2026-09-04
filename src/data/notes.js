@@ -48,7 +48,7 @@ $$
 
 The first equation says that row 1 is perpendicular to $x$. The last equation says that row $m$ is perpendicular to $x$. **Every row has a zero dot product with $x$**. Then $x$ is also perpendicular to every combination of the rows. The whole row space $C(A^T)$ is orthogonal to the nullspace $N(A)$.
         
-Every vector $y$ in the nullspace of $A^{T}$ is perpendicular to ever column of $A$.
+Every vector $y$ in the nullspace of $A^{T}$ is perpendicular to every column of $A$.
 **The left nullspace $N(A^{T})$ and the column space $C(A)$ are orthogonal subspaces of $R^{m}$.**
 
 For the same reason, $y$ is perpendicular to every combination of the columns. The whole column space $C(A)$ is orthogonal to the left nullspace $N(A^{T})$.
@@ -237,13 +237,13 @@ When row $i$ of $Q^T$ multiplies column $j$ of $Q$, the dot product is **$q_i^Tq
 
 **When $Q$ is square, $Q^TQ=I$ means that $Q^T=Q^{-1}$: transpose = inverse.**
 
-If the columns are only orthogonal (not unit vectors), dot product still give a diagonal matrix (not the identity matrix). This diagonal matrix is almost as good as $I$. The important thing is orthogonality, then it is easy to produce unit vectors.
+If the columns are only orthogonal (not unit vectors), the dot product still gives a diagonal matrix (not the identity matrix). This diagonal matrix is almost as good as $I$. The important thing is orthogonality, then it is easy to produce unit vectors.
 
 To Repeat: $Q^TQ=I$ even when $Q$ is rectangular. In that case $Q^T$ is only an inverse from the left. For square matrices we also have $QQ^T=I$, so $Q^T$ is the two-sided inverse of $Q$. The rows of a square $Q$ are orthonormal like the columns. **The inverse is the transpose**. In this square case we call $Q$ an **orthogonal matrix**.
 
 ### Gram-Schmidt Process
 
-Start with three independent vectors **$a, b, c$**. We intend to construct three orthogonal vectors **$A, B, C$**. The we divide **$A, B, C$** by their lengths. That produces three orthonormal vectors **$q_1=A/\\|A\\|, q_2=B/\\|B\\|, q_3=C/\\|C\\|$**.
+Start with three independent vectors **$a, b, c$**. We intend to construct three orthogonal vectors **$A, B, C$**. Then we divide **$A, B, C$** by their lengths. That produces three orthonormal vectors **$q_1=A/\\|A\\|, q_2=B/\\|B\\|, q_3=C/\\|C\\|$**.
 
 **Gram-Schmidt** Begin by choosing $A=a$. This first direction is accepted as it comes. The next direction $B$ must be perpendicular to $A$. **Start with $b$ and subtract its projection along $A$**. This leaves the perpendicular part, which is the orthogonal vector $B$:
 
@@ -251,7 +251,7 @@ $$
 \\text{First Gram-Schmidt step } \\quad B=b-\\frac{A^Tb}{A^TA}A.
 $$
 
-**$A$ and $B$ are now orthogonal**. Multiply the equation above by $A^T$ to verify that $A^TB=A^Tb-A^Tb=0$. **This vector $B$ is what we have called the error vector $e$**, perpendicular to $A$. Notice that $B$ in the equation above is not zero (otherwise $a$ and $b$ would be dependent). The direction **$A$** and **$B$** are now set.
+**$A$ and $B$ are now orthogonal**. Multiply the equation above by $A^T$ to verify that $A^TB=A^Tb-A^Tb=0$. **This vector $B$ is what we have called the error vector $e$**, perpendicular to $A$. Notice that $B$ in the equation above is not zero (otherwise $a$ and $b$ would be dependent). The directions **$A$** and **$B$** are now set.
 
 The third direction starts with **$c$**. This is not a combination of $A$ and $B$ (because $c$ is not a combination of $a$ and $b$). But most likely $c$ is not perpendicular to $A$ and $B$. **So subtract off its components in those two directions to get a perpendicular direction $C$**:
 
@@ -259,7 +259,7 @@ $$
 \\text{Next Gram-Schmidt step } \\quad C=c-\\frac{A^Tc}{A^TA}A-\\frac{B^Tc}{B^TB}B.
 $$
 
-This is the one and only idea of Gram-Schmidt process. **Subtract from every new vector its projections in the directions already set.** That idea is repeated at every step. If we had a fourth vector $d$, we would subtract three projections onto $A, B, C$ to get $D$.
+This is the one and only idea of the Gram-Schmidt process. **Subtract from every new vector its projections in the directions already set.** That idea is repeated at every step. If we had a fourth vector $d$, we would subtract three projections onto $A, B, C$ to get $D$.
 
 ![Figure 4.11: First Gram-Schmidt step, projecting $b$ onto the line through $a$ and finding the orthogonal component $B = b-p$](/notes/gram-schmidt-projection.png)
 
@@ -346,9 +346,9 @@ To solve the eigenvalue problem for an $n$ by $n$ matrix, follow these steps:
 
 ***EIGENBASIS***
 
-If a transformation has enough eigenvectors to span the entire space, we can use those eigenvectors as our new coordinate system **(an eigenbasis)**. In this eigenbasis, the transformation is represented by a diagonal matrix with the eigenvalues on the diagonal. Geometrically, a diagonal matrix means that the transformation is just pure stretching of space along the coordinate axes, with no rotating or shearing.
+If a transformation has enough eigenvectors to span the entire space, we can use those eigenvectors as our new coordinate system **(an eigenbasis)**. In this eigenbasis, the transformation is represented by a diagonal matrix with the eigenvalues on the diagonal. Geometrically, a diagonal matrix means that the transformation is just pure stretching of space along the coordinate axes, with no rotation or shearing.
 
-**An eigenbasis is simply a coordinate system (a basis) made entirely of eigenvectors.** To choose the eigenbasis, find the **eigenvalues $(\\lambda)$** and **eigenvectors $(x)$**. If an $n \\times n$ matrix has $n$ linearly independent eigenvectors, collect those vectors to form a new coordinate axes or the **eigenbasis**.
+**An eigenbasis is simply a coordinate system (a basis) made entirely of eigenvectors.** To choose the eigenbasis, find the **eigenvalues $(\\lambda)$** and **eigenvectors $(x)$**. If an $n \\times n$ matrix has $n$ linearly independent eigenvectors, collect those vectors to form a new coordinate system or the **eigenbasis**.
 
 Changing our basis means looking at the exact same linear transformation, but from a different perspective **(a different coordinate system)**. If we use the eigenvectors as our new axes, the transformation becomes incredibly simple. Instead of shifting, rotating, and shearing, the transformation from this perspective is pure, independent stretching along each axis.
 
@@ -363,7 +363,7 @@ To describe the transformation in the easiest way possible, we perform a three-s
 2. **$A$:** Apply the transformation in standard coordinates.
 3. **$$P$$:** Translate the result back into standard coordinates.
 
-This gives use a **Diagonal Matrix $(D)$:**
+This gives us a **Diagonal Matrix $(D)$:**
 
 $$
 D = P^{-1}AP \\quad \\text{ or } \\quad A = PDP^{-1}
@@ -380,13 +380,13 @@ Geometrically, $D$ is a matrix where all non-diagonal entries are zero, and the 
 
 We look for special properties of eigenvalues $\\lambda$ and eigenvectors $x$ when $S=S^T$.
 
-The diagonization $S=X\\Lambda X^{-1}$ will reflect the symmetry of $S$. We get some hint by transposing to $S^T=(X\\Lambda X^{-1})^T$. Those are the same since $S^T=S$. Possibly $X^{-1}$ in the first form equals $X^T$ in the second form? Then $X^TX=I$. That makes each eigenvector in $X$ orthogonal to the other eigenvectors when $S=S^T$.
+The diagonalization $S=X\\Lambda X^{-1}$ will reflect the symmetry of $S$. We get some hint by transposing to $S^T=(X\\Lambda X^{-1})^T$. Those are the same since $S^T=S$. Possibly $X^{-1}$ in the first form equals $X^T$ in the second form? Then $X^TX=I$. That makes each eigenvector in $X$ orthogonal to the other eigenvectors when $S=S^T$.
 
 Here are some key facts about symmetric matrices:
 1. **A symmetric matrix has only real eigenvalues.**
 2. **The eigenvectors can be chosen to be orthonormal.**
 
-Those $n$ orthonormal eigenvectors go into the columns of $X$. **Every symmetric matrix can be diagonalized. Its eigenvector matrix $X$ becomes an orthogonal matrix $Q$.** Orthogonal matrices have $Q^{-1}=Q^T$. Note that the eigenvector are not automatically orthonormal. We choose them to be orthonomal. Then $A=X\\Lambda X^{-1}$ is in its special and particular form $S=Q\\Lambda Q^T$ for symmetric matrices.
+Those $n$ orthonormal eigenvectors go into the columns of $X$. **Every symmetric matrix can be diagonalized. Its eigenvector matrix $X$ becomes an orthogonal matrix $Q$.** Orthogonal matrices have $Q^{-1}=Q^T$. Note that the eigenvectors are not automatically orthonormal. We choose them to be orthonormal. Then $A=X\\Lambda X^{-1}$ is in its special and particular form $S=Q\\Lambda Q^T$ for symmetric matrices.
 
 ***SPECTRAL THEOREM***
 
@@ -396,7 +396,7 @@ $$
 \\textbf{Spectral Theorem } \\quad S=Q\\Lambda Q^{-1} \\quad \\text{with } Q^{-1}=Q^T.
 $$
 
-It is easy to see that $Q\\Lambda Q^T$ is symmetric. Take its transpose. You get $(Q^T)^T\\Lambda^T Q^T$, which is $Q\\Lambda Q^T$ again. The harder part is to prove that every symmetric matrix has real $\\lambda$'s and orthonormal $x$'s. This is the **"spectral theorem"** in mathematics and the **"principle axis theorem"** in geometry and physics. It is the most important theorem in linear algebra. It is the reason that symmetric matrices are so nice. The proof is for you to ponder.
+It is easy to see that $Q\\Lambda Q^T$ is symmetric. Take its transpose. You get $(Q^T)^T\\Lambda^T Q^T$, which is $Q\\Lambda Q^T$ again. The harder part is to prove that every symmetric matrix has real $\\lambda$'s and orthonormal $x$'s. This is the **"spectral theorem"** in mathematics and the **"principal axis theorem"** in geometry and physics. It is the most important theorem in linear algebra. It is the reason that symmetric matrices are so nice. The proof is for you to ponder.
 
 ### Positive Definite Matrices
 
@@ -424,7 +424,7 @@ $$
 
 The eigenvalues $3$ and $-1$ of $S_1$ confirm that $S_1$ is not positive definite. Its trace is positive, $3-1=2$, but its determinant is negative, $(3)(-1)=-3$. Also, $S_3=-S_2$ is negative definite: $S_2$ has two positive eigenvalues, while $S_3$ has two negative eigenvalues.
 
-Proof that the $2 \\times 2$ is passed when $\\lambda_1 > 0$ and $\\lambda_2 > 0$. Their product $\\lambda_1 \\lambda_2$ is the determinant so $ax-b^2>0$. Their sum $\\lambda_1 + \\lambda_2$ is the trace so $a+c>0$. Then $a$ and $c$ are both positive (if $a$ or $c$ is not positive, $ac-b^2>0$ will fail).
+Proof that the $2 \\times 2$ test passes when $\\lambda_1 > 0$ and $\\lambda_2 > 0$. Their product $\\lambda_1 \\lambda_2$ is the determinant so $ac-b^2>0$. Their sum $\\lambda_1 + \\lambda_2$ is the trace so $a+c>0$. Then $a$ and $c$ are both positive (if $a$ or $c$ is not positive, $ac-b^2>0$ will fail).
 
 The next test uses the $1 \\times 1$ determinant $a$ and the $2 \\times 2$ determinant $ac-b^2$. When $S$ is $3 \\times 3$, $\\det S > 0$ is the third part of the test. The next test requires positive pivots.
 
