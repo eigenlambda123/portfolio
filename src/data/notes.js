@@ -397,6 +397,50 @@ $$
 $$
 
 It is easy to see that $Q\\Lambda Q^T$ is symmetric. Take its transpose. You get $(Q^T)^T\\Lambda^T Q^T$, which is $Q\\Lambda Q^T$ again. The harder part is to prove that every symmetric matrix has real $\\lambda$'s and orthonormal $x$'s. This is the **"spectral theorem"** in mathematics and the **"principle axis theorem"** in geometry and physics. It is the most important theorem in linear algebra. It is the reason that symmetric matrices are so nice. The proof is for you to ponder.
+
+### Positive Definite Matrices
+
+If symmetric matrix $S$ has all positive eigenvalues, it is called **positive definite**. We know that symmetric matrices are important, this extra property $(\\text{all } \\lambda > 0)$ makes it truly special. Symmetric matrices with positive eigenvalues are the center of all kinds of applications.
+
+The first problem is to recognize positive definite matrices. We want to avoid finding the eigenvalues just to test $\\lambda > 0$. Calculating eigenvalues is extra work. When $\\lambda$'s are needed, we can compute them. But if we just want to know if a matrix is positive definite, there are faster ways.
+
+Every eigenvalue is real because the matrix is symmetric.
+
+**Start with $2 \\times 2$. When does $S = \\begin{bmatrix}a & b  \\\\ c & d \\end{bmatrix}$ have $\\lambda_1 > 0$ and $\\lambda_2 > 0$?**
+
+**Test: The eigenvalues of $S$ are positive if and only if $a > 0$ and $ac-b^2 > 0$.**
+
+$$
+S_1 = \\begin{bmatrix} 1 & 2 \\\\ 2 & 1 \\end{bmatrix} \\quad \\text{ is not positive definite because } ac-b^2 = 1-4 < 0
+$$
+
+$$
+S_2 = \\begin{bmatrix} 1 & -2 \\\\ -2 & 6 \\end{bmatrix} \\quad \\text{ is positive definite because } a=1 and ac-b^2 = 6-4 > 0
+$$
+
+$$
+S_3 = \\begin{bmatrix} -1 & 2 \\\\ 2 & -6 \\end{bmatrix} \\quad \\text{ is not positive definite (even with $\\det A = + 2$) because } a=-1
+$$
+
+The eigenvalues $3$ and $-1$ of $S_1$ confirm that $S_1$ is not positive definite. Its trace is positive, $3-1=2$, but its determinant is negative, $(3)(-1)=-3$. Also, $S_3=-S_2$ is negative definite: $S_2$ has two positive eigenvalues, while $S_3$ has two negative eigenvalues.
+
+Proof that the $2 \\times 2$ is passed when $\\lambda_1 > 0$ and $\\lambda_2 > 0$. Their product $\\lambda_1 \\lambda_2$ is the determinant so $ax-b^2>0$. Their sum $\\lambda_1 + \\lambda_2$ is the trace so $a+c>0$. Then $a$ and $c$ are both positive (if $a$ or $c$ is not positive, $ac-b^2>0$ will fail).
+
+The next test uses the $1 \\times 1$ determinant $a$ and the $2 \\times 2$ determinant $ac-b^2$. When $S$ is $3 \\times 3$, $\\det S > 0$ is the third part of the test. The next test requires positive pivots.
+
+**Test: The eigenvalues of $S$ are positive if and only if the pivots are positive:**
+$$
+a>0 \\quad \\text{and} \\quad ac-b^2>0.
+$$
+
+$a>0$ is required in both tests. So $ac>b^2$ is also required for the determinant test and the pivot test. The point is to recognize that ratio as the second pivot of $S$:
+
+$$
+\\begin{bmatrix} a & b \\\\ b & c \\end{bmatrix} \\quad \\xrightarrow[\\text{The multiplier is } b/a]{\\text{The first pivot is } a} \\quad \\begin{bmatrix} a & b \\\\ 0 & c - \\frac{b}{a}b \\end{bmatrix} \\quad \\begin{matrix} \\textbf{\\text {The second pivot is}} \\\\ c - \\dfrac{b^2}{a} = \\dfrac{ac - b^2}{a} \\end{matrix}
+$$
+
+**This connects two big parts of linear algebra. Positive eigenvalues mean positive pivots and vice versa.** Each pivot is a ratio of upper left determinants. The pivots give a quick test for $\\lambda > 0$, and they are a lot faster to compute than the eigenvalues.
+
 `,
       },
     ],
