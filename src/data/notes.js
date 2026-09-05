@@ -443,6 +443,74 @@ $$
 
 `,
       },
+      {
+        title: 'Singular Value Decomposition (SVD) and Principal Component Analysis (PCA)',
+        body: `### Singular Value Decomposition (SVD)
+
+**The singular value decomposition for $A$ is connected to the eigenvalue theorem for $A^TA$ and $AA^T$.**
+
+$A$ has two sets of singular vectors (the eigenvectors of $AA^T$ and $A^TA$). There is one set of positive singular values (because $A^TA$ has the same positive eigenvalues as $AA^T$). $A$ is often rectangular, but $A^TA$ and $AA^T$ are square, symmetric, and positive semidefinite.
+
+**The Singular Value Decomposition $(SVD)$ separates any matrix into simple pieces.**
+
+Each piece is a column vector times a row vector. An $m$ by $n$ matrix has $m$ times $n$ entries. But a column and a row only have **$m+n$ components, far less than $m$ times $n$.** Those (column)(row) pieces are full-size matrices that can be processed with extreme speed; they need only $m+n$ numbers.
+
+***BASES AND MATRICES IN THE SVD***
+
+For any matrix $A$ of size $m \\times n$ with rank $r$, $\\text{SVD}$ provides an orthonormal diagonalization that standard eigenvalue decomposition $(X^{-1}AX)$ cannot handle (especially for non-square or non-orthogonal cases).
+
+**We want to find the right bases for the four fundamental subspaces of $A$ using the SVD.**
+
+$u_1, \\ldots, u_r$ is an orthonormal basis for the **column space**
+$u_{r+1}, \\ldots, u_m$ is an orthonormal basis for the **left nullspace** $\\boldsymbol{N}(A^\\text{T})$
+$v_1, \\ldots, v_r$ is an orthonormal basis for the **row space**
+$v_{r+1}, \\ldots, v_n$ is an orthonormal basis for the **nullspace** $\\boldsymbol{N}(A)$
+
+More than just orthogonality, these basis vectors diagonalize the matrix $A$.
+
+$$
+\\textbf{"A is diagonalized" } \\quad Av_1 = \\sigma_1 u_1, \\quad Av_2 = \\sigma_2 u_2, \\quad \\ldots, \\quad Av_r = \\sigma_r u_r
+$$
+
+Those **singular values $\\sigma_1$ to $\\sigma_r$** will be positive numbers: $\\sigma_i$ is the length of $Av_i$. The $\\sigma$'s go into a diagonal matrix that is otherwise zero. That matrix is $\\Sigma$.
+
+(using matrices) Since the $u$'s are orthonormal, the matrix $U_r$ with those $r$ columns has $U_r^T U_r = I$. Since the $v$'s are orthonormal, the matrix $V_r$ has $V_r^T V_r = I$. Then the equations $Av_i = \\sigma_i u_i$ tell us column by column that $\\boldsymbol{AV_r} = \\boldsymbol{U_r \\Sigma_r}$:
+
+$$
+\\begin{matrix} 
+(m \\text{ by } n)(n \\text{ by } r) \\\\ 
+\\boldsymbol{A}\\boldsymbol{V_r} = \\boldsymbol{U_r}\\boldsymbol{\\Sigma_r} \\\\ 
+(m \\text{ by } r)(r \\text{ by } r) 
+\\end{matrix} 
+\\quad A \\left[ \\rule[-0.8em]{0pt}{2.2em} \\boldsymbol{v_1} \\;\\cdots\\; \\boldsymbol{v_r} \\right] 
+= \\left[ \\rule[-0.8em]{0pt}{2.2em} \\boldsymbol{u_1} \\;\\cdots\\; \\boldsymbol{u_r} \\right] 
+\\begin{bmatrix} \\sigma_1 & & \\\\ & \\ddots & \\\\ & & \\sigma_r \\end{bmatrix}
+$$
+
+**This is the heart of the SVD**, but there is more. Those $v$'s and $u$'s account for the row space and column space of $A$. We have $n-r$ more $v$'s and $m-r$ more $u$'s, from the nullspace $N(A)$ and left nullspace $N(A^T)$. They are automatically orthogonal to the first $v$'s and $u$'s (because the whole nullspaces are orthogonal). We now include all the $v$'s and $u$'s in $V$ and $U$, so these matrices become square. **We still have $AV=U \\Sigma$.**
+
+$$
+\\begin{matrix} 
+(m \\text{ by } n)(n \\text{ by } n) \\\\ 
+\\boldsymbol{AV} \\text{ equals } \\boldsymbol{U\\Sigma} \\\\ 
+(m \\text{ by } m)(m \\text{ by } n) 
+\\end{matrix} 
+\\quad A \\Biggl[ \\boldsymbol{v_1} \\;\\cdots\\; \\boldsymbol{v_r} \\;\\cdots\\; \\boldsymbol{v_n} \\Biggr] 
+= \\Biggl[ \\boldsymbol{u_1} \\;\\cdots\\; \\boldsymbol{u_r} \\;\\cdots\\; \\boldsymbol{u_m} \\Biggr] 
+\\begin{bmatrix} \\sigma_1 & & \\\\ & \\ddots & \\\\ & & \\sigma_r \\end{bmatrix}
+$$
+
+The new $\\Sigma$ is an $(m \\times n)$ matrix. It is just the $r \\times r$ matrix in the first equation with $(m-r)$ extra zero rows and $n-r$ new zero columns. The real change is in the shapes of $U$ and $V$. Those are square matrices and $V^{-1}=V^T$. So $AV=U \\Sigma$ becomes $\\boldsymbol{A=U\\Sigma V^T}$. **This is the Singular Value Decomposition**. We can multiply columns $u_i\\sigma_i$ from $U\\Sigma$ by rows of $V^T$:
+
+$$
+\\boldsymbol{SVD } \\quad A=U\\Sigma V^T = u_1 \\sigma_1 v_1^T + u_2 \\sigma_2 v_2^T + \\cdots + u_r \\sigma_r v_r^T. 
+$$
+
+The second equation was a "reduced SVD" with bases for the row space and column space. The third equation is the full SVD with nullspaces included. They both split up $A$ into the same $r$ matrices $u_i\\sigma_i v_i^T$ of rank one. 
+
+**Each $$\\sigma_i^2$$** is an eigenvalue of $A^TA$ and also $AA^T$**. When we put the singular values in descending order, $\\sigma_1 \\geq \\sigma_2 \\geq \\cdots \\geq \\sigma_r > 0$, the splitting in the last equation gives the $r$ rank-one pieces of $A$ **in order of importance**. This is the idea behind **Principal Component Analysis (PCA)**.
+`,
+      }
     ],
   },
   {
