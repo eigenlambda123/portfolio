@@ -469,7 +469,7 @@ $v_{r+1}, \\ldots, v_n$ is an orthonormal basis for the **nullspace** $\\boldsym
 More than just orthogonality, these basis vectors diagonalize the matrix $A$.
 
 $$
-\\textbf{"A is diagonalized" } \\quad Av_1 = \\sigma_1 u_1, \\quad Av_2 = \\sigma_2 u_2, \\quad \\ldots, \\quad Av_r = \\sigma_r u_r
+\\textbf{\"A is diagonalized\" } \\quad Av_1 = \\sigma_1 u_1, \\quad Av_2 = \\sigma_2 u_2, \\quad \\ldots, \\quad Av_r = \\sigma_r u_r
 $$
 
 Those **singular values $\\sigma_1$ to $\\sigma_r$** will be positive numbers: $\\sigma_i$ is the length of $Av_i$. The $\\sigma$'s go into a diagonal matrix that is otherwise zero. That matrix is $\\Sigma$.
@@ -508,7 +508,7 @@ $$
 
 The second equation was a "reduced SVD" with bases for the row space and column space. The third equation is the full SVD with nullspaces included. They both split up $A$ into the same $r$ matrices $u_i\\sigma_i v_i^T$ of rank one. 
 
-**Each $$\\sigma_i^2$$** is an eigenvalue of $A^TA$ and also $AA^T$**. When we put the singular values in descending order, $\\sigma_1 \\geq \\sigma_2 \\geq \\cdots \\geq \\sigma_r > 0$, the splitting in the last equation gives the $r$ rank-one pieces of $A$ **in order of importance**. This is the idea behind **Principal Component Analysis (PCA)**.
+**Each $$\\sigma_i^2$$ is an eigenvalue of $A^TA$ and also $AA^T$**. When we put the singular values in descending order, $\\sigma_1 \\geq \\sigma_2 \\geq \\cdots \\geq \\sigma_r > 0$, the splitting in the last equation gives the $r$ rank-one pieces of $A$ **in order of importance**. This is the idea behind **Principal Component Analysis (PCA)**.
 `,
       }
     ],
