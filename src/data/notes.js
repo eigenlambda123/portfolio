@@ -509,6 +509,33 @@ $$
 The second equation was a "reduced SVD" with bases for the row space and column space. The third equation is the full SVD with nullspaces included. They both split up $A$ into the same $r$ matrices $u_i\\sigma_i v_i^T$ of rank one. 
 
 **Each $$\\sigma_i^2$$ is an eigenvalue of $A^TA$ and also $AA^T$**. When we put the singular values in descending order, $\\sigma_1 \\geq \\sigma_2 \\geq \\cdots \\geq \\sigma_r > 0$, the splitting in the last equation gives the $r$ rank-one pieces of $A$ **in order of importance**. This is the idea behind **Principal Component Analysis (PCA)**.
+
+***PROOF OF SVD***
+
+**The $v$'s are the orthonormal eigenvectors of $A^TA$. The $u$'s are the orthonormal eigenvectors of $AA^T$. The nonzero eigenvalues of $A^TA$ and $AA^T$ are the same. The square roots of those eigenvalues are the singular values $\\sigma_i$. The SVD is a consequence of the eigenvalue theorem applied to $A^TA$ and $AA^T$.**
+
+Let's take a look at the $v$'s:
+
+$$
+\\boldsymbol{A^TA} = (U\\Sigma V^T)^T(U\\Sigma V^T) = V\\Sigma^TU^TU\\Sigma V^T = \\boldsymbol{V\\Sigma^T\\Sigma V^T}.
+$$
+
+On the right, we see the eigenvector matrix $V$ for symmetric (semi) definite matrix $A^TA$. And $\\Sigma^T \\Sigma$ must be the eigenvalue matrix of $(A^TA)$: Each $\\sigma^2$ is $\\lambda(A^TA)$!
+
+Now $Av_i=\\sigma_i u_i$ tells us the unit vectors $u_1$ to $u_r$. This is the key equation (look at the first equation above). The essential point—the whole reason that the SVD succeeds—is that those unit vectors $u_1$ to $u_r$ are automatically orthogonal to each other (because the $v$'s are orthogonal):
+
+$$
+\\begin{matrix} 
+\\textbf{Key step} \\\\ 
+\\boldsymbol{i} \\neq \\boldsymbol{j} 
+\\end{matrix} 
+\\quad \\boldsymbol{u_i}^{\\text{T}}\\boldsymbol{u_j} = \\left( \\frac{A\\boldsymbol{v_i}}{\\sigma_i} \\right)^{\\text{T}} \\left( \\frac{A\\boldsymbol{v_j}}{\\sigma_j} \\right) = \\frac{\\boldsymbol{v_i}^{\\text{T}} A^{\\text{T}} A \\boldsymbol{v_j}}{\\sigma_i \\sigma_j} = \\frac{\\sigma_j^2}{\\sigma_i \\sigma_j} \\boldsymbol{v_i}^{\\text{T}} \\boldsymbol{v_j} = \\textbf{zero.}
+$$
+
+The $v$'s are eigenvectors of $A^TA$ (symmetric). They are orthogonal and now the $u$'s are also orthogonal. **Actually those $u$'s will be eigenvectors of $AA^T$**.
+
+Finally we complete the $v$'s and $u$'s to $n$ $v$'s and $m$ $u$'s with any orthonormal bases for the nullspace $N(A)$ and $N(A^T)$. We have found $V$ and $\\Sigma$ and $U$ in $A=U \\Sigma V^T$.
+
 `,
       }
     ],
