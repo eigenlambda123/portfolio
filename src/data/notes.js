@@ -536,6 +536,16 @@ The $v$'s are eigenvectors of $A^TA$ (symmetric). They are orthogonal and now th
 
 Finally we complete the $v$'s and $u$'s to $n$ $v$'s and $m$ $u$'s with any orthonormal bases for the nullspace $N(A)$ and $N(A^T)$. We have found $V$ and $\\Sigma$ and $U$ in $A=U \\Sigma V^T$.
 
+**The final two equations "proved" the SVD all at once.** The singular vectors $\\boldsymbol{v_i}$ are the eigenvectors $\\boldsymbol{q_i}$ of $S=A^TA$. The eigenvalues $\\lambda_i$ of $S$ are the same as $\\sigma_i^2$ for $A$. The rank $r$ of $S$ equals the rank of $A$. The expansions in eigenvectors and sigular vectors are perfectly parrallel.
+
+$$
+\\begin{array}{l l}
+\\textbf{Symmetric } S & S = Q\\Lambda Q^{\\text{T}} = \\lambda_1 \\boldsymbol{q}_1 \\boldsymbol{q}_1^{\\text{T}} + \\lambda_2 \\boldsymbol{q}_2 \\boldsymbol{q}_2^{\\text{T}} + \\cdots + \\lambda_r \\boldsymbol{q}_r \\boldsymbol{q}_r^{\\text{T}} \\\\[0.5em]
+\\textbf{Any matrix } A & A = U\\Sigma V^{\\text{T}} = \\sigma_1 \\boldsymbol{u}_1 \\boldsymbol{v}_1^{\\text{T}} + \\sigma_2 \\boldsymbol{u}_2 \\boldsymbol{v}_2^{\\text{T}} + \\cdots + \\sigma_r \\boldsymbol{u}_r \\boldsymbol{v}_r^{\\text{T}}
+\\end{array}
+$$
+
+The $\\boldsymbol{q}$'s are orthonormal, the $\\boldsymbol{u}$'s are orthonormal, the $\\boldsymbol{v}$'s are orthonormal. **TS is so peak!**
 `,
       }
     ],
