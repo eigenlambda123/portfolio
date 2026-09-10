@@ -80,7 +80,7 @@
   max-width: 100%;
   overflow-wrap: anywhere;
   word-break: break-word;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-family);
   color: rgba(28, 28, 28, 0.9);
 }
 
@@ -137,7 +137,7 @@
 
 .note-markdown em {
   color: var(--accent);
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-family);
 }
 
 .note-markdown .katex {
@@ -164,7 +164,7 @@
   font-size: clamp(2.2rem, 3vw, 3.65rem);
   line-height: 1.06;
   letter-spacing: -0.06em;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-family);
   scroll-margin-top: 1.5rem;
 }
 
@@ -199,7 +199,7 @@
   background: transparent;
   box-shadow: none;
   z-index: 1;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-family);
 }
 
 .note-toc-title {
@@ -269,7 +269,7 @@
   display: inline-block;
   margin-bottom: 0.75rem;
   color: var(--accent) !important;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-family);
   font-size: 1rem;
 }
 
