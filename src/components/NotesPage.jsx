@@ -1,4 +1,5 @@
 import { notes } from '../data/notes';
+import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
@@ -35,6 +36,7 @@ export function NotesListPage() {
 }
 
 export function NoteDetailPage({ note }) {
+  const [tocOpen, setTocOpen] = useState(false);
   if (!note) return null;
 
   const content = Array.isArray(note.content) ? note.content : [note.content];
@@ -78,19 +80,30 @@ export function NoteDetailPage({ note }) {
 
         {sections.length > 0 && (
           <nav className="note-toc" aria-label="On this page">
-            <p className="note-toc-title">On this page</p>
-            <ol>
-              {sections.map(({ index, title }) => (
-                <li key={`${note.slug}-toc-${index}`}>
-                  <a
-                    href={`#${createSectionId(note.slug, index, title)}`}
-                    onClick={(event) => scrollToSection(event, createSectionId(note.slug, index, title))}
-                  >
-                    {title}
-                  </a>
-                </li>
-              ))}
-            </ol>
+            <button
+              className="note-toc-toggle"
+              type="button"
+              aria-expanded={tocOpen}
+              aria-controls={`note-toc-list-${note.slug}`}
+              onClick={() => setTocOpen((isOpen) => !isOpen)}
+            >
+              <span>On this page</span>
+              <span aria-hidden="true">{tocOpen ? '−' : '+'}</span>
+            </button>
+            <div className={`note-toc-content ${tocOpen ? 'is-open' : ''}`} id={`note-toc-list-${note.slug}`}>
+              <ol>
+                {sections.map(({ index, title }) => (
+                  <li key={`${note.slug}-toc-${index}`}>
+                    <a
+                      href={`#${createSectionId(note.slug, index, title)}`}
+                      onClick={(event) => scrollToSection(event, createSectionId(note.slug, index, title))}
+                    >
+                      {title}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </nav>
         )}
       </div>
