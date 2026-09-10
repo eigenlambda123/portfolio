@@ -546,6 +546,31 @@ $$
 $$
 
 The $\\boldsymbol{q}$'s are orthonormal, the $\\boldsymbol{u}$'s are orthonormal, the $\\boldsymbol{v}$'s are orthonormal. **TS is so peak!**
+
+
+### Principal Component Analysis (PCA)
+
+The problem that $PCA$ tries to solve is **"How can we reduce the dimensionality of a dataset while preserving as much information as possible?"**. Data is hard to understand specially if it is high-dimensional. We try to use $PCA$ to find a lower-dimensional representation of the data that captures the most important features. The idea is to project the data onto a new set of axes (principal components) that are orthogonal and ordered by the amount of variance they capture.
+
+
+***$\\boldsymbol{PCA}$ ESSENTIALS***
+
+$PCA$ is a method for finding a lower-dimensional representation of a dataset while keeping as much variation as possible. If $X$ is an $m \\times n$ data matrix, we first center each feature by subtracting its mean so the data has zero mean in each coordinate. This yields the centered matrix $A$.
+
+The key linear algebra object is the covariance matrix:
+
+$$
+S = \\frac{1}{n-1} A A^T.
+$$
+
+Its eigenvectors are the principal directions, and its eigenvalues measure how much variance lies along each direction. The singular values of $A$ are the square roots of the eigenvalues of $S$, so $\\lambda_i = \\sigma_i^2$. The corresponding singular vectors give the principal components.
+
+- The total variance is the sum of the eigenvalues, or the trace of the covariance matrix: **$T=\\sigma_1^2+\\cdots+\\sigma_m^2=\\operatorname{tr}(S)$**.
+- The first eigenvector $u_1$ points in the direction of maximum variance.
+- The next eigenvector $u_2$ is orthogonal to $u_1$ and captures the next largest variance.
+- We stop when the remaining eigenvalues are small. Keeping the first $R$ components gives an $R$-dimensional approximation that preserves most of the data.
+
+This is exactly the idea behind dimensionality reduction: **project the centered data onto the top $R$ principal directions and ignore the rest. The result is a lower-dimensional representation whose basis vectors are the principal components.**
 `,
       }
     ],
