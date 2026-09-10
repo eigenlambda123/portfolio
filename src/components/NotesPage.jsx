@@ -1,5 +1,5 @@
 import { notes } from '../data/notes';
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
@@ -37,15 +37,50 @@ export function NotesListPage() {
 
 export function NoteDetailPage({ note }) {
   const [tocOpen, setTocOpen] = useState(false);
-  if (!note) return null;
+  const [activeSectionId, setActiveSectionId] = useState(null);
 
-  const content = Array.isArray(note.content) ? note.content : [note.content];
-  const sections = content
-    .map((block, index) => ({
-      index,
-      title: typeof block === 'string' ? '' : block.title,
-    }))
-    .filter((section) => section.title);
+  const content = note ? (Array.isArray(note.content) ? note.content : [note.content]) : [];
+  const sections = useMemo(
+    () => content
+      .map((block, index) => ({
+        index,
+        title: typeof block === 'string' ? '' : block.title,
+      }))
+      .filter((section) => section.title),
+    [note],
+  );
+
+  useEffect(() => {
+    if (!note || sections.length === 0) {
+      setActiveSectionId(null);
+      return undefined;
+    }
+
+    const sectionIds = sections.map(({ index, title }) => createSectionId(note.slug, index, title));
+    setActiveSectionId(sectionIds[0]);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+
+        if (visibleEntry) {
+          setActiveSectionId(visibleEntry.target.id);
+        }
+      },
+      { rootMargin: '-15% 0px -70% 0px', threshold: 0 },
+    );
+
+    sectionIds.forEach((sectionId) => {
+      const section = document.getElementById(sectionId);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, [note, sections]);
+
+  if (!note) return null;
 
   return (
     <section className="section notes-section">
@@ -95,8 +130,14 @@ export function NoteDetailPage({ note }) {
                 {sections.map(({ index, title }) => (
                   <li key={`${note.slug}-toc-${index}`}>
                     <a
+                      className={activeSectionId === createSectionId(note.slug, index, title) ? 'is-active' : ''}
                       href={`#${createSectionId(note.slug, index, title)}`}
-                      onClick={(event) => scrollToSection(event, createSectionId(note.slug, index, title))}
+                      aria-current={activeSectionId === createSectionId(note.slug, index, title) ? 'location' : undefined}
+                      onClick={(event) => {
+                        const sectionId = createSectionId(note.slug, index, title);
+                        setActiveSectionId(sectionId);
+                        scrollToSection(event, sectionId);
+                      }}
                     >
                       {title}
                     </a>

@@ -259,9 +259,11 @@
 }
 
 .note-toc a:hover,
-.note-toc a:focus-visible {
+.note-toc a:focus-visible,
+.note-toc a.is-active {
   padding-left: 0.2rem;
-  color: var(--text);
+  color: var(--accent);
+  font-weight: 600;
   outline: none;
 }
 
