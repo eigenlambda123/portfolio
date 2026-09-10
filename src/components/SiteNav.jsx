@@ -15,7 +15,7 @@ export function SiteNav({ page, activeMainNav, onMainNavClick }) {
   return (
     <>
       <button
-        className="mobile-menu-toggle"
+        className={`mobile-menu-toggle ${mobileMenuOpen ? 'is-open' : ''}`}
         aria-label="Toggle navigation menu"
         aria-expanded={mobileMenuOpen}
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -50,7 +50,11 @@ export function SiteNav({ page, activeMainNav, onMainNavClick }) {
         <p className="sidebar-note">CS student that likes learning and building useful things.</p>
       </aside>
 
-      {mobileMenuOpen && <div className="mobile-menu-overlay" onClick={() => setMobileMenuOpen(false)}></div>}
+      <div
+        className={`mobile-menu-overlay ${mobileMenuOpen ? 'is-open' : ''}`}
+        onClick={() => setMobileMenuOpen(false)}
+        aria-hidden="true"
+      ></div>
     </>
   );
 }

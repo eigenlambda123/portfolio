@@ -28,6 +28,7 @@ export function getActiveMainNav(hash) {
   if (normalized === 'top') return 'about';
   if (normalized === 'about') return 'projects';
   if (normalized === 'projects') return 'projects';
+  if (normalized === 'skills') return 'skills';
   if (normalized === 'certifications') return 'certifications';
   if (normalized === 'contact') return 'contact';
 
@@ -49,6 +50,7 @@ export function getActiveMainNavFromScroll() {
   const sections = [
     { key: 'about', id: 'top' },
     { key: 'projects', id: 'about' },
+    { key: 'skills', id: 'skills' },
     { key: 'certifications', id: 'certifications' },
     { key: 'contact', id: 'contact' },
   ];
