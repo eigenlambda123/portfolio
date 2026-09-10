@@ -57,7 +57,7 @@ function App() {
     };
   }, []);
 
-  const handleMainNavClick = (event, targetHash, navKey) => {
+  const handleMainNavClick = (targetHash, navKey) => {
     const nextHash = targetHash || '#top';
 
     if (window.location.hash !== nextHash) {

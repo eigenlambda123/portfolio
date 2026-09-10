@@ -202,13 +202,6 @@
   font-family: var(--font-family);
 }
 
-.note-toc-title {
-  margin: 0 0 0.8rem;
-  color: rgba(28, 28, 28, 0.8);
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
 .note-toc-toggle {
   display: flex;
   align-items: center;

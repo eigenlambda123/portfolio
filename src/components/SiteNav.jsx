@@ -3,8 +3,8 @@ import { useState } from 'react';
 export function SiteNav({ page, activeMainNav, onMainNavClick }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const handleNavClick = (event, targetHash, navKey) => {
-    onMainNavClick(event, targetHash, navKey);
+  const handleNavClick = (targetHash, navKey) => {
+    onMainNavClick(targetHash, navKey);
     setMobileMenuOpen(false);
   };
 
@@ -30,14 +30,14 @@ export function SiteNav({ page, activeMainNav, onMainNavClick }) {
         aria-label="Sidebar navigation"
       >
         <div className="brand-wrap">
-          <a className="brand" href="#top" onClick={(event) => handleNavClick(event, '#top', 'about')}>_eigenlambda</a>
+          <a className="brand" href="#top" onClick={() => handleNavClick('#top', 'about')}>_eigenlambda</a>
         </div>
 
         <nav className="nav-links" aria-label="Main navigation">
-          <a href="#top" onClick={(event) => handleNavClick(event, '#top', 'about')} className={activeMainNav === 'about' ? 'is-active' : ''}>About</a>
-          <a href="#projects" onClick={(event) => handleNavClick(event, '#projects', 'projects')} className={activeMainNav === 'projects' ? 'is-active' : ''}>Projects</a>
-          <a href="#skills" onClick={(event) => handleNavClick(event, '#skills', 'skills')} className={activeMainNav === 'skills' ? 'is-active' : ''}>Skills</a>
-          <a href="#contact" onClick={(event) => handleNavClick(event, '#contact', 'contact')} className={activeMainNav === 'contact' ? 'is-active' : ''}>Contact</a>
+          <a href="#top" onClick={() => handleNavClick('#top', 'about')} className={activeMainNav === 'about' ? 'is-active' : ''}>About</a>
+          <a href="#projects" onClick={() => handleNavClick('#projects', 'projects')} className={activeMainNav === 'projects' ? 'is-active' : ''}>Projects</a>
+          <a href="#skills" onClick={() => handleNavClick('#skills', 'skills')} className={activeMainNav === 'skills' ? 'is-active' : ''}>Skills</a>
+          <a href="#contact" onClick={() => handleNavClick('#contact', 'contact')} className={activeMainNav === 'contact' ? 'is-active' : ''}>Contact</a>
         </nav>
 
         <div className="nav-divider" aria-hidden="true"></div>
