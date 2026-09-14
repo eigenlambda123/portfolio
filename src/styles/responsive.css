@@ -283,6 +283,15 @@
     margin-top: 1rem;
   }
 
+  .cert-filter {
+    gap: 0.5rem;
+  }
+
+  .cert-filter-button {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.75rem;
+  }
+
   .cert-category h4 {
     font-size: 0.95rem;
     margin-bottom: 0.8rem;

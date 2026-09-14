@@ -1,8 +1,15 @@
+import { useState } from 'react';
 import { projectCards } from '../data/projects';
 import { skillChips } from '../data/skills';
 import { certifications } from '../data/certifications';
 
 export function HomePage() {
+  const [selectedCertificationCategory, setSelectedCertificationCategory] = useState(certifications[0].label);
+
+  const visibleCertifications = certifications.filter(
+    (category) => category.label === selectedCertificationCategory,
+  );
+
   return (
     <>
       <section className="hero" id="top">
@@ -65,8 +72,22 @@ export function HomePage() {
           <p className="section-tag">Certifications</p>
           <p className="muted">Click a thumbnail to open the original PDF.</p>
 
-          <div className="cert-grid">
+          <div className="cert-filter" role="group" aria-label="Filter certifications by category">
             {certifications.map((category) => (
+              <button
+                className={`cert-filter-button ${selectedCertificationCategory === category.label ? 'is-active' : ''}`}
+                type="button"
+                aria-pressed={selectedCertificationCategory === category.label}
+                key={category.label}
+                onClick={() => setSelectedCertificationCategory(category.label)}
+              >
+                {category.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="cert-grid">
+            {visibleCertifications.map((category) => (
               <div className="cert-category" key={category.label}>
                 <h4>{category.label}</h4>
                 <div className="thumb-row">
@@ -74,8 +95,8 @@ export function HomePage() {
                     <a href={item.pdf} target="_blank" rel="noreferrer" key={item.title}>
                       <img src={item.image} alt={item.title} loading="lazy" width="320" />
                     </a>
-                  ))}
-                </div>
+                    ))}
+                  </div>
               </div>
             ))}
           </div>
