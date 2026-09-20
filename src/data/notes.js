@@ -625,8 +625,36 @@ $$
 `,
       },
       {
-        title: 'Derivative Rules and Techniques',
-        body: 'The derivative of a function measures the rate at which the function changes with respect to its input. There are various rules and techniques for finding derivatives, including the power rule, product rule, quotient rule, and chain rule.',
+        title: 'Critical Points and Extrema',
+        body: `### Critical Points
+        
+We say that $x=c$ is a critical point of the function $f(x)$ if $f(c)$ exists and if either of the following are true.
+
+$$
+f'(c)=0 \\quad \\text{or} \\quad f'(c) \\text{ does not exist}
+$$
+
+### Extrema (Minimum and Maximum Values)
+
+**Definition:**
+1. We say that $f(x)$ has an **absolute (or global) maximum** at $x=c$ if $f(x)\\leq f(c)$ for every $x$ in the domain we are working on.
+2. We say that $f(x)$ has a **relative (or local) maximum** at $x=c$ if $f(x)\\leq f(c)$ for every $x$ in some open interval around $x=c$.
+3. We say that $f(x)$ has an **absolute (or global) minimum** at $x=c$ if $f(x) \\geq f(c)$ for every $x$ in the domain we are working on.
+4. We say that $f(x)$ has a **relative (or local) minimum** at $x=c$ if $f(x)\\geq f(c)$ for every $x$ in some open interval around $x=c$.
+
+![Graph illustrating absolute and relative extrema](/notes/extrema.png)
+
+***EXTREME VALUE THEOREM***
+Suppose that $f(x)$ is continuous on the interval $[a,b]$. Then there are two numbers $c$ and $d$ in $[a,b]$ such that $f(c)$ is an absolute maximum of the function and $f(d)$ is an absolute minimum of the function.
+
+So, if we have a continuous function on an interval $[a,b]$, then we are guaranteed to have both an absolute maximum and an absolute minimum for the function somewhere in the interval. The theorem doesn't tell us where they will occur or whether they occur more than once, but at least it tells us that they do exist somewhere. Sometimes, all that we need to know is that they do exist.
+
+***FERMAT'S THEOREM***
+If $f(x)$ has a relative extremum at $x=c$ and $f'(c)$ exists, then $x=c$ is a critical point of $f(x)$. In fact, it will be a critical point such that $f'(c)=0$.
+
+This theorem tells us that there is a nice relationship between relative extrema and critical points. In fact, it will allow us to get a list of all possible relative extrema. Since a relative extremum must be a critical point, the list of all critical points will give us a list of all possible relative extrema.
+
+`,
       },
       {
         title: 'Chain Rule',
