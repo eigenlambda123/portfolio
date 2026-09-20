@@ -582,8 +582,47 @@ This is exactly the idea behind dimensionality reduction: **project the centered
     summary: 'A collection of calculus concepts that I find particularly interesting or useful.',
     content: [
       {
-        title: 'The Definition of the Limits',
-        body: 'The limit of a function describes the behavior of the function as the input approaches a certain value. It is a fundamental concept in calculus that is used to define continuity, derivatives, and integrals.',
+        title: 'Higher Order Derivatives',
+        body: `Higher order derivatives are the derivatives of a function taken multiple times. The first derivative represents the rate of change of the function, while the second derivative represents the rate of change of the first derivative, and so on.
+
+Start with the function $f(x)=5x^{3}-3x^{2}+10x-5$, then the first derivative is $f'(x)=15x^{2}-6x+10$, the second derivative is $f''(x)=30x-6$, and the third derivative is $f'''(x)=30$. The fourth derivative is $f^{(4)}(x)=0$ and all higher order derivatives are also zero.
+
+**Fact:**
+
+If $p(x)$ is a polynomial of degree $n$, then
+
+$$
+p^{(k)}(x)=0 \\quad \\text{for all } k>n
+$$
+
+***INTERPRETATION***
+
+If the **position** of an object is given by $s(t)$ we know that the **velocity** is the first derivative of the position.
+
+$$
+v(t)=s'(t)
+$$
+
+The **acceleration** of the object is the first derivative of the **velocity**, but since this is the first derivative of the position function we can also think of the acceleration as the second derivative of the position function.
+
+$$
+a(t)=v'(t)=s''(t)
+$$
+
+The **jerk** of the object is the first derivative of the **acceleration**, but since this is the first derivative of the velocity function we can also think of the jerk as the third derivative of the position function.
+
+$$
+j(t)=a'(t)=v''(t)=s'''(t)
+$$
+
+***NOTATION***
+
+An alternate notation for higher order derivatives is
+
+$$
+f'(x) = \\frac{df}{dx}, \\quad f''(x) = \\frac{d^2f}{dx^2}, \\quad f'''(x) = \\frac{d^3f}{dx^3}, \\quad f^{(n)}(x) = \\frac{d^nf}{dx^n}.
+$$
+`,
       },
       {
         title: 'Derivative Rules and Techniques',
