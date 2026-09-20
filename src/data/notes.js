@@ -646,13 +646,13 @@ $$
 
 ***EXTREME VALUE THEOREM***
 
-Suppose that $f(x)$ is continuous on the interval $[a,b]$. Then there are two numbers $c$ and $d$ in $[a,b]$ such that $f(c)$ is an absolute maximum of the function and $f(d)$ is an absolute minimum of the function.
+**Suppose that $f(x)$ is continuous on the interval $[a,b]$. Then there are two numbers $c$ and $d$ in $[a,b]$ such that $f(c)$ is an absolute maximum of the function and $f(d)$ is an absolute minimum of the function.**
 
 So, if we have a continuous function on an interval $[a,b]$, then we are guaranteed to have both an absolute maximum and an absolute minimum for the function somewhere in the interval. The theorem doesn't tell us where they will occur or whether they occur more than once, but at least it tells us that they do exist somewhere. Sometimes, all that we need to know is that they do exist.
 
 ***FERMAT'S THEOREM***
 
-If $f(x)$ has a relative extremum at $x=c$ and $f'(c)$ exists, then $x=c$ is a critical point of $f(x)$. In fact, it will be a critical point such that $f'(c)=0$.
+**If $f(x)$ has a relative extremum at $x=c$ and $f'(c)$ exists, then $x=c$ is a critical point of $f(x)$. In fact, it will be a critical point such that $f'(c)=0$.**
 
 This theorem tells us that there is a nice relationship between relative extrema and critical points. In fact, it will allow us to get a list of all possible relative extrema. Since a relative extremum must be a critical point, the list of all critical points will give us a list of all possible relative extrema.
 
