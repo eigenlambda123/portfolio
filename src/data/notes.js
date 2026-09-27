@@ -731,32 +731,8 @@ In order for Newton's Method to be applied, we must address two issues. First, w
     slug: 'machine-learning',
     meta: 'Machine Learning',
     title: 'Machine Learning',
-    summary: 'My notes on machine learning concepts, algorithms, and techniques that I currently know and understand.',
+    summary: 'Random notes on machine learning that contains ml concepts, algorithms, and techniques.',
     content: [
-      {
-        title: 'The Machine Learning Pipeline',
-        body: 'The machine learning pipeline is a series of steps that are followed to build and deploy a machine learning model. It typically includes data collection, data preprocessing, feature engineering, model selection, training, evaluation, and deployment.',
-      },
-      {
-        title: 'Learning Algorithms and Techniques',
-        body: 'There are various learning algorithms and techniques used in machine learning, including supervised learning, unsupervised learning, reinforcement learning, and deep learning. Each approach has its own strengths and weaknesses and is suited for different types of problems.',
-      },
-      {
-        title: 'Online Learning and Batch Learning',  
-        body: 'Online learning is a machine learning approach where the model is updated incrementally as new data arrives. Batch learning, on the other hand, involves training the model on the entire dataset at once. Online learning is useful for streaming data and real-time applications, while batch learning is suitable for static datasets.',
-      },
-      {
-        title: 'Evaluation Metrics and Model Selection',
-        body: 'Evaluation metrics are used to assess the performance of a machine learning model. Common metrics include accuracy, precision, recall, F1 score, and area under the ROC curve. Model selection involves choosing the best model based on these evaluation metrics and other considerations such as complexity and interpretability.',
-      },
-      {
-        title: 'Data Preprocessing and Feature Engineering',
-        body: 'Data preprocessing involves cleaning and transforming raw data into a format suitable for analysis. Feature engineering is the process of creating new features or modifying existing ones to improve the performance of machine learning models. Both steps are crucial for building effective models.',
-      },
-      {
-        title: 'Regularization and Overfitting',
-        body: 'Regularization is a technique used to prevent overfitting in machine learning models by adding a penalty term to the loss function. Overfitting occurs when a model learns the training data too well, capturing noise and leading to poor generalization on new data. Common regularization techniques include L1 and L2 regularization.',
-      },
     ]
   },
   {
