@@ -733,6 +733,74 @@ In order for Newton's Method to be applied, we must address two issues. First, w
     title: 'Machine Learning',
     summary: 'Random notes on machine learning that contains ml concepts, algorithms, and techniques.',
     content: [
+      {
+        title: 'Linear Regression',
+        body: `**Linear Regression Model Prediction**
+
+$$
+\\hat{y}=\\theta_{1}x_{1}+\\theta_{2}x_{2}+\\dots+\\theta_{n}x_{n}
+$$
+
+where:
+- $\\boldsymbol{\\hat{y}}$ is the predicted value.
+- $\\boldsymbol{n}$ is the number of features.
+- $\\boldsymbol{x_{i}}$ is the $i^{\\text{th}}$ feature value.
+- $\\boldsymbol{\\theta_{j}}$ is the $j^{\\text{th}}$ model parameter, including the bias term $\\boldsymbol{\\theta_{0}}$ and the feature weights $\\boldsymbol{\\theta_{1}}, \\boldsymbol{\\theta_{2}}, \\dots, \\boldsymbol{\\theta_{n}}$.
+
+**Linear Regression Model Prediction *(Vectorized Form)***
+
+$$
+\\hat{y}=h_{\\theta}(x)=\\theta \\cdot x
+$$
+where:
+- $\\boldsymbol{h_{\\theta}}$ is the hypothesis function, using the models parameters $\\theta$.
+- $\\boldsymbol{\\theta}$ is the model's **parameter vector**, containing the bias term $\\theta_{0}$ and the feature weights $\\theta_{1}$ to $\\theta_{n}$.
+- $\\boldsymbol{x}$ is the instance's **feature vector**, containing $x_{1}$ to $x_{n}$ with $x_{0}$ always equal to $1$.
+- $\\boldsymbol{\\theta \\cdot x}$ is the dot product of the vectors $\\theta$ and $x$, which is equal to $\\hat{y}=\\theta_{1}x_{1}+\\theta_{2}x_{2}+\\dots+\\theta_{n}x_{n}$.
+
+
+**How do we train a Linear Regression model?**
+
+The most common performance measure of a regression model is the root mean square error $\\boldsymbol{RMSE}$. Therefore, to train a linear regression model, we need to find the value of $\\boldsymbol{\\theta}$ that minimizes the $\\boldsymbol{RMSE}$. In practice, it is simpler to minimize the mean squared error $\\boldsymbol{MSE}$ than $\\boldsymbol{RMSE}$, and it leads to the same result (because the value that minimizes a positive function also minimizes its square root).
+
+***THE NORMAL EQUATION***
+
+To find the value of $\\theta$ that minimizes the $MSE$, there exist a **closed-form solution**, in other words, a mathematical equation that gives the result directly. This is called the **Normal Equation**.
+
+$$
+\\hat{\\theta}=(X^TX)^{-1}X^Ty
+$$
+
+where:
+- $\\boldsymbol{\\hat{\\theta}}$ is the value of $\\theta$ that minimizes the cost function.
+- $\\boldsymbol{y}$ is the vector of target values containing $y^{(i)}$ to $y^{(m)}$.
+
+For example, using a small dataset:
+\`\`\`python
+import numpy as np
+
+X = np.array([[1], [2], [3], [4]], dtype=float)
+y = np.array([2, 4, 6, 8], dtype=float)
+
+# Add a column of 1s for the bias term.
+X_b = np.c_[np.ones((len(X), 1)), X]
+
+theta_best = np.linalg.inv(X_b.T @ X_b) @ X_b.T @ y
+theta_best
+\`\`\`
+
+Or using \`sklearn\`:
+\`\`\`python
+from sklearn.linear_model import LinearRegression
+
+lin_reg = LinearRegression()
+lin_reg.fit(X, y)
+lin_reg.intercept_, lin_reg.coef_
+\`\`\`
+
+The Normal equation computes the inverse of $X^TX$, which is an $(n+1)\\times(n+1)$ matrix **(where $n$ is the number of features)**. The **computational complexity** of inverting such matrix is typically about $O(n^{2.4})$ to $O(n^{3})$, depending on the implementation. In other words, if we double the number of features, we multiply the computation time by roughly $2^{2.4}=5.3$ to $2^{3}=8$.
+`
+      }
     ]
   },
   {
