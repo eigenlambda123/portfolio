@@ -1,8 +1,8 @@
 export const notes = [
   {
-    slug: 'linear-algebra-concepts',
+    slug: 'linear-algebra',
     meta: 'Mathematics',
-    title: 'Linear Algebra Concepts',
+    title: 'Linear Algebra',
     summary: 'A collection of linear algebra concepts that I find particularly interesting or useful.',
     content: [
       {
@@ -576,9 +576,9 @@ This is exactly the idea behind dimensionality reduction: **project the centered
     ],
   },
   {
-    slug: 'calculus-concepts',
+    slug: 'calculus',
     meta: 'Mathematics',
-    title: 'Calculus Concepts',
+    title: 'Calculus',
     summary: 'A collection of calculus concepts that I find particularly interesting or useful.',
     content: [
       {
