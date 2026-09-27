@@ -800,7 +800,46 @@ lin_reg.intercept_, lin_reg.coef_
 
 The Normal equation computes the inverse of $X^TX$, which is an $(n+1)\\times(n+1)$ matrix **(where $n$ is the number of features)**. The **computational complexity** of inverting such matrix is typically about $O(n^{2.4})$ to $O(n^{3})$, depending on the implementation. In other words, if we double the number of features, we multiply the computation time by roughly $2^{2.4}=5.3$ to $2^{3}=8$.
 `
-      }
+    },
+    {
+      title: 'Regression Performance Measures',
+      body: `### Root Mean Square Error $(RMSE)$
+
+$$
+\\boldsymbol{RMSE}(X, h)=\\sqrt{ \\frac{1}{m}\\sum_{i=1}^{m} (h(x^{(i)})-y^{(i)})^2}
+$$
+
+where:
+- $\\boldsymbol{RMSE}(X,h)$ is the Root Mean Square Error function, evaluated on the dataset $X$ using the hypothesis or machine learning model $h$.
+- $\\boldsymbol{m}$ is the total number of instances (data points or sample size) in the dataset.
+- $\\boldsymbol{X}$ is a matrix containing all the feature values (excluding the labels) of all instances is the dataset.
+- $\\boldsymbol{h}$ is the system's prediction function, also known as the **hypothesis**. Given a set of features $x^{(i)}$, is outputs a predicted value $\\hat{y}^{(i)}=h(x^{(i)})$.
+- $\\boldsymbol{x}^{(i)}$ is a vector containing all feature values of the $i^{\\text{th}}$ data instance in the dataset.
+- $\\boldsymbol{y}^{(i)}$ is the actual target value for the $i^{th}$ data instance.
+- $\\boldsymbol{\\sum}_{i=1}^{m}$ is an instruction to calculate the square difference for every instance from $i=1$ to $i=m$ and sum them all up.
+- $\\boldsymbol{(h(x^{(i)})-y^{(i)})^{2}}$ is the **square error** for the $i^{\\text{th}}$ sample. Subtracting the true label $y^{(i)}$ from the predicted value $h(x^{(i)})$ gives the error, which is then squared to ensure all values are positive and to punish large errors move heavily.
+- $\\boldsymbol{\\frac{1}{m}}$ divides the total sum of squared errors by the number of instances $m$, yielding the **Mean Squared Error $(MSE)$**.
+- $\\boldsymbol{\\sqrt{}}$ is applied over the entire mean squared error $(MSE)$, bringing the unit of measurement back down to the target variable's original scale.
+
+
+### Mean Absolute Error $(MAE)$
+
+$$
+\\boldsymbol{MAE}(X,h)=\\frac{1}{m}\\sum_{i=1}^{m}|h(x^{(i)}-y^{(i)})|
+$$
+
+where:
+- $\\boldsymbol{MAE}(X,h)$ is the Mean Absolute Error function, calculated over dataset $X$ using hypothesis model $h$.
+- $\\boldsymbol{m}$ is the total number of instances (data points or sample size) in the dataset.
+- $\\boldsymbol{X}$ is a matrix containing all the feature values (excluding the labels) of all instances is the dataset.
+- $\\boldsymbol{h}$ is the system's prediction function, also known as the **hypothesis**. Given a set of features $x^{(i)}$, is outputs a predicted value $\\hat{y}^{(i)}=h(x^{(i)})$.
+- $\\boldsymbol{x}^{(i)}$ is a vector containing all feature values of the $i^{\\text{th}}$ data instance in the dataset.
+- $\\boldsymbol{y}^{(i)}$ is the actual target value for the $i^{th}$ data instance.
+- $\\boldsymbol{\\sum}_{i=1}^{m}$ is an instruction to calculate the absolute difference for every instance from $i=1$ to $i=m$ and sum them all up.
+- $\\boldsymbol{\\|h(x^{(i)}) - y^{(i)}\\|}$ is the **absolute error** for the $i^{\\text{th}}$ sample. The vertical bars $\\vert{}\\cdot\\vert{}$ take the absolute value of the difference between prediction and actual target, turning all negative errors into positive numbers so they don't cancel each other out.
+- $\\boldsymbol{\\frac{1}{m}}$ multiplies (or divides) the total sum of absolute errors by the number of instances $m$ to calculate the average (mean) error across the entire dataset.
+`
+    }
     ]
   },
   {
