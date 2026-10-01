@@ -73,6 +73,101 @@ The Normal equation computes the inverse of $X^TX$, which is an $(n+1)\\times(n+
 `
     },
     {
+      title: 'Polynomial Regression',
+      body: ` **Definition**
+      
+In statistics, **polynomial regression** is a form of regression analysis in which the relationship between the independent variable $x$ in the dependent variable $y$ is modeled as polynomial in $x$. Polynomial regression fits a nonlinear relationship between the value of $x$ and the corresponding conditional mean of $y$, denoted $E(y|x)$. Although polynomial regression first a nonlinear model to the data, as a statistical estimation problem it is linear, in the sense that the regression function $E(y|x)$ is linear in the unknown parameters that are estimated from the data. Thus, **polynomial regression is a special case of multiple linear regression**.
+
+The explanatory (independent) variables resulting from the polynomial expansion of the "baseline" variables are known as **higher-degree terms**. Such variables are also used in classification settings.
+
+In general, we can model the expected value of $y$ as an $n^{\\text{th}}$ degree polynomial, yielding the general polynomial regression model, 
+
+$$
+y= \\beta_{0}+\\beta_{1}x+\\beta_{2}x^{2}+\\beta_{3}x^{3}+\\dots+\\beta_{n}x^{n}+\\epsilon
+$$
+
+where:
+- $\\boldsymbol{y}$ is the dependent variable (the response or outcome being predicted).
+- $\\boldsymbol{n}$ is the degree of the polynomial model (the highest exponent of $x$).
+- $\\boldsymbol{x}$ is the single independent variable (or baseline feature).
+- $\\boldsymbol{x^k}$ (such as $x^2, x^3, \dots, x^n$) are the higher-degree polynomial terms derived from $x$, representing non-linear features.
+- $\\boldsymbol{\\beta_0}$ is the $y$-intercept term (the expected value of $y$ when $x = 0$).
+- $\\boldsymbol{\\beta_1}, \\boldsymbol{\\beta_2}, \\dots, \\boldsymbol{\\beta_n}$ are the unknown regression coefficients (parameters) to be estimated, where each represents the weighting of its corresponding polynomial term.
+- $\\boldsymbol{\\epsilon}$ (epsilon) is the unobserved random error term (residuals), accounting for variability in $y$ not explained by the polynomial relationship (assumed to have a mean of zero).
+
+**Note on Terminology:** In single-variable polynomial regression, $n$ represents the **degree of the polynomial** (how complex the curve is) rather than distinct input features. However, computationally, each power $x^k$ is treated as an individual feature in a **multiple linear regression** framework.
+
+Conveniently, this model is a linear from the point of view of estimation, since the regression function is linear in terms of unknown parameters $\\beta_{0},\\beta_{1},\\dots$ Therefore, for least squares analysis, the computational and inferential problems of polynomial regression can be completely addressed using the techniques of multiple regression. This is done by treating $x, x^2, \\dots$ as being distinct independent variables in a multiple regression model.
+
+**Matrix form and Calculation of Estimates**
+
+The polynomial regression model 
+
+$$
+y_{i}=\\beta_{0}+B_{1}x_{i}+\\beta_{2}x_{i}^{2}+\\dots+\\beta_{m}x_{i}^{m}+\\epsilon_{i} \\ (i=1,2,\\dots,n)
+$$
+
+can be expressed in matrix form in terms of a design matrix $X$, a response vector $\\vec{y}$, a parameter $\\vec{B}$, and a vector $\\vec{\\epsilon}$ of random errors. The $i$-th row of $X$ and $\\vec{y}$ will contain the $x$ and $y$ value for the $i$-th data sample. Then the model can be written as a system of linear equations:
+
+$$
+\\begin{bmatrix} 
+y_1 \\\\ 
+y_2 \\\\ 
+y_3 \\\\ 
+\\vdots \\\\ 
+y_n 
+\\end{bmatrix} 
+= 
+\\begin{bmatrix} 
+1 & x_1 & x_1^2 & \\dots & x_1^m \\\\ 
+1 & x_2 & x_2^2 & \\dots & x_2^m \\\\ 
+1 & x_3 & x_3^2 & \\dots & x_3^m \\\\ 
+\\vdots & \\vdots & \\vdots & \\ddots & \\vdots \\\\ 
+1 & x_n & x_n^2 & \\dots & x_n^m 
+\\end{bmatrix} 
+\\begin{bmatrix} 
+\\beta_0 \\\\ 
+\\beta_1 \\\\ 
+\\beta_2 \\\\ 
+\\vdots \\\\ 
+\\beta_m 
+\\end{bmatrix} 
++ 
+\\begin{bmatrix} 
+\\varepsilon_1 \\\\ 
+\\varepsilon_2 \\\\ 
+\\varepsilon_3 \\\\ 
+\\vdots \\\\ 
+\\varepsilon_n 
+\\end{bmatrix}
+$$
+
+which when using pure matrix notation is written as, 
+
+$$
+\\vec{y}=X \\vec{\\beta} + \\vec{\\epsilon}
+$$
+
+where:
+- $\\boldsymbol{\\vec{y}}$ is the column vector of size $n \\times 1$ called the **Response/Target Vector**, containing all observed values of the dependent variable for $n$ data points.
+- $\\boldsymbol{X}$ is a matrix of size $n \times (m+1)$ called the **Design/Feature Matrix**, where each row represents an observation and each column represents a polynomial power of $x$.
+- $\\boldsymbol{\\vec{\\beta}}$ is a column vector of size $(m+1)\\times 1$ called the **Parameter/Coefficient Vector** containing the unknown regression coefficients to be estimated.
+- $\\boldsymbol{\\epsilon}$ is a column vector of size $n \\times 1$ called the **Error/Residual Vector** containing the random errors for each data sample.
+
+The vector of estimated polynomial regression coefficients (using ordinary least squares estimation) is, 
+
+$$
+\\hat{\\vec{\\beta}}=(X^TX)^{-1}X^T \\vec{y}
+$$
+
+assuming $m<n$ which is required for the matrix to be invertible; This is the unique least-square solution. In other words, it realizes the minimum distance $||\\vec{\\epsilon}||$ between the sample $y_{i}$ and the corresponding value of the polynomial, $\\sum_{k=1}^{m}\\beta_{k}x_{i}^{k}$, that is, it realizes the minimum, 
+
+$$
+\\min_{{\\vec{\\beta}}} \\sum_{i=1}^{n}\\left(y_{i} - \\sum_{k=1}^{m}\\beta_{k} x_{i}^{k} \\right)^{2}
+$$
+`
+    },
+    {
       title: 'Regression Performance Measures',
       body: `### Coefficient of Determination ($R^2$ Score)
 
