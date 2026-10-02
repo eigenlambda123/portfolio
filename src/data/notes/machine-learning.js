@@ -229,6 +229,25 @@ where:
 - $\\boldsymbol{\\|h(x^{(i)}) - y^{(i)}\\|}$ is the **absolute error** for the $i^{\\text{th}}$ sample. The vertical bars $\\vert{}\\cdot\\vert{}$ take the absolute value of the difference between prediction and actual target, turning all negative errors into positive numbers so they don't cancel each other out.
 - $\\boldsymbol{\\frac{1}{m}}$ multiplies (or divides) the total sum of absolute errors by the number of instances $m$ to calculate the average (mean) error across the entire dataset.
 `
+    },
+    {
+      title: 'Bias-Variance Tradeoff',
+      body :`An important theoretical result of statistics and machine learning is the fact that a model's generalization error can be expressed as the sum of three very different errors.
+
+**Bias**
+
+This part of the generalization error is due to wrong assumptions, such as assuming that the data is linear when it is actually quadratic. A high-bias model is most likely to underfit the training data.
+
+**Variance**
+
+This part is due to model's excessive sensitivity to small variations of training data. A model with many degrees of freedom is likely to have variance and thus overfit the training data.
+
+**Irreducible Error**
+
+This part is due to the noisiness of the data itself. The only way to reduce this part of the error is to clean up the data (e.g., fix the data resources, such as broken sensors, or detect and remove outliers).
+
+Increasing the model's complexity will typically increase its variance and reduce its bias. Conversely, reducing a model's complexity increases its bias and reduce its variance. This is why it is called a tradeoff.
+      `
     }
     ]
 
