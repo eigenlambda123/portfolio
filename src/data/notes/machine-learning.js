@@ -6,7 +6,14 @@ export const machineLearning = {
     content: [
       {
         title: 'Linear Regression',
-        body: `**Linear Regression Model Prediction**
+        body: `**Definition**
+
+In statistics, linear regression is a model that estimates the relationship between a scalar response (dependent variable) and one or more explanatory variables (regressor or independent variable) related via linear combination. A linear model with exactly one explanatory variable is a **simple linear regression**; a model with two or more explanatory variables is a **multiple linear regression**.
+
+In linear regression, the relationships are modeled using linear predictor functions whose unknown model parameters are estimated from the data.
+
+
+**Linear Regression Model Prediction**
 
 $$
 \\hat{y}=\\theta_{1}x_{1}+\\theta_{2}x_{2}+\\dots+\\theta_{n}x_{n}
